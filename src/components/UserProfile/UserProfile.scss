@@ -1,0 +1,17 @@
+.UserProfile {
+  .user-profile-header {
+    padding: 20px 0;
+    background: #f8f8f8;
+
+    .profile-photo {
+      display: inline;
+    }
+
+    .username {
+      display: inline;
+      margin-left: 15px;
+      font-size: 20px;
+      color: #000;
+    }
+  }
+}

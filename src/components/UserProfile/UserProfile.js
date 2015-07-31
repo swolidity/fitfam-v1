@@ -1,6 +1,7 @@
 import React from 'react';
 import UserStore from '../../stores/UserStore';
-import UserActions from '../../actions/UserActions';
+
+require('./UserProfile.scss');
 
 class UserProfile extends React.Component {
 
@@ -30,17 +31,17 @@ class UserProfile extends React.Component {
   render() {
     if (this.state.err) {
       return (
-				<div className="container">Error: {this.state.err}</div>
-				);
+        <div className="container">Error: {this.state.err}</div>
+        );
     }
 
-		if(UserStore.isLoading()) {
-			return (
-				<div className="container">
-					<img src="/spinner.gif" />
-				</div>
+    if(UserStore.isLoading()) {
+      return (
+        <div className="container">
+          <img src="/spinner.gif" />
+        </div>
       );
-		}
+    }
 
     if(!this.state.user) {
       return (
@@ -49,9 +50,14 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <div className="UserProfileHeader">
-        <div className="container">
-          <img src={this.state.user.photo} alt={this.state.user.username} />
+      <div className="UserProfile">
+        <div className="user-profile-header">
+          <div className="container">
+            <div className="profile-photo">
+              <img className="img-circle" src={this.state.user.photo} alt={this.state.user.username} />
+            </div>
+            <div className="username">@{this.state.user.username}</div>
+          </div>
         </div>
       </div>
     );

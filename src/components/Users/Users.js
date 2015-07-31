@@ -1,10 +1,10 @@
 import React from 'react';
 import UsersStore from '../../stores/UsersStore';
-// import UsersActions from '../../actions/UsersActions';
+import UserListItem from '../UserListItem/UserListItem';
 
 class Users extends React.Component {
 
-	constructor() {
+  constructor() {
     super();
     this.state = UsersStore.getState();
 
@@ -16,43 +16,47 @@ class Users extends React.Component {
     UsersStore.fetchUsers();
   }
 
-	componentWillUnmount() {
+  componentWillUnmount() {
     UsersStore.unlisten(this.onChange);
   }
 
-	onChange(state) {
+  onChange(state) {
     this.setState(state);
   }
 
-	render() {
+  _getUserListItem = (user) => {
+    return (
+      <UserListItem
+        key={user._id}
+        user={user}
+      />
+    );
+  }
+
+  render() {
     if (this.state.errorMessage) {
       return (
-				<div className="container">Error: {this.state.errorMessage}</div>
-				);
+        <div className="container">Error: {this.state.errorMessage}</div>
+        );
     }
 
     if (UsersStore.isLoading()) {
       return (
-				<div className="container">
-					<img src="/spinner.gif" />
-				</div>
-			);
+        <div className="container">
+          <img src="/spinner.gif" />
+        </div>
+      );
     }
 
-    const userListItems = this.state.users.map((user) => {
-      return (
-					<div key={user._id}>
-						<img width="35" className="img-circle" src={ user.photo } alt={ user.username } />
-						{ user.username }
-					</div>
-				);
-    });
+    const userListItems = this.state.users.map(this._getUserListItem);
 
     return (
-			<div className="container">
-				{userListItems}
-			</div>
-			);
+      <div className="container">
+        <div className="user-list">
+          {userListItems}
+        </div>
+      </div>
+    );
   }
 }
 
