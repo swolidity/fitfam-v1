@@ -15,7 +15,7 @@ import morgan from 'morgan';
 import Iso from 'iso';
 import alt from './alt';
 
-mongoose.connect('mongodb://localhost:27017/iso-react');
+mongoose.connect('mongodb://localhost:27017/fitfam');
 
 const server = express();
 
@@ -35,53 +35,53 @@ const template = _.template(fs.readFileSync(templateFile, 'utf8'));
 
 server.get('*', function(req, res) {
 
-	let router = Router.create({
-		routes: routes,
-		location: req.url,
-		onAbort:(abortReason) => {
-			if (abortReason.constructor.name == 'Redirect') {
-				let { to, params, query } = abortReason;
+  let router = Router.create({
+    routes: routes,
+    location: req.url,
+    onAbort:(abortReason) => {
+      if (abortReason.constructor.name == 'Redirect') {
+        let { to, params, query } = abortReason;
 
-				if (!query) query = {};
+        if (!query) query = {};
 
-				// add nextPath to query for friendly forwarding
-				query.nextPath = req.url;
+        // add nextPath to query for friendly forwarding
+        query.nextPath = req.url;
 
-				let path = router.makePath(to, params, query);
+        let path = router.makePath(to, params, query);
 
-				res.redirect(path);
-			}
-		}
-	});
+        res.redirect(path);
+      }
+    }
+  });
 
-	// store the router instance in the RouterContainer
-	RouterContainer.set(router);
+  // store the router instance in the RouterContainer
+  RouterContainer.set(router);
 
-	router.run((Handler, state) => {
+  router.run((Handler, state) => {
 
-		alt.bootstrap(JSON.stringify({
-			RouterStore: {
-				route: state
-			}
-		}));
+    alt.bootstrap(JSON.stringify({
+      RouterStore: {
+        route: state
+      }
+    }));
 
-		let iso = new Iso();
+    let iso = new Iso();
 
-		let data = {title: ''};
-		data.body = React.renderToString(<Handler />);
-		iso.add(data.body, alt.flush());
-		data.body = iso.render();
-		let html = template(data);
+    let data = {title: ''};
+    data.body = React.renderToString(<Handler />);
+    iso.add(data.body, alt.flush());
+    data.body = iso.render();
+    let html = template(data);
 
-		res.send(html);
-	});
+    res.send(html);
+  });
 });
 
 // Launch the server
 server.listen(server.get('port'), () => {
-	if (process.send) {
-		process.send('online');
-	} else {
-		console.log('The server is running at http://localhost:' + server.get('port'));
-	}
+  if (process.send) {
+    process.send('online');
+  } else {
+    console.log('The server is running at http://localhost:' + server.get('port'));
+  }
 });
