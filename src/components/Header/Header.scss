@@ -7,8 +7,12 @@
     padding: 7px 15px;
   }
   .navbar-brand {
-    text-transform: uppercase;
+    font-size: 25px;
     font-weight: bold;
-    color: #000;
+    color: #0D6CFF;
+
+    &:hover {
+      color: #0D6CFF;
+    }
   }
 }
