@@ -1,5 +1,6 @@
 import React from 'react';
 import UserStore from '../../stores/UserStore';
+import { RouteHandler } from 'react-router';
 
 require('./UserProfile.scss');
 
@@ -59,6 +60,8 @@ class UserProfile extends React.Component {
             <div className="username">@{this.state.user.username}</div>
           </div>
         </div>
+
+        <RouteHandler user={this.state.user} />
       </div>
     );
   }
