@@ -22,13 +22,17 @@ class UserSongsStore {
     this.err = err;
   }
 
-  onAddSong(song) {
+  onAddSong(song) { 
     this.songs.unshift(song);
     if (!this.playing) this.playing = song;
   }
 
   onAddSongFailed(err) {
     this.err = err;
+  }
+
+  onUpdatePlaying(song) {
+    this.playing = song;
   }
 }
 

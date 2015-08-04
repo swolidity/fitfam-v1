@@ -34,6 +34,7 @@ router.get('/:username/songs', (req, res, next) => {
   const userId = req.params.username;
   Song.find({_user: userId})
     .sort({date: 'desc'})
+    .populate('_user')
     .exec((err, songs) => {
       if (err) return next(err);
 

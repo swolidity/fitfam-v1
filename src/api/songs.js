@@ -37,6 +37,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
     song.save((err) => {
       if (err) return next(err);
 
+      song._user = user;
       res.send(song);
     });
   });

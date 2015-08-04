@@ -58,6 +58,7 @@
     "jsonwebtoken": "^5.0.2",
     "jwt-decode": "^1.1.1",
     "lodash": "^3.9.3",
+    "moment": "^2.10.6",
     "mongoose": "^4.0.5",
     "passport": "^0.2.2",
     "passport-jwt": "^1.1.0",

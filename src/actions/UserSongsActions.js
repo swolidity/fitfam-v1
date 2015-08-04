@@ -16,6 +16,10 @@ class UserSongsActions {
   addSongFailed(err) {
     this.dispatch(err);
   }
+
+  updatePlaying(song) {
+    this.dispatch(song);
+  }
 }
 
 module.exports = alt.createActions(UserSongsActions);
