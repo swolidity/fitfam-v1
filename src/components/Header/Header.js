@@ -73,8 +73,6 @@ class Header extends React.Component {
     return (
       <Navbar className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam@2x.png" alt="FITFAM" /></Link>}>
         <Nav right>
-          <NavItemLink to="/users">users</NavItemLink>
-          <NavItemLink to="/chat">chat</NavItemLink>
           {loginNavItem}
           {signupNavItem}
           {profileDropdown}
