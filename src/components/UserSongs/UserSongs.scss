@@ -1,3 +1,31 @@
-.UserSongs {
+.user-songs {
   padding: 20px 0;
+
+  &--header {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 16px;
+    }
+
+    .add-song-form {
+      text-align: right;
+
+      .form-group {
+        margin: 0;
+      }
+
+      .yt-url-wrapper {
+
+      }
+
+      .add-song-wrapper {
+      
+      }
+    }
+  }
+
+  .yt-player-wrapper {
+    text-align: right;
+  }
 }

@@ -46,19 +46,31 @@ class UserSongs extends React.Component {
     }
 
     return (
-      <div className="UserSongs">
+      <div className="user-songs">
         <div className="container">
-          <form>
-            <Input type="text" placeholder="YouTube URL" ref="url" />
-            <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYoutubeSong} />
-          </form>
+
+          <div className="user-songs--header">
+            <div className="row">
+              <div className="title col-xs-6">Songs</div>
+
+              <div className="add-song-form col-xs-6">
+                <form>
+                  <div className="row">
+                    <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
+                    <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYoutubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
 
           <div className="row">
             <div className="col-xs-8">
               <SongList songs={this.state.songs} />
             </div>
 
-            <div className="col-xs-4">
+            <div className="yt-player-wrapper col-xs-4">
               {youTubePlayer}
             </div>
           </div>
