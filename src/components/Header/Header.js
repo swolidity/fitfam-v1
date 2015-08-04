@@ -56,7 +56,7 @@ class Header extends React.Component {
                         className="profileDropdown"
                         noCaret={true}
                         >
-                          <MenuItem eventKey='1'><Link to="user-profile" params={{ username: this.state.user.username }}>View Profile</Link></MenuItem>
+                          <MenuItem eventKey='1'><Link to="user-profile" params={{username: this.state.user.username}}>View Profile</Link></MenuItem>
                           <MenuItem eventKey='2'>Another action</MenuItem>
                           <MenuItem eventKey='3'>Something else here</MenuItem>
                           <MenuItem divider />

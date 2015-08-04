@@ -13,6 +13,11 @@ const SongSchema = new mongoose.Schema({
     required: true,
   },
 
+  url: {
+    type: String,
+    required: true,
+  },
+
   provider: {
     type: String,
     required: true,

@@ -9,7 +9,8 @@ const router = new Router();
 // post: /api/songs/youtube
 router.post('/youtube', authenticateToken, (req, res, next) => {
   const user = req.user;
-  const youtubeId = getYouTubeId(req.body.url);
+  const youtubeURL = req.body.url;
+  const youtubeId = getYouTubeId(youtubeURL);
 
   Youtube.authenticate({
     type: 'key',
@@ -27,6 +28,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
     const song = new Song({
       _user: user._id,
       title: snippet.title,
+      url: youtubeURL,
       provider: 'youtube',
       provider_id: youtubeId,
       thumbnails: snippet.thumbnails,

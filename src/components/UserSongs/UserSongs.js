@@ -35,6 +35,16 @@ class UserSongs extends React.Component {
   }
 
   render() {
+    let youTubePlayer = '';
+    if (typeof (window) !== 'undefined' && this.state.playing) {
+      const YouTube = require('react-youtube');
+      const opts = {
+        height: '240',
+        width: '320',
+      }
+      youTubePlayer = <YouTube url={this.state.playing.url} opts={opts} />;
+    }
+
     return (
       <div className="UserSongs">
         <div className="container">
@@ -43,7 +53,16 @@ class UserSongs extends React.Component {
             <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYoutubeSong} />
           </form>
 
-          <SongList songs={this.state.songs} />
+          <div className="row">
+            <div className="col-xs-8">
+              <SongList songs={this.state.songs} />
+            </div>
+
+            <div className="col-xs-4">
+              {youTubePlayer}
+            </div>
+          </div>
+
         </div>
       </div>
     );
