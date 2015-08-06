@@ -7,6 +7,8 @@ class UserSongsStore {
   constructor() {
     this.songs = [];
     this.playing = null;
+    this.autoplay = false;
+    this.ytPlayer = null;
     this.err = null;
 
     this.bindActions(UserSongsActions);
@@ -22,7 +24,7 @@ class UserSongsStore {
     this.err = err;
   }
 
-  onAddSong(song) { 
+  onAddSong(song) {
     this.songs.unshift(song);
     if (!this.playing) this.playing = song;
   }
@@ -32,7 +34,12 @@ class UserSongsStore {
   }
 
   onUpdatePlaying(song) {
+    this.autoplay = true;
     this.playing = song;
+  }
+
+  onUpdateYtPlayer(ytPlayer) {
+    this.ytPlayer = ytPlayer;
   }
 }
 

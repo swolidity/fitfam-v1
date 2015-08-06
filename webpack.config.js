@@ -16,7 +16,8 @@ const config = {
 const appConfig = merge({}, config, {
   entry: [
     'bootstrap-sass!./bootstrap-sass.config.js',
-    './src/app.js'
+    'font-awesome-webpack!./font-awesome.config.js',
+    './src/app.js',
     ],
   output: {
     path: './build/public',
@@ -28,14 +29,14 @@ const appConfig = merge({}, config, {
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   	loader: "url?limit=10000&minetype=application/font-woff" },
       { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,  	loader: "url?limit=10000&minetype=application/font-woff" },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    	loader: "url?limit=10000&minetype=application/octet-stream" },
+      { test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,    	loader: "url?limit=10000&minetype=application/octet-stream" },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    	loader: "file" },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    	loader: "url?limit=10000&minetype=image/svg+xml" },
-      { test: /\.scss$/,												loader: ExtractTextPlugin.extract(
-                                                'css!sass?sourceMap',
-                                                {
-                                                  publicPath: './build/public/'
-                                                }) }
-    ]
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass?sourceMap', { publicPath: './build/public/'}),
+      },
+    ],
   },
   plugins: [
     new webpack.NoErrorsPlugin(),

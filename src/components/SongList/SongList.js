@@ -7,7 +7,12 @@ class SongList extends React.Component {
 
   _getSongListItem = (song) => {
     return (
-      <SongListItem key={song._id} song={song} />
+      <SongListItem
+        key={song._id}
+        song={song}
+        playing={this.props.playing}
+        ytPlayer={this.props.ytPlayer}
+      />
     );
   }
 
@@ -22,6 +27,10 @@ class SongList extends React.Component {
   }
 }
 
-SongList.propTypes = { songs: React.PropTypes.array };
+SongList.propTypes = {
+  songs: React.PropTypes.array,
+  playing: React.PropTypes.object,
+  ytPlayer: React.PropTypes.object,
+};
 
 module.exports = SongList;

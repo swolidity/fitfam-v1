@@ -20,7 +20,7 @@ const UserSongsSource = {
     error: UserSongsActions.receiveSongsFailed,
   },
 
-  addYoutubeSong: {
+  addYouTubeSong: {
     remote(state, url) {
       const token = LoginStore.getToken();
       return http.post('/api/songs/youtube', {

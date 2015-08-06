@@ -1,4 +1,5 @@
 import React from 'react';
+import UserSongsActions from '../../actions/UserSongsActions';
 import UserSongsStore from '../../stores/UserSongsStore';
 import SongList from '../SongList/SongList';
 import { Input, ButtonInput } from 'react-bootstrap';
@@ -27,11 +28,16 @@ class UserSongs extends React.Component {
     this.setState(state);
   }
 
-  _onAddYoutubeSong = (e) => {
+  _onAddYouTubeSong = (e) => {
     e.preventDefault();
 
     const url = this.refs.url.getValue();
-    UserSongsStore.addYoutubeSong(url);
+    UserSongsStore.addYouTubeSong(url);
+  }
+
+  _onYouTubeReady = (e) => {
+    // e.target is the player object
+    UserSongsActions.updateYtPlayer(e.target);
   }
 
   render() {
@@ -41,8 +47,19 @@ class UserSongs extends React.Component {
       const opts = {
         height: '240',
         width: '320',
-      }
-      youTubePlayer = <YouTube url={this.state.playing.url} opts={opts} />;
+        playerVars: {
+          autoplay: this.state.autoplay,
+        },
+      };
+
+      youTubePlayer = (
+        <YouTube
+          url={this.state.playing.url}
+          opts={opts}
+          onReady={this._onYouTubeReady}
+          className="embed-responsive-item clearfix"
+        />
+      );
     }
 
     return (
@@ -57,7 +74,7 @@ class UserSongs extends React.Component {
                 <form>
                   <div className="row">
                     <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
-                    <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYoutubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
+                    <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYouTubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
                   </div>
                 </form>
               </div>
@@ -67,11 +84,17 @@ class UserSongs extends React.Component {
 
           <div className="row">
             <div className="col-xs-8">
-              <SongList songs={this.state.songs} />
+              <SongList
+                songs={this.state.songs}
+                playing={this.state.playing}
+                ytPlayer={this.state.ytPlayer}
+              />
             </div>
 
-            <div className="yt-player-wrapper col-xs-4">
-              {youTubePlayer}
+            <div className="col-xs-4">
+              <div className="yt-player-wrapper embed-responsive embed-responsive-4by3">
+                {youTubePlayer}
+              </div>
             </div>
           </div>
 

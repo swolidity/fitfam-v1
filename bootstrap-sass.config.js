@@ -3,6 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 // Example file. Copy this to your project. Change then names of the referenced files or comment
 // them out. Convention is to name sass partials to start with an '_'
 module.exports = {
+  preBootstrapCustomizations: './bootstrap-custom.scss',
   verbose: true, // Set to true to show diagnostic information
 
   // IMPORTANT: Set next two configuration so you can customize
@@ -50,7 +51,7 @@ module.exports = {
 
     'normalize': true,
     'print': true,
-    'glyphicons': true,
+    'glyphicons': false,
 
     'scaffolding': true,
     'type': true,

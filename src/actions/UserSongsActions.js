@@ -20,6 +20,10 @@ class UserSongsActions {
   updatePlaying(song) {
     this.dispatch(song);
   }
+
+  updateYtPlayer(ytPlayer) {
+    this.dispatch(ytPlayer);
+  }
 }
 
 module.exports = alt.createActions(UserSongsActions);
