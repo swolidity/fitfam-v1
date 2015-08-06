@@ -1,4 +1,3 @@
-import React from 'react';
 import alt from '../alt';
 import UserSongsActions from '../actions/UserSongsActions';
 import UserSongsSource from '../sources/UserSongsSource';

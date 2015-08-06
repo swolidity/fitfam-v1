@@ -17,7 +17,7 @@
       height: 100%;
       text-align: center;
 
-      .play {
+      .yt-thumb-icon {
         display: none;
         vertical-align: middle;
         font-size: 45px;
@@ -36,7 +36,7 @@
         cursor: pointer;
         background: rgba(0, 0, 0, 0.5);
 
-        .play {
+        .yt-thumb-icon {
           display: inline-block;
         }
       }

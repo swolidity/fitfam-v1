@@ -40,6 +40,18 @@ class UserSongs extends React.Component {
     UserSongsActions.updateYtPlayer(e.target);
   }
 
+  _onYouTubePlay = (e) => {
+    UserSongsActions.updateYtPlayer(e.target);
+  }
+
+  _onYouTubePause = (e) => {
+    UserSongsActions.updateYtPlayer(e.target);
+  }
+
+  _onYouTubeEnd = (e) => {
+    UserSongsActions.updateYtPlayer(e.target);
+  }
+
   render() {
     let youTubePlayer = '';
     if (typeof (window) !== 'undefined' && this.state.playing) {
@@ -57,6 +69,9 @@ class UserSongs extends React.Component {
           url={this.state.playing.url}
           opts={opts}
           onReady={this._onYouTubeReady}
+          onPlay={this._onYouTubePlay}
+          onPause={this._onYouTubePause}
+          onEnd={this._onYouTubeEnd}
           className="embed-responsive-item clearfix"
         />
       );
