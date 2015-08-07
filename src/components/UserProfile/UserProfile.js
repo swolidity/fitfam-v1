@@ -1,7 +1,9 @@
 import React from 'react';
 import UserStore from '../../stores/UserStore';
-import { Link, RouteHandler } from 'react-router';
+import { RouteHandler } from 'react-router';
+import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
 import UserProfileNav from '../UserProfileNav/UserProfileNav';
+
 
 require('./UserProfile.scss');
 
@@ -70,23 +72,7 @@ class UserProfile extends React.Component {
 
     return (
       <div className="UserProfile" ref="userProfile">
-        <div className="user-profile-header">
-          <div className="container">
-
-            <div className="user-profileheader--container">
-              <div className="user-info-bottom">
-                <div className="profile-photo">
-                  <Link to="user-profile" params={{username: this.state.user.username}}>
-                    <img className="img-circle" src={this.state.user.photo} alt={this.state.user.username} />
-                  </Link>
-                </div>
-                <div className="username">@{this.state.user.username}</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        <UserProfileHeader user={this.state.user} />
         <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName()} />
 
         <RouteHandler user={this.state.user} />
