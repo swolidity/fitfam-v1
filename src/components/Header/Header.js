@@ -71,7 +71,7 @@ class Header extends React.Component {
     }
 
     return (
-      <Navbar className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam@2x.png" alt="FITFAM" /></Link>}>
+      <Navbar fixedTop className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam@2x.png" alt="FITFAM" /></Link>}>
         <Nav right>
           {loginNavItem}
           {signupNavItem}

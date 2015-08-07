@@ -44,6 +44,10 @@ class SongListItem extends React.Component {
       return pauseIcon;
     }
 
+    if ( (song._id === playing._id) && (ytPlayer.getPlayerState() === 3) ) {
+      return pauseIcon;
+    }
+
     return playIcon;
   }
 

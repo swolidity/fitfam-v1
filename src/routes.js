@@ -23,8 +23,8 @@ export default (
     </Route>
 
     // user profile
-    <Route name="user-profile" handler={UserProfile} path="/:username">
-      <Route handler={UserSongs} path="songs" />
+    <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>
+      <Route name="user-songs" handler={UserSongs} path="songs" />
     </Route>
   </Route>
 );

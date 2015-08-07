@@ -1,17 +1,40 @@
 .UserProfile {
   .user-profile-header {
+    &--container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
     padding: 20px 0;
-    background: #f8f8f8;
+    background: url('/andy-deadlift.jpg');
+    background-size: cover;
+    height: 732px;
+    background-position-y: -100px;
+    position: relative;
+
+    .user-info-bottom {
+      display: block;
+      position: absolute;
+      bottom: 20px;
+    }
 
     .profile-photo {
-      display: inline;
+      display: inline-block;
+
+      img {
+        width: 130px;
+        height: 130px;
+        border: 2px solid #fff;
+      }
+
     }
 
     .username {
-      display: inline;
+      display: inline-block;
       margin-left: 15px;
       font-size: 20px;
-      color: #000;
+      color: #fff;
+      font-weight: 700;
     }
   }
 }

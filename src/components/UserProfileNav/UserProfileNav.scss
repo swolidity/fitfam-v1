@@ -1,0 +1,23 @@
+.user-profile-nav {
+  padding: 15px 0;
+  background: #fff;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
+
+  .nav-pills > li > a {
+    padding: 0;
+    margin: 10px 15px;
+    color: #ccc;
+  }
+  .nav-pills > li:first-child > a {
+    margin-left: 0;
+  }
+  .nav-pills > li.active > a {
+    background: none;
+    color: lighten( #0D6CFF, 10% );
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
+    background-color: #fff;
+    background: none;
+  }
+}
