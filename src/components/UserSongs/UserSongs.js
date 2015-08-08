@@ -11,7 +11,7 @@ class UserSongs extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = UserSongsStore.getState();
+    this.state = this._getStateFromStores();
     this.user = props.user;
   }
 

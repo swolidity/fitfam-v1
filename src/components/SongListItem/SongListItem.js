@@ -37,12 +37,12 @@ class SongListItem extends React.Component {
 
   _getIcon = () => {
     const song = this.song;
-    const playing = this.props.youtube.playing;
     const player = this.props.youtube.player;
+    const playing = this.props.youtube.playing;
     const playIcon = <i className="yt-thumb-icon play fa fa-youtube-play"></i>;
     const pauseIcon = <i className="yt-thumb-icon pause fa fa-pause"></i>;
 
-    if (player === null) {
+    if (player === null || playing) {
       return playIcon;
     }
 
