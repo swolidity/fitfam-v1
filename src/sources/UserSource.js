@@ -19,7 +19,7 @@ const UserSource = {
 
     success: UserActions.updateUser,
     loading: UserActions.fetchUser,
-    error: UserActions.userFailed
+    error: UserActions.userFailed,
   }
 }
 

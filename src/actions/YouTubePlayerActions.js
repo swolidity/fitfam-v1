@@ -1,10 +1,18 @@
 import alt from '../alt';
+import AppStore from '../stores/AppStore';
 import AppActions from './AppActions';
+import UserActions from './UserActions';
 
 class YouTubePlayerActions {
   updatePlaying(video) {
     this.dispatch(video);
-    AppActions.toggleSidebar(true);
+
+    const sidebarState = AppStore.getSidebarState();
+
+    if (sidebarState === false) {
+      UserActions.toggleShouldScroll(false);
+      AppActions.toggleSidebar(true);
+    }
   }
 
   updatePlayer(player) {

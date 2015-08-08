@@ -13,6 +13,10 @@ class UserActions {
   userFailed(err) {
     this.dispatch(err);
   }
+
+  toggleShouldScroll(shouldScroll) {
+    this.dispatch(shouldScroll);
+  }
 }
 
 module.exports = alt.createActions(UserActions);

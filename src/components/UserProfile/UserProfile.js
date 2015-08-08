@@ -37,8 +37,8 @@ class UserProfile extends React.Component {
     this.setState(state);
   }
 
-  _getActiveRouteName = () => {
-    const currentRoutes = this.context.router.getCurrentRoutes();
+  _getActiveRouteName = (router) => {
+    const currentRoutes = router.getCurrentRoutes();
     const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
     return activeRouteName;
   }
@@ -68,12 +68,14 @@ class UserProfile extends React.Component {
       );
     }
 
-    this._scrollDown();
+    if (this.state.shouldScroll) {
+      this._scrollDown();
+    }
 
     return (
       <div className="UserProfile" ref="userProfile">
         <UserProfileHeader user={this.state.user} />
-        <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName()} />
+        <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName(this.context.router)} />
 
         <RouteHandler user={this.state.user} />
       </div>

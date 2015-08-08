@@ -5,28 +5,27 @@ import UserSource from '../sources/UserSource';
 class UserStore {
   constructor() {
     this.user = null;
+    this.shouldScroll = true;
     this.err = null;
 
-    this.bindListeners({
-      handleUpdateUser: UserActions.UPDATE_USER,
-      handleFetchUser: UserActions.FETCH_USER,
-      handleUserFailed: UserActions.USER_FAILED
-    });
-
+    this.bindActions(UserActions);
     this.exportAsync(UserSource);
-
   }
 
-  handleUpdateUser(user) {
+  onUpdateUser(user) {
     this.user = user;
   }
 
-  handleFetchUser() {
+  onFetchUser() {
     this.user = null;
   }
 
-  handleUserFailed(err) {
+  onUserFailed(err) {
     this.err = err;
+  }
+
+  onToggleShouldScroll(shouldScroll) {
+    this.shouldScroll = shouldScroll;
   }
 }
 

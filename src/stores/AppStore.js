@@ -12,6 +12,10 @@ class AppStore {
     if (this.sidebar === sidebar) return;
     this.sidebar = sidebar;
   }
+
+  static getSidebarState() {
+    return this.getState().sidebar;
+  }
 }
 
 module.exports = alt.createStore(AppStore, 'AppStore');

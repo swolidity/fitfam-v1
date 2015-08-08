@@ -17,7 +17,7 @@ class SongList extends React.Component {
 
   render() {
     const songListItems = this.props.songs.map(this._getSongListItem);
-    console.log(this.props.youtube);
+
     return (
       <ul className="song-list">
         {songListItems}

@@ -16,14 +16,6 @@ class UserSongsActions {
   addSongFailed(err) {
     this.dispatch(err);
   }
-
-  updatePlaying(song) {
-    this.dispatch(song);
-  }
-
-  updateYtPlayer(ytPlayer) {
-    this.dispatch(ytPlayer);
-  }
 }
 
 module.exports = alt.createActions(UserSongsActions);

@@ -5,9 +5,6 @@ import UserSongsSource from '../sources/UserSongsSource';
 class UserSongsStore {
   constructor() {
     this.songs = [];
-    this.playing = null;
-    this.autoplay = false;
-    this.ytPlayer = null;
     this.err = null;
 
     this.bindActions(UserSongsActions);
@@ -30,15 +27,6 @@ class UserSongsStore {
 
   onAddSongFailed(err) {
     this.err = err;
-  }
-
-  onUpdatePlaying(song) {
-    this.autoplay = true;
-    this.playing = song;
-  }
-
-  onUpdateYtPlayer(ytPlayer) {
-    this.ytPlayer = ytPlayer;
   }
 
   static getSongs() {
