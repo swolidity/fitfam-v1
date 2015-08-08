@@ -42,7 +42,7 @@ class SongListItem extends React.Component {
     const playIcon = <i className="yt-thumb-icon play fa fa-youtube-play"></i>;
     const pauseIcon = <i className="yt-thumb-icon pause fa fa-pause"></i>;
 
-    if (player === null || playing) {
+    if (player === null || playing === null) {
       return playIcon;
     }
 
