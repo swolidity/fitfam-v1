@@ -12,3 +12,14 @@ body {
 .btn-primary {
   font-weight: bold;
 }
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.app-main {
+  .container-fluid {
+    padding: 0px;
+  }
+}

@@ -13,7 +13,7 @@ class App extends React.Component {
 
         <div className="app-main">
           <div className="container-fluid">
-            <div className="row">
+            <div className="no-gutter">
 
             <div className="col-xs-3 col-xs-offset-9 fixed">
               <Sidebar />
