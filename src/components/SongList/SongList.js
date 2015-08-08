@@ -10,8 +10,7 @@ class SongList extends React.Component {
       <SongListItem
         key={song._id}
         song={song}
-        playing={this.props.playing}
-        ytPlayer={this.props.ytPlayer}
+        youtube={this.props.youtube}
       />
     );
   }
@@ -29,8 +28,7 @@ class SongList extends React.Component {
 
 SongList.propTypes = {
   songs: React.PropTypes.array,
-  playing: React.PropTypes.object,
-  ytPlayer: React.PropTypes.object,
+  youtube: React.PropTypes.object,
 };
 
 module.exports = SongList;

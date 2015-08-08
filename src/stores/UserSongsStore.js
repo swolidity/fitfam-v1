@@ -40,6 +40,10 @@ class UserSongsStore {
   onUpdateYtPlayer(ytPlayer) {
     this.ytPlayer = ytPlayer;
   }
+
+  static getSongs() {
+    return this.getState().songs;
+  }
 }
 
 module.exports = alt.createStore(UserSongsStore, 'UserSongsStore');

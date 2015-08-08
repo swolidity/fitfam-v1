@@ -1,6 +1,6 @@
 import React from 'react';
-import UserSongsActions from '../../actions/UserSongsActions';
 import UserSongsStore from '../../stores/UserSongsStore';
+import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import SongList from '../SongList/SongList';
 import { Input, ButtonInput } from 'react-bootstrap';
 
@@ -17,15 +17,24 @@ class UserSongs extends React.Component {
 
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
+    YouTubePlayerStore.listen(this._onChange);
     UserSongsStore.fetchSongs(this.user._id);
   }
 
   componentWillUnmount() {
     UserSongsStore.unlisten(this._onChange);
+    YouTubePlayerStore.unlisten(this._onChange);
   }
 
-  _onChange = (state) => {
-    this.setState(state);
+  _getStateFromStores = () => {
+    return {
+      songs: UserSongsStore.getSongs(),
+      youtube: YouTubePlayerStore.getState(),
+    };
+  }
+
+  _onChange = () => {
+    this.setState(this._getStateFromStores);
   }
 
   _onAddYouTubeSong = (e) => {
@@ -35,55 +44,12 @@ class UserSongs extends React.Component {
     UserSongsStore.addYouTubeSong(url);
   }
 
-  _onYouTubeReady = (e) => {
-    // e.target is the player object
-    UserSongsActions.updateYtPlayer(e.target);
-  }
-
-  _onYouTubePlay = (e) => {
-    UserSongsActions.updateYtPlayer(e.target);
-  }
-
-  _onYouTubePause = (e) => {
-    UserSongsActions.updateYtPlayer(e.target);
-  }
-
-  _onYouTubeEnd = (e) => {
-    UserSongsActions.updateYtPlayer(e.target);
-  }
-
   render() {
-    let youTubePlayer = '';
-    if (typeof (window) !== 'undefined' && this.state.playing) {
-      const YouTube = require('react-youtube');
-      const opts = {
-        height: '240',
-        width: '320',
-        playerVars: {
-          autoplay: this.state.autoplay,
-        },
-      };
-
-      youTubePlayer = (
-        <YouTube
-          url={this.state.playing.url}
-          opts={opts}
-          onReady={this._onYouTubeReady}
-          onPlay={this._onYouTubePlay}
-          onPause={this._onYouTubePause}
-          onEnd={this._onYouTubeEnd}
-          className="embed-responsive-item clearfix"
-        />
-      );
-    }
-
     return (
       <div className="user-songs">
-        <div className="container">
 
           <div className="user-songs--header">
             <div className="row">
-              <div className="title col-xs-6">Songs</div>
 
               <div className="add-song-form col-xs-6">
                 <form>
@@ -98,22 +64,14 @@ class UserSongs extends React.Component {
           </div>
 
           <div className="row">
-            <div className="col-xs-8">
-              <SongList
-                songs={this.state.songs}
-                playing={this.state.playing}
-                ytPlayer={this.state.ytPlayer}
-              />
-            </div>
-
-            <div className="col-xs-4">
-              <div className="yt-player-wrapper embed-responsive embed-responsive-4by3">
-                {youTubePlayer}
-              </div>
+            <div className="col-xs-12">
+            <SongList
+              songs={this.state.songs}
+              youtube={this.state.youtube}
+            />
             </div>
           </div>
 
-        </div>
       </div>
     );
   }

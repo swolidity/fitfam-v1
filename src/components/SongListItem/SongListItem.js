@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSongsActions from '../../actions/UserSongsActions';
+import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 
 require('./SongListItem.scss');
@@ -12,39 +12,45 @@ class SongListItem extends React.Component {
   }
 
   _onClick = () => {
-    const playing = this.props.playing;
-    const ytPlayer = this.props.ytPlayer;
-    const playerState = ytPlayer.getPlayerState();
+    const playing = this.props.youtube.playing;
+    const player = this.props.youtube.player;
+
+    if (player === null) {
+      YouTubePlayerActions.updatePlaying(this.song);
+      return;
+    }
+
+    const playerState = player.getPlayerState();
 
     if (this.song._id === playing._id) {
       if (playerState === 1) {
         // if player is playing, then pause
-        ytPlayer.pauseVideo();
+        player.pauseVideo();
       } else {
         // player is not playing around yo, but we gonna play anyway
-        ytPlayer.playVideo();
+        player.playVideo();
       }
     } else {
-      UserSongsActions.updatePlaying(this.song);
+      YouTubePlayerActions.updatePlaying(this.song);
     }
   }
 
   _getIcon = () => {
     const song = this.song;
-    const playing = this.props.playing;
-    const ytPlayer = this.props.ytPlayer;
+    const playing = this.props.youtube.playing;
+    const player = this.props.youtube.player;
     const playIcon = <i className="yt-thumb-icon play fa fa-youtube-play"></i>;
     const pauseIcon = <i className="yt-thumb-icon pause fa fa-pause"></i>;
 
-    if (ytPlayer === null) {
+    if (player === null) {
       return playIcon;
     }
 
-    if ( (song._id === playing._id) && (ytPlayer.getPlayerState() === 1) ) {
+    if ( (song._id === playing._id) && (player.getPlayerState() === 1) ) {
       return pauseIcon;
     }
 
-    if ( (song._id === playing._id) && (ytPlayer.getPlayerState() === 3) ) {
+    if ( (song._id === playing._id) && (player.getPlayerState() === 3) ) {
       return pauseIcon;
     }
 
@@ -76,8 +82,7 @@ class SongListItem extends React.Component {
 
 SongListItem.propTypes = {
   song: React.PropTypes.object,
-  playing: React.PropTypes.object,
-  ytPlayer: React.PropTypes.object,
+  youtube: React.PropTypes.object,
 };
 
 module.exports = SongListItem;

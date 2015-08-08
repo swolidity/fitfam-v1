@@ -8,7 +8,6 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header">
-        <div className="container">
 
           <div className="user-profile-header--container">
             <div className="user-info-bottom">
@@ -25,12 +24,12 @@ class UserProfileHeader extends React.Component {
 
                 <div className="col-xs-2">
                   <ButtonInput bsStyle="primary" className="follow-btn btn-block" standalone >Follow</ButtonInput>
-                  0 Followers / 0 Following
                 </div>
+
               </div>
             </div>
           </div>
-        </div>
+
       </div>
     );
   }
