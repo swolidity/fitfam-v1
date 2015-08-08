@@ -20,11 +20,12 @@ class UserProfileHeader extends React.Component {
                       <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
                     </Link>
                   </div>
-                  <div className="username">@{this.props.user.username}</div>
+                  <div className="username">{this.props.user.username}</div>
                 </div>
 
                 <div className="col-xs-2">
                   <ButtonInput bsStyle="primary" className="follow-btn btn-block" standalone >Follow</ButtonInput>
+                  0 Followers / 0 Following
                 </div>
               </div>
             </div>
