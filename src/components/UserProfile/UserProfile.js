@@ -44,7 +44,7 @@ class UserProfile extends React.Component {
   }
 
   _scrollDown = () => {
-    window.scrollTo(0, 320);
+    window.scrollTo(0, 562);
   }
 
   render() {
