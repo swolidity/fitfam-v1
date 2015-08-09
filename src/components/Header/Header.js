@@ -10,8 +10,8 @@ require('./Header.scss');
 
 class Header extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = LoginStore.getState();
 
@@ -41,12 +41,12 @@ class Header extends React.Component {
     let signupNavItem;
     let profileDropdown;
 
-    if (LoginStore.isLoggedIn()) {
+    if (this.state.user) {
       // if user is logged in show logout link
       loginNavItem = <NavItem onClick={this.handleLogout}>logout</NavItem>;
       signupNavItem = null;
 
-      profileDropdown = <DropdownButton eventKey={3} title={
+      profileDropdown = ( <DropdownButton eventKey={3} title={
                           <ProfilePhoto
                             width={35}
                             height={35}
@@ -57,11 +57,7 @@ class Header extends React.Component {
                         noCaret={true}
                         >
                           <MenuItem eventKey='1'><Link to="user-profile" params={{username: this.state.user.username}}>View Profile</Link></MenuItem>
-                          <MenuItem eventKey='2'>Another action</MenuItem>
-                          <MenuItem eventKey='3'>Something else here</MenuItem>
-                          <MenuItem divider />
-                          <MenuItem eventKey='4'>Separated link</MenuItem>
-                        </DropdownButton>;
+                        </DropdownButton> );
     } else {
       // if user is not logged in show login link
       loginNavItem = <NavItemLink to={`/login`}>login</NavItemLink>;

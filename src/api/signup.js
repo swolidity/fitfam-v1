@@ -17,12 +17,11 @@ router.post('/', (req, res) => {
       return res.status(500).send(err);
     }
 
-		let token = jwt_util.createToken({
-			_id: user._id,
-			username: user.username
-		});
+    user = user.toObject(); // convert from instance of Mongoose Model to POJO ( Plain Old Javascript Object )
+    delete user.password; // remove hashed password from user object before creating the token
+    const token = jwt_util.createToken(user);
 
-		// return jwt token
+    // return jwt token
     res.send(token);
   });
 });
@@ -49,12 +48,11 @@ router.post('/fb', (req, res, next) => {
       return res.status(500).send(err);
     }
 
-		let token = jwt_util.createToken({
-			_id: user._id,
-			username: user.username
-		});
+    user = user.toObject(); // convert from instance of Mongoose Model to POJO ( Plain Old Javascript Object )
+    delete user.password; // remove hashed password from user object before creating the token
+    const token = jwt_util.createToken(user);
 
-		// return jwt token
+    // return jwt token
     res.send(token);
   });
 
