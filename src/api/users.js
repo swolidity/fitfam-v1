@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import User from './models/user';
+import Photo from './models/photo';
 import Video from './models/video';
 import Song from './models/song';
 import authenticateToken from './middleware/authenticate-token';
@@ -31,8 +32,8 @@ router.post('/edit', authenticateToken, (req, res, next) => {
 });
 
 // get: /api/users/:id/videos
-router.get('/:username/videos', (req, res, next) => {
-  const userId = req.params.username;
+router.get('/:id/videos', (req, res, next) => {
+  const userId = req.params.id;
   Video.find({_user: userId})
     .sort({date: 'desc'})
     .populate('_user')
@@ -44,8 +45,8 @@ router.get('/:username/videos', (req, res, next) => {
 });
 
 // get: /api/users/:id/songs
-router.get('/:username/songs', (req, res, next) => {
-  const userId = req.params.username;
+router.get('/:id/songs', (req, res, next) => {
+  const userId = req.params.id;
   Song.find({_user: userId})
     .sort({date: 'desc'})
     .populate('_user')
@@ -53,6 +54,19 @@ router.get('/:username/songs', (req, res, next) => {
       if (err) return next(err);
 
       res.send(songs);
+    });
+});
+
+// get: /api/users/:id/photos
+router.get('/:id/photos', (req, res, next) => {
+  const userId = req.params.id;
+  Photo.find({_user: userId})
+    .sort({date: 'desc'})
+    .populate('_user')
+    .exec((err, photos) => {
+      if (err) return next(err);
+
+      res.send(photos);
     });
 });
 
