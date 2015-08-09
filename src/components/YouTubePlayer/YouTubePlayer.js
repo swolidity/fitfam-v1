@@ -2,6 +2,8 @@ import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 
+require('./YouTubePlayer.scss');
+
 class YouTubePlayer extends React.Component {
 
   constructor(props) {
@@ -51,8 +53,8 @@ class YouTubePlayer extends React.Component {
       };
 
       return (
-        <div>
-          <div className="yt-player-wrapper embed-responsive embed-responsive-4by3">
+        <div className="yt-player">
+          <div className="embed-responsive embed-responsive-4by3">
             <YouTube
               url={this.state.playing.url}
               opts={opts}
@@ -64,7 +66,7 @@ class YouTubePlayer extends React.Component {
             />
           </div>
 
-          <h3>{this.state.playing.title}</h3>
+          <h3 className="yt-player--title">{this.state.playing.title}</h3>
         </div>
       );
     }

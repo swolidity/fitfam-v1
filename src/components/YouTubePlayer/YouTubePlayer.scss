@@ -1,0 +1,10 @@
+.yt-player {
+  &--title {
+    margin-left: 15px;
+    height: 25px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
