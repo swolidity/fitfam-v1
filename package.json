@@ -1,11 +1,10 @@
 {
-  "name": "isomorphic-react-example",
+  "name": "fitfam",
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "start": "node server.js",
     "build": "gulp build",
-    "serve": "gulp serve"
+    "start": "node build/server.js",
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +16,6 @@
     "babel-core": "^5.5.8",
     "babel-loader": "^5.1.4",
     "nodemon": "^1.3.7",
-    "gulp": "^3.9.0",
     "gulp-load-plugins": "^1.0.0-rc.1",
     "browser-sync": "^2.7.12",
     "gulp-util": "^3.0.5",
@@ -43,6 +41,7 @@
     "eslint": "^1.0.0-rc-1"
   },
   "dependencies": {
+    "gulp": "^3.9.0",
     "alt": "^0.17.1",
     "axios": "^0.5.4",
     "babel": "^5.5.8",
