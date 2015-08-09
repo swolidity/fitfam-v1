@@ -48,10 +48,8 @@ class UserSongs extends React.Component {
     return (
       <div className="user-songs">
 
-          <div className="user-songs--header">
-            <div className="row">
-
-              <div className="add-song-form col-xs-6">
+          <div className="user-songs--header row">
+              <div className="add-song-form col-xs-12">
                 <form>
                   <div className="row">
                     <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
@@ -59,15 +57,15 @@ class UserSongs extends React.Component {
                   </div>
                 </form>
               </div>
-
-            </div>
           </div>
 
-          <div className="col-xs-12">
-            <SongList
-              songs={this.state.songs}
-              youtube={this.state.youtube}
-            />
+          <div className="row">
+            <div className="col-xs-12">
+              <SongList
+                songs={this.state.songs}
+                youtube={this.state.youtube}
+              />
+            </div>
           </div>
 
       </div>

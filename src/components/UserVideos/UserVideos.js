@@ -48,27 +48,25 @@ class UserVideos extends React.Component {
     return (
       <div className="user-videos">
 
-          <div className="user-videos--header">
-            <div className="row">
-
-              <div className="add-video-form col-xs-6">
-                <form>
-                  <div className="row">
-                    <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
-                    <ButtonInput type="submit" bsStyle="primary" value="Add Video" onClick={this._onAddYouTubeVideo} className="btn-block" wrapperClassName="add-video-wrapper col-xs-3"/>
-                  </div>
-                </form>
-              </div>
-
+          <div className="user-videos--header row">
+            <div className="add-video-form col-xs-12">
+              <form>
+                <div className="row">
+                  <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
+                  <ButtonInput type="submit" bsStyle="primary" value="Add Video" onClick={this._onAddYouTubeVideo} className="btn-block" wrapperClassName="add-video-wrapper col-xs-3"/>
+                </div>
+              </form>
             </div>
           </div>
 
 
-          <div className="col-xs-12">
-            <VideoList
-              videos={this.state.videos}
-              youtube={this.state.youtube}
-            />
+          <div className="row">
+            <div className="col-xs-12">
+              <VideoList
+                videos={this.state.videos}
+                youtube={this.state.youtube}
+              />
+            </div>
           </div>
 
       </div>

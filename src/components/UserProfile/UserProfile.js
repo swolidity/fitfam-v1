@@ -77,7 +77,9 @@ class UserProfile extends React.Component {
         <UserProfileHeader user={this.state.user} />
         <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName(this.context.router)} />
 
-        <RouteHandler user={this.state.user} />
+        <div className="col-xs-10 col-xs-offset-1">
+          <RouteHandler user={this.state.user} />
+        </div>
       </div>
     );
   }
