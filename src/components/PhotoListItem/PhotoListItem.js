@@ -7,7 +7,7 @@ class PhotoListItem extends React.Component {
 
   render() {
     return (
-      <div className="photo-list-item no-gutter">
+      <div className="photo-list-item">
         <div className="col-xs-12 col-sm-6 col-md-4">
           <div>
             <img className="photo-list-item--photo img-responsive" src={this.props.photo.url} />
