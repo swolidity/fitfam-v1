@@ -13,7 +13,6 @@ class UserSongsStore {
 
   onReceiveSongs(songs) {
     this.songs = songs;
-    this.playing = songs[0];
   }
 
   onReceiveSongsFailed(err) {
@@ -22,7 +21,6 @@ class UserSongsStore {
 
   onAddSong(song) {
     this.songs.unshift(song);
-    if (!this.playing) this.playing = song;
   }
 
   onAddSongFailed(err) {

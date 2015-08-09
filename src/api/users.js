@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import User from './models/user';
+import Video from './models/video';
 import Song from './models/song';
 import authenticateToken from './middleware/authenticate-token';
 
@@ -27,6 +28,19 @@ router.get('/:username', (req, res, next) => {
 // post: /api/users/edit
 router.post('/edit', authenticateToken, (req, res, next) => {
   res.send({ username: req.user.username });
+});
+
+// get: /api/users/:id/videos
+router.get('/:username/videos', (req, res, next) => {
+  const userId = req.params.username;
+  Video.find({_user: userId})
+    .sort({date: 'desc'})
+    .populate('_user')
+    .exec((err, videos) => {
+      if (err) return next(err);
+
+      res.send(videos);
+    });
 });
 
 // get: /api/users/:id/songs

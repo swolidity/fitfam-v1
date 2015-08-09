@@ -1,0 +1,33 @@
+.user-videos {
+  padding: 20px 0;
+
+  &--header {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 16px;
+    }
+
+    .add-video-form {
+      text-align: right;
+
+      .form-group {
+        margin: 0;
+      }
+
+      .yt-url-wrapper {
+
+      }
+
+      .add-video-wrapper {
+
+      }
+    }
+  }
+
+  .affix-wrapper {
+    position: relative;
+  }
+  .yt-player-wrapper {
+  }
+}
