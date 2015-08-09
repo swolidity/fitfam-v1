@@ -15,7 +15,7 @@ import morgan from 'morgan';
 import Iso from 'iso';
 import alt from './alt';
 
-mongoose.connect('mongodb://localhost:27017/fitfam');
+mongoose.connect('mongodb://heroku_sbp2x1kh:kacfu5h85o03g97lska07qqsev@ds031223.mongolab.com:31223/heroku_sbp2x1kh');
 
 const server = express();
 
