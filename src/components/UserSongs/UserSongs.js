@@ -63,13 +63,11 @@ class UserSongs extends React.Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-xs-12">
+          <div className="col-xs-12">
             <SongList
               songs={this.state.songs}
               youtube={this.state.youtube}
             />
-            </div>
           </div>
 
       </div>

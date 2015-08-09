@@ -33,7 +33,7 @@ class App extends React.Component {
       mainContentClassNames = 'col-xs-9';
 
       sidebar = (
-        <div className="col-xs-3 col-xs-offset-9 fixed">
+        <div id="sidebar-wrapper" className="col-xs-3 col-xs-offset-9 fixed">
           <Sidebar />
         </div>
       );

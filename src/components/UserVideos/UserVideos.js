@@ -63,13 +63,12 @@ class UserVideos extends React.Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-xs-12">
+
+          <div className="col-xs-12">
             <VideoList
               videos={this.state.videos}
               youtube={this.state.youtube}
             />
-            </div>
           </div>
 
       </div>
