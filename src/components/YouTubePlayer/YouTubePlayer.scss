@@ -7,4 +7,18 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  &--added-by {
+    padding: 0 15px;
+
+    .user-photo {
+      margin-right: 6px;
+    }
+
+    .username {
+      margin-right: 6px;
+      display: inline-block;
+      font-weight: 700;
+    }
+  }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
+import moment from 'moment';
 
 require('./YouTubePlayer.scss');
 
@@ -67,6 +69,14 @@ class YouTubePlayer extends React.Component {
           </div>
 
           <h3 className="yt-player--title">{this.state.playing.title}</h3>
+
+          <div className="yt-player--added-by">
+            <ProfilePhoto height="35" className="user-photo img-circle" user={this.state.playing._user} />
+            <div className="username">{this.state.playing._user.username}</div>
+            {moment(this.state.playing.date).fromNow()}
+
+          </div>
+
         </div>
       );
     }
