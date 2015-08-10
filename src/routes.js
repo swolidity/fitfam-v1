@@ -34,7 +34,7 @@ export default (
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />
       <Route name="user-followers" handler={UserFollowers} path="followers" />
-      <Route name="user-following" handler={UserFollowers} path="following" />
+      <Route name="user-following" handler={UserFollowing} path="following" />
     </Route>
   </Route>
 );
