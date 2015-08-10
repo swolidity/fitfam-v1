@@ -1,6 +1,7 @@
 import React from 'react';
 import UserSongsStore from '../../stores/UserSongsStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import LoginStore from '../../stores/LoginStore';
 import SongList from '../SongList/SongList';
 import { Input, ButtonInput } from 'react-bootstrap';
 
@@ -45,18 +46,26 @@ class UserSongs extends React.Component {
   }
 
   render() {
+    let addSong;
+
+    if (LoginStore.isLoggedIn()) {
+      addSong = (
+        <div className="add-song-form col-xs-12">
+          <form>
+            <div className="row">
+              <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
+              <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYouTubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
+            </div>
+          </form>
+        </div>
+      );
+    }
+
     return (
       <div className="user-songs">
 
           <div className="user-songs--header row">
-              <div className="add-song-form col-xs-12">
-                <form>
-                  <div className="row">
-                    <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
-                    <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYouTubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
-                  </div>
-                </form>
-              </div>
+              {addSong}
           </div>
 
           <div className="row">

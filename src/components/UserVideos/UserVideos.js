@@ -1,6 +1,7 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import LoginStore from '../../stores/LoginStore';
 import VideoList from '../VideoList/VideoList';
 import { Input, ButtonInput } from 'react-bootstrap';
 
@@ -45,18 +46,26 @@ class UserVideos extends React.Component {
   }
 
   render() {
+    let addVideo;
+
+    if (LoginStore.isLoggedIn()) {
+      addVideo = (
+        <div className="add-video-form col-xs-12">
+          <form>
+            <div className="row">
+              <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
+              <ButtonInput type="submit" bsStyle="primary" value="Add Video" onClick={this._onAddYouTubeVideo} className="btn-block" wrapperClassName="add-video-wrapper col-xs-3"/>
+            </div>
+          </form>
+        </div>
+      );
+    }
+
     return (
       <div className="user-videos">
 
           <div className="user-videos--header row">
-            <div className="add-video-form col-xs-12">
-              <form>
-                <div className="row">
-                  <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
-                  <ButtonInput type="submit" bsStyle="primary" value="Add Video" onClick={this._onAddYouTubeVideo} className="btn-block" wrapperClassName="add-video-wrapper col-xs-3"/>
-                </div>
-              </form>
-            </div>
+            {addVideo}
           </div>
 
 
