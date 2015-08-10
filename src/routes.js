@@ -14,7 +14,8 @@ import UserFollowing from './components/UserFollowing/UserFollowing';
 
 export default (
   <Route handler={App} path="/">
-    <DefaultRoute name="about" handler={About} path="/about" />
+    <DefaultRoute name="about-home" handler={About} />
+    <Route name="about" handler={About} path="/about" />
 
     <Route handler={Login} name="login" path="/login" />
 

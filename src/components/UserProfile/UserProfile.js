@@ -78,6 +78,12 @@ class UserProfile extends React.Component {
         <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName(this.context.router)} />
 
         <div className="col-xs-10 col-xs-offset-1">
+
+            <div className="hello-bar row">
+              Hey there! FITFAM is in it's early alpha stages and we need your support to make it grow into an awesome fitness community.
+              Pre-order a <a href="/beta">beta account</a> or donate at <a href="https://www.cash.me/fitfam" target="_blank">https://ww.cash.me/fitfam</a>
+            </div>
+
           <RouteHandler user={this.state.user} />
         </div>
       </div>

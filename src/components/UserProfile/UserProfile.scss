@@ -1,10 +1,16 @@
 .UserProfile {
+  .hello-bar {
+    margin-top: 15px;
+    padding: 15px;
+    background: #fff;
+  }
   .user-profile-header {
     &--container {
       position: relative;
       height: 732px;
       width: 100%;
     }
+
     background: url('/andy-deadlift.jpg');
     background-size: cover;
     background-repeat: no-repeat;
