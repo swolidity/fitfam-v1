@@ -13,7 +13,7 @@ class PhotoListItem extends React.Component {
             <img className="photo-list-item--photo img-responsive" src={this.props.photo.url} />
           </div>
 
-          <div>
+          <div className="photo-list-item--info">
             <img height="25" className="user-photo img-circle" src={this.props.photo._user.photo} alt={this.props.photo._user.username} />
             Added {moment(this.props.photo.date).fromNow()}
           </div>

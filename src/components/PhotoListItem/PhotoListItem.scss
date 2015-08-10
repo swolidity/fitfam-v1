@@ -1,5 +1,16 @@
 .photo-list-item {
+  margin-bottom: 15px;
+
   &--photo {
-    width: 305px;
+  }
+
+  &--info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+
+    .user-photo {
+      margin-right: 6px;
+    }
   }
 }
