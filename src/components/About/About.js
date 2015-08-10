@@ -31,6 +31,8 @@ class About extends React.Component {
               a note as I will sign you up for the first 100 public beta accounts!
             </p>
 
+            <p>You can check out my pubic profile at <Link className="profile-pic" to="user-profile" params={{username: 'andyk'}}>fitfam.me/andyk</Link></p>
+
             <p>
               <Link className="profile-pic" to="user-profile" params={{username: 'andyk'}}>
                 <img src="/andy-profile-pic-3.jpg" height="100" className="img-circle" alt="Andy Kay" />
