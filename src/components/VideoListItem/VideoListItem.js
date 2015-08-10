@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 
@@ -72,7 +73,7 @@ class VideoListItem extends React.Component {
         </div>
         <div className="video-list-item--title col-xs-9">{this.video.title}</div>
         <div className="col-xs-9">
-          <img height="25" className="user-photo img-circle" src={this.video._user.photo} alt={this.video._user.username} />
+          <ProfilePhoto height="25" className="user-photo img-circle" user={this.video._user} />
           Added {moment(this.video.date).fromNow()}
         </div>
       </li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import moment from 'moment';
 
 require('./PhotoListItem.scss');
@@ -14,7 +15,7 @@ class PhotoListItem extends React.Component {
           </div>
 
           <div className="photo-list-item--info">
-            <img height="25" className="user-photo img-circle" src={this.props.photo._user.photo} alt={this.props.photo._user.username} />
+            <ProfilePhoto height="25" className="user-photo img-circle" user={this.props.photo._user} />
             Added {moment(this.props.photo.date).fromNow()}
           </div>
         </div>

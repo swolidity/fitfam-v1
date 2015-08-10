@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 
@@ -72,7 +73,7 @@ class SongListItem extends React.Component {
         </div>
         <div className="song-list-item--title col-xs-9">{this.song.title}</div>
         <div className="col-xs-9">
-          <img height="25" className="user-photo img-circle" src={this.song._user.photo} alt={this.song._user.username} />
+          <ProfilePhoto height="25" className="user-photo img-circle" user={this.song._user} />
           Added {moment(this.song.date).fromNow()}
         </div>
       </li>
