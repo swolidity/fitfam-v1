@@ -56,8 +56,8 @@ class UserProfile extends React.Component {
 
     if(UserStore.isLoading()) {
       return (
-        <div className="container">
-          <img src="/spinner.gif" />
+        <div className="container center">
+          <i className="fa fa-spinner fa-spin"></i>
         </div>
       );
     }

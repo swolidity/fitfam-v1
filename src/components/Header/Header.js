@@ -4,7 +4,6 @@ import { Navbar, Nav, NavItem, DropdownButton, MenuItem } from 'react-bootstrap'
 import { NavItemLink } from 'react-router-bootstrap';
 import LoginActions from '../../actions/LoginActions';
 import LoginStore from '../../stores/LoginStore';
-import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 
 require('./Header.scss');
 
@@ -61,8 +60,7 @@ class Header extends React.Component {
                         </DropdownButton> );
     } else {
       // if user is not logged in show login link
-      loginNavItem = <NavItemLink to={`/login`}>login</NavItemLink>;
-      signupNavItem = <NavItemLink to={`/signup`}>signup</NavItemLink>;
+      loginNavItem = <NavItemLink to="about">login</NavItemLink>;
 
       profileDropdown = null;
     }
