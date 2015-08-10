@@ -4,7 +4,7 @@
   "description": "",
   "engines": {
     "node": "0.12.7"
-  }
+  },
   "scripts": {
     "build": "gulp build",
     "start": "node build/server.js"
