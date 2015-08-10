@@ -45,6 +45,10 @@ class UserVideos extends React.Component {
     UserVideosStore.addYouTubeVideo(url);
   }
 
+  _onFilter = (e) => {
+    UserVideosStore.fetchVideos(this.user._id, e.target.value);
+  }
+
   render() {
     let addVideo;
 
@@ -65,6 +69,15 @@ class UserVideos extends React.Component {
       <div className="user-videos">
 
           <div className="user-videos--header row">
+
+            <div className="filter">
+              <form className="">
+                <div className="row">
+                  <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" wrapperClassName="col-xs-6" />
+                </div>
+              </form>
+            </div>
+
             {addVideo}
           </div>
 

@@ -45,6 +45,10 @@ class UserSongs extends React.Component {
     UserSongsStore.addYouTubeSong(url);
   }
 
+  _onFilter = (e) => {
+    UserSongsStore.fetchSongs(this.user._id, e.target.value);
+  }
+
   render() {
     let addSong;
 
@@ -64,7 +68,15 @@ class UserSongs extends React.Component {
     return (
       <div className="user-songs">
 
-          <div className="user-songs--header row">
+          <div className="user-songs--header clearfix row">
+            <div className="filter">
+              <form className="">
+                <div className="row">
+                  <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" wrapperClassName="col-xs-6" />
+                </div>
+              </form>
+            </div>
+
               {addSong}
           </div>
 

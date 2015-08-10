@@ -4,8 +4,12 @@ import http from 'axios';
 
 const UserVideosSource = {
   fetchVideos: {
-    remote(state, userId) {
-      return http.get('/api/users/' + userId + '/videos')
+    remote(state, userId, query) {
+      return http.get('/api/users/' + userId + '/videos', {
+        params: {
+          q: query,
+        },
+      })
       .then((res) => {
         return res.data;
       })

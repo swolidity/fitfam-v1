@@ -34,7 +34,9 @@ router.post('/edit', authenticateToken, (req, res, next) => {
 // get: /api/users/:id/videos
 router.get('/:id/videos', (req, res, next) => {
   const userId = req.params.id;
-  Video.find({_user: userId})
+  const query = new RegExp(req.query.q, 'i');
+
+  Video.find({_user: userId, title: query})
     .sort({date: 'desc'})
     .populate('_user')
     .exec((err, videos) => {
@@ -47,7 +49,9 @@ router.get('/:id/videos', (req, res, next) => {
 // get: /api/users/:id/songs
 router.get('/:id/songs', (req, res, next) => {
   const userId = req.params.id;
-  Song.find({_user: userId})
+  const query = new RegExp(req.query.q, 'i');
+
+  Song.find({_user: userId, title: query})
     .sort({date: 'desc'})
     .populate('_user')
     .exec((err, songs) => {
