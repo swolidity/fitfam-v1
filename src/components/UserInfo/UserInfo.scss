@@ -1,0 +1,30 @@
+.user-info {
+  padding: 20px 0;
+
+  .row {
+    margin-bottom: 15px;
+    padding: 15px 0;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  &--bio {
+    background: #fff;
+  }
+
+  &--profile-song {
+    background: #fff;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

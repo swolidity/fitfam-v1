@@ -5,28 +5,34 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   photo: {
-    type: String
+    type: String,
+  },
+  bio: {
+    type: String,
   },
   facebook: {
     id: String,
-    token: String
+    token: String,
   },
   date: {
     type: Date,
-    'default':
-    Date.now
+    'default': Date.now,
+  },
+  profileSong: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Song',
   },
   messages: [
     {

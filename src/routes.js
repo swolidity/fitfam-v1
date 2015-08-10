@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import UserProfile from './components/UserProfile/UserProfile';
+import UserInfo from './components/UserInfo/UserInfo';
 import UserPhotos from './components/UserPhotos/UserPhotos';
 import UserVideos from './components/UserVideos/UserVideos';
 import UserSongs from './components/UserSongs/UserSongs';
@@ -26,6 +27,7 @@ export default (
 
     // user profile
     <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>
+      <DefaultRoute name="user-info" handler={UserInfo} />
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />

@@ -9,7 +9,9 @@ const router = new Router();
 
 // get: /api/users
 router.get('/', (req, res) => {
-  User.find({}).sort({date: 'desc'}).exec((err, users) => {
+  User.find({})
+    .sort({date: 'desc'})
+    .exec((err, users) => {
     res.send(users);
   });
 });
@@ -19,10 +21,20 @@ router.get('/:username', (req, res, next) => {
   User
     .findOne({username: req.params.username})
     .select('-password')
+    .populate('profileSong')
     .exec((err, user) => {
       if (err) return next(err);
 
-      res.send(user);
+      const options = {
+        path: 'profileSong._user',
+        model: 'User',
+      };
+
+      User.populate(user, options, (err, user) => {
+        if (err) return next(err);
+
+        res.send(user);
+      });
     });
 });
 

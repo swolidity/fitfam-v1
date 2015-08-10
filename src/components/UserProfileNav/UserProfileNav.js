@@ -24,7 +24,7 @@ class UserProfileNav extends React.Component {
       <div className="user-profile-nav clearfix">
         <div className="col-xs-10 col-xs-offset-1">
           <Nav bsStyle="pills">
-            <NavItemLink onClick={this._onClick} active={this._isActive('user-profile')} to="user-profile" params={{username: this.props.username}}>
+            <NavItemLink onClick={this._onClick} active={this._isActive('user-info')} to="user-profile" params={{username: this.props.username}}>
               Profile
             </NavItemLink>
             <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.username}}>
