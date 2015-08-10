@@ -36,10 +36,10 @@ class UserProfileNav extends React.Component {
             <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.username}}>
               Songs
             </NavItemLink>
-            <NavItemLink active={this._isActive('user-followers')} to="user-profile" params={{username: this.props.username}}>
+            <NavItemLink active={this._isActive('user-followers')} to="user-followers" params={{username: this.props.username}}>
               Followers
             </NavItemLink>
-            <NavItemLink active={this._isActive('user-following')} to="user-profile" params={{username: this.props.username}}>
+            <NavItemLink active={this._isActive('user-following')} to="user-following" params={{username: this.props.username}}>
               Following
             </NavItemLink>
           </Nav>

@@ -10,6 +10,8 @@ import UserInfo from './components/UserInfo/UserInfo';
 import UserPhotos from './components/UserPhotos/UserPhotos';
 import UserVideos from './components/UserVideos/UserVideos';
 import UserSongs from './components/UserSongs/UserSongs';
+import UserFollowers from './components/UserFollowers/UserFollowers';
+import UserFollowing from './components/UserFollowing/UserFollowing';
 import Settings from './components/Settings/Settings';
 import UserProfileSettings from './components/UserProfileSettings/UserProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
@@ -31,6 +33,8 @@ export default (
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />
+      <Route name="user-followers" handler={UserFollowers} path="followers" />
+      <Route name="user-following" handler={UserFollowers} path="following" />
     </Route>
   </Route>
 );
