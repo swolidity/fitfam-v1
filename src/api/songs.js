@@ -11,6 +11,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
   const user = req.user;
   const youtubeURL = req.body.url;
   const youtubeId = getYouTubeId(youtubeURL);
+  const tags = req.body.tags.split(' ');
 
   Youtube.authenticate({
     type: 'key',
@@ -32,6 +33,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
       provider: 'youtube',
       provider_id: youtubeId,
       thumbnails: snippet.thumbnails,
+      tags: tags,
     });
 
     song.save((err) => {

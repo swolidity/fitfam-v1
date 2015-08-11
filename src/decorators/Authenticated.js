@@ -12,8 +12,8 @@ function Authenticated(ComposedComponent) {
       }
     }
 
-    constructor() {
-      super()
+    constructor(props) {
+      super(props);
       this.state = LoginStore.getState();
       this.handleChange = this.handleChange.bind(this);
     }

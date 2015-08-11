@@ -33,6 +33,10 @@ const SongSchema = new mongoose.Schema({
     required: true,
   },
 
+  tags: {
+    type: Array,
+  },
+
   date: {
     type: Date,
     'default': Date.now,

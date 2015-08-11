@@ -192,12 +192,12 @@
       "order": [
         "displayName",
         "propTypes",
+        "defaultProps",
         "contextTypes",
         "childContextTypes",
         "constructor",
         "mixins",
         "statics",
-        "defaultProps",
         "getDefaultProps",
         "getInitialState",
         "getChildContext",

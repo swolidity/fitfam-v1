@@ -58,12 +58,27 @@ router.get('/:id/videos', (req, res, next) => {
     });
 });
 
-// get: /api/users/:id/songs
-router.get('/:id/songs', (req, res, next) => {
+// post: /api/users/:id/songs
+router.post('/:id/songs', (req, res, next) => {
   const userId = req.params.id;
-  const query = new RegExp(req.query.q, 'i');
+  const query = req.body.q;
+  const qx = new RegExp(query, 'i');
 
-  Song.find({_user: userId, title: query})
+  const find = {
+    _user: userId,
+    title: qx,
+  };
+
+  if (query && query.indexOf('#') !== -1) {
+    const tags = query.split('#');
+    tags.shift();
+    console.log(tags);
+    //find.title.replace('/(#[a-z0-9][a-z0-9\-_]*)/ig', '');
+    delete find.title;
+    find.tags = { $all: tags };
+  }
+
+  Song.find(find)
     .sort({date: 'desc'})
     .populate('_user')
     .exec((err, songs) => {

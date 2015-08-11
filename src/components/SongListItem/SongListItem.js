@@ -2,6 +2,7 @@ import React from 'react';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
+import TagItem from '../TagItem/TagItem';
 
 require('./SongListItem.scss');
 
@@ -58,6 +59,10 @@ class SongListItem extends React.Component {
     return playIcon;
   }
 
+  _getTagItem = (tag) => {
+    return <TagItem tag={tag} />;
+  }
+
   render() {
     const thumbnail = this.song.thumbnails.medium;
 
@@ -71,10 +76,13 @@ class SongListItem extends React.Component {
             </div>
           </div>
         </div>
-        <div className="song-list-item--title col-xs-9">{this.song.title}</div>
         <div className="col-xs-9">
-          <ProfilePhoto height="25" className="user-photo img-circle" user={this.song._user} />
-          Added {moment(this.song.date).fromNow()}
+          <div className="song-list-item--title">{this.song.title}</div>
+          <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
+          <div>
+            <ProfilePhoto height="25" className="user-photo img-circle" user={this.song._user} />
+            Added {moment(this.song.date).fromNow()}
+          </div>
         </div>
       </li>
     );

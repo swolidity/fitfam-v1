@@ -4,6 +4,7 @@ import React from 'react';
 import App from './components/App/App';
 import About from './components/About/About';
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import UserProfile from './components/UserProfile/UserProfile';
 import UserInfo from './components/UserInfo/UserInfo';
 import UserPhotos from './components/UserPhotos/UserPhotos';
@@ -18,6 +19,7 @@ export default (
     <Route name="about" handler={About} path="/about" />
 
     <Route handler={Login} name="login" path="/login" />
+    <Route handler={Signup} name="signup" path="/signup" />
 
     // user profile
     <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>

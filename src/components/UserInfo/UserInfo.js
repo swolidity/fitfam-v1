@@ -25,7 +25,6 @@ class UserInfo extends React.Component {
   }
 
   _getStateFromStores = () => {
-    console.log('get state');
     return {
       youtube: YouTubePlayerStore.getState(),
     };

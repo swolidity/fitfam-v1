@@ -5,10 +5,8 @@ import http from 'axios';
 const UserSongsSource = {
   fetchSongs: {
     remote(state, userId, query) {
-      return http.get('/api/users/' + userId + '/songs', {
-        params: {
-          q: query,
-        },
+      return http.post('/api/users/' + userId + '/songs', {
+        q: query,
       })
       .then((res) => {
         return res.data;
@@ -25,10 +23,11 @@ const UserSongsSource = {
   },
 
   addYouTubeSong: {
-    remote(state, url) {
+    remote(state, song) {
       const token = LoginStore.getToken();
       return http.post('/api/songs/youtube', {
-        url: url,
+        url: song.url,
+        tags: song.tags,
       },
       {
         headers: { 'Authorization': 'JWT ' + token },
