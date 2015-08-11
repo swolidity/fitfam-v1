@@ -20,11 +20,12 @@ class UserInfo extends React.Component {
     YouTubePlayerStore.unlisten(this._onChange);
   }
 
-  _onChange = (state) => {
-    this.setState(state);
+  _onChange = () => {
+    this.setState(this._getStateFromStores);
   }
 
   _getStateFromStores = () => {
+    console.log('get state');
     return {
       youtube: YouTubePlayerStore.getState(),
     };
