@@ -33,12 +33,16 @@
       .profile-song-icon {
         display: inline-block;
         vertical-align: middle;
-        font-size: 32px;
         color: #fff;
       }
 
       .profile-song-icon.play {
+        font-size: 35px;
         display: none;
+      }
+      
+      .profile-song-icon.pause {
+        font-size: 28px;
       }
 
       &:hover {
