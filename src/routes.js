@@ -22,7 +22,7 @@ export default (
     <Route handler={Signup} name="signup" path="/signup" />
 
     // user profile
-    <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>
+    <Route name="user-profile" handler={UserProfile} path="/:username">
       <DefaultRoute name="user-info" handler={UserInfo} />
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />
