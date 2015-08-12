@@ -1,7 +1,6 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
-import LoginStore from '../../stores/LoginStore';
 import VideoList from '../VideoList/VideoList';
 import { Input, ButtonInput } from 'react-bootstrap';
 
@@ -38,47 +37,19 @@ class UserVideos extends React.Component {
     this.setState(this._getStateFromStores);
   }
 
-  _onAddYouTubeVideo = (e) => {
-    e.preventDefault();
-
-    const url = this.refs.url.getValue();
-    UserVideosStore.addYouTubeVideo(url);
-  }
-
   _onFilter = (e) => {
     UserVideosStore.fetchVideos(this.user._id, e.target.value);
   }
 
   render() {
-    let addVideo;
-
-    if (LoginStore.isLoggedIn()) {
-      addVideo = (
-        <div className="add-video-form col-xs-12">
-          <form>
-            <div className="row">
-              <Input type="text" placeholder="YouTube URL" ref="url" wrapperClassName="yt-url-wrapper col-xs-9" />
-              <ButtonInput type="submit" bsStyle="primary" value="Add Video" onClick={this._onAddYouTubeVideo} className="btn-block" wrapperClassName="add-video-wrapper col-xs-3"/>
-            </div>
-          </form>
-        </div>
-      );
-    }
 
     return (
       <div className="user-videos">
 
           <div className="user-videos--header row">
-
-            <div className="filter">
-              <form className="">
-                <div className="row">
-                  <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" wrapperClassName="col-xs-6" />
-                </div>
-              </form>
+            <div className="filter col-xs-4">
+              <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
-
-            {addVideo}
           </div>
 
 

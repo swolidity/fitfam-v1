@@ -47,14 +47,13 @@ class UserSongs extends React.Component {
     return (
       <div className="user-songs">
 
-          <div className="user-songs--header clearfix row">
-            <AddSongModal />
+          <div className="user-songs--header row clearfix">
 
             <div className="filter col-xs-4">
-              <div className="row">
-                <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
-              </div>
+              <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
+
+            <AddSongModal />
 
           </div>
 
