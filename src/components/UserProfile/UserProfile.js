@@ -26,7 +26,6 @@ class UserProfile extends React.Component {
   componentDidMount() {
     UserStore.listen(this.handleChange);
     UserStore.fetchUser(this.props.params.username);
-    window.onload = this._scrollDown;
   }
 
   componentWillUnmount() {
@@ -41,10 +40,6 @@ class UserProfile extends React.Component {
     const currentRoutes = router.getCurrentRoutes();
     const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
     return activeRouteName;
-  }
-
-  _scrollDown = () => {
-    window.scrollTo(0, 562);
   }
 
   render() {
@@ -66,10 +61,6 @@ class UserProfile extends React.Component {
       return (
         <div className="container"></div>
       );
-    }
-
-    if (this.state.shouldScroll) {
-      this._scrollDown();
     }
 
     return (

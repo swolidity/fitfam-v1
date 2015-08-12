@@ -4,49 +4,4 @@
     padding: 15px;
     background: #fff;
   }
-  .user-profile-header {
-    &--container {
-      position: relative;
-      height: 732px;
-      width: 100%;
-    }
-
-    background: url('/andy-deadlift.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 732px;
-    position: relative;
-    color: #fff;
-
-    .user-info-bottom {
-      width: 100%;
-      display: block;
-      position: absolute;
-      bottom: 20px;
-    }
-
-    .follow-btn {
-      margin-top: 45px;
-    }
-
-    .profile-photo {
-      display: inline-block;
-
-      img {
-        width: 130px;
-        height: 130px;
-        border: 2px solid #fff;
-      }
-
-    }
-
-    .username {
-      display: inline-block;
-      margin-left: 15px;
-      font-size: 32px;
-      color: #fff;
-      font-weight: 700;
-      text-shadow: 1px 1px 2px #000;
-    }
-  }
 }

@@ -1,0 +1,29 @@
+.user-profile-header {
+  padding: 15px 0;
+  background: #fff;
+
+  .profile-photo {
+    display: inline-block;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+  }
+
+  .username-bio {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .username {
+    font-size: 26px;
+    color: #000;
+    font-weight: 700;
+  }
+
+  .bio {
+    
+  }
+}

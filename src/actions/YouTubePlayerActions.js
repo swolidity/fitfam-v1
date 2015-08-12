@@ -10,7 +10,6 @@ class YouTubePlayerActions {
     const sidebarState = AppStore.getSidebarState();
 
     if (sidebarState === false) {
-      UserActions.toggleShouldScroll(false);
       AppActions.toggleSidebar(true);
     }
   }

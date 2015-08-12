@@ -5,7 +5,6 @@ import UserSource from '../sources/UserSource';
 class UserStore {
   constructor() {
     this.user = null;
-    this.shouldScroll = true;
     this.err = null;
 
     this.bindActions(UserActions);
@@ -22,10 +21,6 @@ class UserStore {
 
   onUserFailed(err) {
     this.err = err;
-  }
-
-  onToggleShouldScroll(shouldScroll) {
-    this.shouldScroll = shouldScroll;
   }
 }
 
