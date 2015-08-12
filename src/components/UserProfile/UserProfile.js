@@ -29,7 +29,9 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    UserStore.fetchUser(nextProps.params.username);
+    if (nextProps.params.username !== this.props.params.username) {
+      UserStore.fetchUser(nextProps.params.username);
+    }
   }
 
   componentWillUnmount() {
