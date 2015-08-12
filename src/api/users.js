@@ -21,12 +21,12 @@ router.get('/:username', (req, res, next) => {
   User
     .findOne({username: req.params.username})
     .select('-password')
-    .populate('profileSong')
+    .populate('profile_song')
     .exec((err, user) => {
       if (err) return next(err);
 
       const options = {
-        path: 'profileSong._user',
+        path: 'profile_song._user',
         model: 'User',
       };
 

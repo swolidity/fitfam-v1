@@ -1,7 +1,6 @@
 import alt from '../alt';
 import AppStore from '../stores/AppStore';
 import AppActions from './AppActions';
-import UserActions from './UserActions';
 
 class YouTubePlayerActions {
   updatePlaying(video) {

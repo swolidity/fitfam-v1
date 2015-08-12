@@ -19,9 +19,6 @@ const UserSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
-  cover_photo: {
-    type: String,
-  },
   bio: {
     type: String,
   },
@@ -33,7 +30,7 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     'default': Date.now,
   },
-  profileSong: {
+  profile_song: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Song',
   },

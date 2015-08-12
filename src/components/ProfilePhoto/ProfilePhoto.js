@@ -1,13 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import UserActions from '../../actions/UserActions';
 
 class ProfilePhoto extends React.Component {
   static propTypes = { user: React.PropTypes.object };
-
-  _onClick() {
-    UserActions.toggleShouldScroll(true);
-  }
 
   render() {
     return (

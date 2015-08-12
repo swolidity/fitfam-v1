@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router';
+import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import { ButtonInput } from 'react-bootstrap';
 
 require('./UserProfileHeader.scss');
 
 class UserProfileHeader extends React.Component {
   static propTypes = { user: React.PropTypes.object };
+
+  _onPhotoCick = (e) => {
+    e.preventDefault();
+
+    if (this.props.user.profile_song) {
+      YouTubePlayerActions.updatePlaying(this.props.user.profile_song);
+    }
+  }
 
   render() {
     return (
@@ -17,9 +25,9 @@ class UserProfileHeader extends React.Component {
 
               <div className="col-xs-10">
                 <div className="profile-photo">
-                  <Link to="user-profile" params={{username: this.props.user.username}}>
+                  <a href="#" onClick={this._onPhotoCick}>
                     <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-                  </Link>
+                  </a>
                 </div>
 
                 <div className="username-bio">
