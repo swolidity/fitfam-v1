@@ -60,7 +60,7 @@ class UserProfileHeader extends React.Component {
   }
 
   _getIcon = () => {
-    const song = this.state.youtube.playing;
+    const song = this.props.user.profile_song;
     const player = this.state.youtube.player;
     const playing = this.state.youtube.playing;
     const playIcon = <i className="profile-song-icon play fa fa-play-circle"></i>;
