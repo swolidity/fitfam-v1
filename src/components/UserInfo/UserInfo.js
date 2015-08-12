@@ -7,29 +7,6 @@ require('./UserInfo.scss');
 class UserInfo extends React.Component {
   static propTypes = { user: React.PropTypes.object };
 
-  constructor(props) {
-    super(props);
-    this.state = this._getStateFromStores();
-  }
-
-  componentDidMount() {
-    YouTubePlayerStore.listen(this._onChange);
-  }
-
-  componentWillUnmount() {
-    YouTubePlayerStore.unlisten(this._onChange);
-  }
-
-  _onChange = () => {
-    this.setState(this._getStateFromStores);
-  }
-
-  _getStateFromStores = () => {
-    return {
-      youtube: YouTubePlayerStore.getState(),
-    };
-  }
-
   render() {
     return (
       <div className="user-info">
