@@ -23,7 +23,7 @@ class UserProfileHeader extends React.Component {
                 </div>
 
                 <div className="username-bio">
-                  <div className="username">@{this.props.user.username}</div>
+                  <div className="username">{this.props.user.username}</div>
                   <div className="bio">{this.props.user.bio}</div>
                 </div>
               </div>
