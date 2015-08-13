@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, NavItem, DropdownButton, MenuItem } from 'react-bootstrap';
-import { NavItemLink } from 'react-router-bootstrap';
+import { Navbar, Nav, NavItem, DropdownButton } from 'react-bootstrap';
+import { NavItemLink, MenuItemLink } from 'react-router-bootstrap';
 import LoginActions from '../../actions/LoginActions';
 import LoginStore from '../../stores/LoginStore';
 
@@ -56,7 +56,7 @@ class Header extends React.Component {
                         className="profileDropdown"
                         noCaret={true}
                         >
-                          <MenuItem eventKey='1'><Link to="user-profile" params={{username: this.state.user.username}}>View Profile</Link></MenuItem>
+                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>View Profile</MenuItemLink>
                         </DropdownButton> );
     } else {
       // if user is not logged in show login link

@@ -16,4 +16,9 @@
       color: #0D6CFF;
     }
   }
+
+  .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background: #fff;
+    color: #408bff;
+  }
 }
