@@ -6,6 +6,10 @@ class UserActions {
     this.dispatch(user);
   }
 
+  loadingUser() {
+    this.dispatch();
+  }
+
   userFailed(err) {
     this.dispatch(err);
   }

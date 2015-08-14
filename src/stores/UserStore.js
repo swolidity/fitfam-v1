@@ -15,6 +15,10 @@ class UserStore {
     this.user = user;
   }
 
+  onLoadingUser() {
+    this.user = null;
+  }
+
   onUserFailed(err) {
     this.err = err;
   }

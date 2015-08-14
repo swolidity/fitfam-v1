@@ -18,6 +18,7 @@ const UserSource = {
     },
 
     success: UserActions.updateUser,
+    loading: UserActions.loadingUser,
     error: UserActions.userFailed,
   },
 };
