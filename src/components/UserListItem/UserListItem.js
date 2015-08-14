@@ -9,10 +9,11 @@ class FollowListItem extends React.Component {
   render() {
     return (
       <li className="user-list-item row">
-        <div className="col-xs-1">
-          <ProfilePhoto width="75" height="75" className="img-circle" user={this.props.user} />
-        </div>
-        <div className="col-xs-11">
+        <div className="col-xs-12">
+          <div className="user-list-item__user-photo-container">
+            <ProfilePhoto width="75" height="75" className="img-circle" user={this.props.user} />
+          </div>
+
           <div className="user-list-item__user-info">
             <div className="v-align">
               <div className="user-list-item__username">{this.props.user.username}</div>
