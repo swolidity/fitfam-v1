@@ -28,7 +28,7 @@ class UserPhotos extends React.Component {
 
   render() {
     return (
-      <div className="user-photos">
+      <div className="user-photos row">
         <PhotoList photos={this.state.photos} />
       </div>
     );
