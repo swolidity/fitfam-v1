@@ -1,0 +1,18 @@
+.user-list-item {
+  padding: 15px 0;
+  background: #fff;
+
+  &:hover {
+    background: #f8f8f8;
+  }
+
+  &__user-info {
+    position: relative;
+    height: 75px;
+  }
+  &__username {
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+  }
+}
