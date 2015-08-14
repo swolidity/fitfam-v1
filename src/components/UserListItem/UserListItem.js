@@ -1,24 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router';
+import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 
-class UserListItem extends React.Component {
+require('./UserListItem.scss');
+
+class FollowListItem extends React.Component {
+  static propTypes = { user: React.PropTypes.object.isRequired };
+
   render() {
-    const user = this.props.user;
-
     return (
-      <div>
-        <Link to="user-profile" params={{ username: user.username }}>
-          <img width="35" className="img-circle" src={ user.photo } alt={ user.username } />
-        </Link>
-
-        <Link to="user-profile" params={{ username: user.username }}>
-          {user.username}
-        </Link>
-      </div>
+      <li className="user-list-item row">
+        <div className="col-xs-1">
+          <ProfilePhoto width="75" height="75" className="img-circle" user={this.props.user} />
+        </div>
+        <div className="col-xs-11">
+          <div className="user-list-item__user-info">
+            <div className="v-align">
+              <div className="user-list-item__username">{this.props.user.username}</div>
+              <div className="user-list-item__user-bio">{this.props.user.bio}</div>
+            </div>
+          </div>
+        </div>
+      </li>
     );
   }
 }
 
-UserListItem.propTypes = { user: React.PropTypes.object };
-
-module.exports = UserListItem;
+module.exports = FollowListItem;

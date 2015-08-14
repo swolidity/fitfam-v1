@@ -6,10 +6,6 @@ class UserActions {
     this.dispatch(user);
   }
 
-  fetchUser() {
-    this.dispatch();
-  }
-
   userFailed(err) {
     this.dispatch(err);
   }

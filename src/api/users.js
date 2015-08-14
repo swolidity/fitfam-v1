@@ -72,7 +72,6 @@ router.post('/:id/songs', (req, res, next) => {
   if (query && query.indexOf('#') !== -1) {
     const tags = query.split('#');
     tags.shift();
-    console.log(tags);
     //find.title.replace('/(#[a-z0-9][a-z0-9\-_]*)/ig', '');
     delete find.title;
     find.tags = { $all: tags };

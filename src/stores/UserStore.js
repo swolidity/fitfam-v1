@@ -15,10 +15,6 @@ class UserStore {
     this.user = user;
   }
 
-  onFetchUser() {
-    this.user = null;
-  }
-
   onUserFailed(err) {
     this.err = err;
   }

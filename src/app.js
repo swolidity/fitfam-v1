@@ -8,28 +8,28 @@ import Iso from 'iso';
 import alt from './alt';
 
 let router = Router.create({
-	routes: routes,
-	location: Router.HistoryLocation
+  routes: routes,
+  location: Router.HistoryLocation
 });
 
 RouterContainer.set(router);
 
 Iso.bootstrap((state, meta, container) => {
 
-	alt.bootstrap(state);
+  alt.bootstrap(state);
 
-	let token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
 
-	if (token) {
-		LoginActions.loginUser(token);
-	}
+  if (token) {
+    LoginActions.loginUser(token);
+  }
 
-	router.run((Handler, state) => {
+  router.run((Handler, state) => {
 
-		RouterActions.changeRoute(state);
+    RouterActions.changeRoute(state);
 
-		let node = <Handler />;
-		React.render(node, container);
-	});
+    let node = <Handler />;
+    React.render(node, container);
+  });
 
 });

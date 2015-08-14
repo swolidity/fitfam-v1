@@ -1,26 +1,26 @@
 import React from 'react';
 import UserSongsStore from '../../stores/UserSongsStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
-import LoginStore from '../../stores/LoginStore';
 import SongList from '../SongList/SongList';
 import AddSongModal from '../AddSongModal/AddSongModal';
-import { Input, ButtonInput } from 'react-bootstrap';
+import { Input } from 'react-bootstrap';
 
 require('./UserSongs.scss');
 
 class UserSongs extends React.Component {
+  static propTypes = { user: React.PropTypes.object.isRequired };
 
   constructor(props) {
     super(props);
 
     this.state = this._getStateFromStores();
-    this.user = props.user;
   }
 
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
     YouTubePlayerStore.listen(this._onChange);
-    UserSongsStore.fetchSongs(this.user._id);
+
+    UserSongsStore.fetchSongs(this.props.user._id);
   }
 
   componentWillUnmount() {
@@ -40,7 +40,7 @@ class UserSongs extends React.Component {
   }
 
   _onFilter = (e) => {
-    UserSongsStore.fetchSongs(this.user._id, e.target.value);
+    UserSongsStore.fetchSongs(this.props.user._id, e.target.value);
   }
 
   render() {

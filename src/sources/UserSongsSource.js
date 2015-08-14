@@ -15,9 +15,11 @@ const UserSongsSource = {
         return Promise.reject(err.data);
       });
     },
+
     local() {
       return null;
     },
+
     success: UserSongsActions.receiveSongs,
     error: UserSongsActions.receiveSongsFailed,
   },

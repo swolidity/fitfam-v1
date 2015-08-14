@@ -1,5 +1,9 @@
 import React from 'react';
 import UserStore from '../../stores/UserStore';
+import UserPhotosStore from '../../stores/UserPhotosStore';
+import UserSongsStore from '../../stores/UserSongsStore';
+import UserVideosStore from '../../stores/UserVideosStore';
+import UserFollowingStore from '../../stores/UserFollowingStore';
 import { RouteHandler } from 'react-router';
 import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
 import UserProfileNav from '../UserProfileNav/UserProfileNav';
@@ -34,12 +38,31 @@ class UserProfile extends React.Component {
     }
   }
 
+  /* don't think I need this anymore
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.user && nextState.user && this.state.user._id !== nextState.user._id) {
+      this._preFetchUserStores(nextState.user._id);
+    }
+  }
+  */
+
   componentWillUnmount() {
     UserStore.unlisten(this.handleChange);
   }
 
   handleChange = (state) => {
     this.setState(state);
+
+    if (state.user) {
+      this._preFetchUserStores(state.user._id);
+    }
+  }
+
+  _preFetchUserStores(userID) {
+    UserPhotosStore.fetchPhotos(userID);
+    UserVideosStore.fetchVideos(userID);
+    UserSongsStore.fetchSongs(userID);
+    UserFollowingStore.fetchFollowing(userID);
   }
 
   _getActiveRouteName = (router) => {
@@ -49,23 +72,9 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    if (this.state.err) {
+    if (!this.state.user || UserStore.isLoading()) {
       return (
-        <div className="container">Error: {this.state.err}</div>
-        );
-    }
-
-    if(UserStore.isLoading()) {
-      return (
-        <div className="container center">
-          <i className="fa fa-spinner fa-spin"></i>
-        </div>
-      );
-    }
-
-    if (!this.state.user) {
-      return (
-        <div className="container"></div>
+        <div></div>
       );
     }
 
@@ -75,12 +84,6 @@ class UserProfile extends React.Component {
         <UserProfileNav username={this.state.user.username} activeTab={this._getActiveRouteName(this.context.router)} />
 
         <div className="col-xs-10 col-xs-offset-1">
-
-            <div className="hello-bar row">
-              Hey there! FITFAM is in it's early alpha stages and we need your support to make it grow into an awesome fitness community.
-              Pre-order a <a href="/beta">beta account</a> or donate at <a href="https://www.cash.me/fitfam" target="_blank">https://ww.cash.me/fitfam</a>
-            </div>
-
           <RouteHandler user={this.state.user} />
         </div>
       </div>

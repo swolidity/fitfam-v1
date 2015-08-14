@@ -19,7 +19,7 @@ class UserPhotos extends React.Component {
   }
 
   componentWillUnmount() {
-    UserPhotosStore.listen(this._onChange);
+    UserPhotosStore.unlisten(this._onChange);
   }
 
   _onChange = (state) => {
