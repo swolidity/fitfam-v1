@@ -9,6 +9,7 @@ router.post('/', (req, res, next) => {
 
   User
     .findOne({ username: req.body.username })
+    .select('+password')
     .exec((err, user) => {
       if (err) return next(err);
 
