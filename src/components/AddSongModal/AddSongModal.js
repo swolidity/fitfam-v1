@@ -46,9 +46,11 @@ class AddSongModal extends React.Component {
           <Modal.Body>
             <form>
               <div className="row">
-                <Input type="text" placeholder="YouTube URL" ref="url" />
-                <Input type="text" placeholder="tags" ref="tags" />
-                <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYouTubeSong} className="btn-block" wrapperClassName="add-song-wrapper col-xs-3"/>
+                <div className="col-xs-12">
+                  <Input type="text" placeholder="YouTube URL" ref="url" />
+                  <Input type="text" placeholder="tags" ref="tags" />
+                  <ButtonInput type="submit" bsStyle="primary" value="Add Song" onClick={this._onAddYouTubeSong} className="btn-block" />
+                </div>
               </div>
             </form>
           </Modal.Body>
