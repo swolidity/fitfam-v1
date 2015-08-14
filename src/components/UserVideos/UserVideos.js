@@ -2,6 +2,7 @@ import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import VideoList from '../VideoList/VideoList';
+import AddVideoModal from '../AddVideoModal/AddVideoModal';
 import { Input, ButtonInput } from 'react-bootstrap';
 
 require('./UserVideos.scss');
@@ -49,6 +50,8 @@ class UserVideos extends React.Component {
             <div className="filter col-xs-4">
               <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
+
+            <AddVideoModal />
           </div>
 
 

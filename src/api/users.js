@@ -46,9 +46,23 @@ router.post('/edit', authenticateToken, (req, res, next) => {
 // get: /api/users/:id/videos
 router.get('/:id/videos', (req, res, next) => {
   const userId = req.params.id;
-  const query = new RegExp(req.query.q, 'i');
+  const query = req.query.q;
+  const qx = new RegExp(query, 'i');
 
-  Video.find({_user: userId, title: query})
+  const find = {
+    _user: userId,
+    title: qx,
+  };
+
+  if (query && query.indexOf('#') !== -1) {
+    const tags = query.split('#');
+    tags.shift();
+    //find.title.replace('/(#[a-z0-9][a-z0-9\-_]*)/ig', '');
+    delete find.title;
+    find.tags = { $all: tags };
+  }
+
+  Video.find(find)
     .sort({date: 'desc'})
     .populate('_user')
     .exec((err, videos) => {

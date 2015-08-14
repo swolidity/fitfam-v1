@@ -25,10 +25,11 @@ const UserVideosSource = {
   },
 
   addYouTubeVideo: {
-    remote(state, url) {
+    remote(state, video) {
       const token = LoginStore.getToken();
       return http.post('/api/videos/youtube', {
-        url: url,
+        url: video.url,
+        tags: video.tags,
       },
       {
         headers: { 'Authorization': 'JWT ' + token },

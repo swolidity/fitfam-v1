@@ -2,6 +2,7 @@ import React from 'react';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
+import TagItem from '../TagItem/TagItem';
 
 require('./VideoListItem.scss');
 
@@ -58,6 +59,10 @@ class VideoListItem extends React.Component {
     return playIcon;
   }
 
+  _getTagItem = (tag) => {
+    return <TagItem tag={tag} />;
+  }
+
   render() {
     const thumbnail = this.video.thumbnails.medium;
 
@@ -71,8 +76,9 @@ class VideoListItem extends React.Component {
             </div>
           </div>
         </div>
-        <div className="video-list-item--title col-xs-9">{this.video.title}</div>
         <div className="col-xs-9">
+          <div className="video-list-item--title">{this.video.title}</div>
+          <div className="tag-list">{this.video.tags.map(this._getTagItem)}</div>
           <ProfilePhoto height="25" className="user-photo img-circle" user={this.video._user} />
           Added {moment(this.video.date).fromNow()}
         </div>
