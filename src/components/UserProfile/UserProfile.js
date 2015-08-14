@@ -3,6 +3,7 @@ import UserStore from '../../stores/UserStore';
 import UserPhotosStore from '../../stores/UserPhotosStore';
 import UserSongsStore from '../../stores/UserSongsStore';
 import UserVideosStore from '../../stores/UserVideosStore';
+import UserFollowersStore from '../../stores/UserFollowersStore';
 import UserFollowingStore from '../../stores/UserFollowingStore';
 import { RouteHandler } from 'react-router';
 import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
@@ -62,6 +63,7 @@ class UserProfile extends React.Component {
     UserPhotosStore.fetchPhotos(userID);
     UserVideosStore.fetchVideos(userID);
     UserSongsStore.fetchSongs(userID);
+    UserFollowersStore.fetchFollowers(userID);
     UserFollowingStore.fetchFollowing(userID);
   }
 

@@ -17,9 +17,22 @@ router.get('/following/:id', (req, res, next) => {
     });
 });
 
+router.get('/followers/:id', (req, res, next) => {
+  const userID = req.params.id;
+
+  Follow
+    .find({_followed: userID})
+    .populate('_follower')
+    .exec((err, followers) => {
+      if (err) return next(err);
+
+      return res.send(followers);
+    });
+});
+
 // post: /api/follows/follow
 router.post('/follow', authenticateToken, (req, res, next) => {
-  const followerID = req.user._id;
+  const followerID = req.body.follower_id || req.user._id;
   const followedID = req.body.followed_id;
 
   const follow = new Follow({

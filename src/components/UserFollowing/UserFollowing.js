@@ -1,6 +1,6 @@
 import React from 'react';
 import UserFollowingStore from '../../stores/UserFollowingStore';
-import FollowList from '../FollowList/FollowList';
+import FollowingList from '../FollowingList/FollowingList';
 
 require('./UserFollowing.scss');
 
@@ -31,7 +31,7 @@ class UserFollowing extends React.Component {
       <div className="user-following">
         <div className="row">
           <div className="col-xs-12">
-            <FollowList follows={this.state.following} />
+            <FollowingList following={this.state.following} />
           </div>
         </div>
       </div>
