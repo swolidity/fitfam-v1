@@ -2,7 +2,7 @@ import React from 'react';
 import UserSongsStore from '../../stores/UserSongsStore';
 import { Input, ButtonInput, Modal } from 'react-bootstrap';
 import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
-import authenticated from '../../decorators/authenticated';
+import authenticated from '../../decorators/Authenticated';
 
 require('./AddSongModal.scss');
 
