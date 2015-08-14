@@ -34,11 +34,11 @@ function Authenticated(ComposedComponent) {
       return (
         <ComposedComponent
           {...this.props}
-          user={this.state.user}
+          loggedIn={!!this.state.user}
         />
       );
     }
-  }
+  };
 }
 
 module.exports = Authenticated;

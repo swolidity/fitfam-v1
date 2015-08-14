@@ -1,12 +1,16 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import { Input, ButtonInput, Modal } from 'react-bootstrap';
+import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
 import authenticated from '../../decorators/Authenticated';
 
 require('./AddVideoModal.scss');
 
 class AddVideoModal extends React.Component {
-  static propTypes = { showModal: React.PropTypes.bool };
+  static propTypes = {
+    showModal: React.PropTypes.bool.isRequired,
+    loggedIn: React.PropTypes.bool.isRequired,
+  };
   static defaultProps = { showModal: false };
 
   constructor(props) {
@@ -35,10 +39,12 @@ class AddVideoModal extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <ButtonInput type="submit" bsStyle="default" value="Add Video" onClick={this._show} className="btn-block" wrapperClassName="add-video-wrapper col-xs-2 pull-right" standalone />
+    let modal;
 
+    if (!this.props.loggedIn) {
+      modal = <LoginSignupModal showModal={this.state.showModal} onShow={this._show} onHide={this._onHide} />;
+    } else {
+      modal = (
         <Modal show={this.state.showModal} onHide={this._onHide}>
           <Modal.Header closeButton>
             <Modal.Title>Add Video</Modal.Title>
@@ -55,6 +61,13 @@ class AddVideoModal extends React.Component {
             </form>
           </Modal.Body>
         </Modal>
+      );
+    }
+
+    return (
+      <div>
+        <ButtonInput type="submit" bsStyle="default" value="Add Video" onClick={this._show} className="btn-block" wrapperClassName="add-video-wrapper col-xs-2 pull-right" standalone />
+        {modal}
       </div>
     );
   }

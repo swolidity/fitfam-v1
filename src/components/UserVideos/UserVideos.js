@@ -51,7 +51,7 @@ class UserVideos extends React.Component {
               <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
 
-            <AddVideoModal />
+            <AddVideoModal showModal={false} />
           </div>
 
 

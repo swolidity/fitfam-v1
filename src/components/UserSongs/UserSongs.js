@@ -53,7 +53,7 @@ class UserSongs extends React.Component {
               <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
 
-            <AddSongModal />
+            <AddSongModal showModal={false} />
 
           </div>
 
