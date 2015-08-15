@@ -7,7 +7,9 @@
   },
   "scripts": {
     "build": "gulp build",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "postinstall": "gulp build"
+
   },
   "author": "",
   "license": "ISC",
