@@ -11,7 +11,7 @@ class LoginSignupModal extends React.Component {
     this.setState(nextProps);
   }
 
-  _show = () => {
+  _onShow = () => {
     this.setState({ showModal: true });
     this.state.onShow();
   }

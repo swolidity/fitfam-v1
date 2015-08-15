@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nav, ButtonInput } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
-import UserActions from '../../actions/UserActions';
+import FollowButton from '../FollowButton/FollowButton';
 
 require('./UserProfileNav.scss');
 
@@ -45,7 +45,7 @@ class UserProfileNav extends React.Component {
               </div>
 
               <div className="col-xs-2">
-                <ButtonInput bsStyle="primary" className="follow-btn btn-block" standalone >Follow</ButtonInput>
+                <FollowButton />
               </div>
 
             </div>
