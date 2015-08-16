@@ -43,6 +43,10 @@ class UserVideos extends React.Component {
   }
 
   render() {
+    if (!this.state.videos.length) {
+      return <div></div>;
+    }
+
     return (
       <div className="user-videos">
 

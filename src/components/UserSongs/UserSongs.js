@@ -44,6 +44,10 @@ class UserSongs extends React.Component {
   }
 
   render() {
+    if (!this.state.songs.length) {
+      return <div></div>;
+    }
+
     return (
       <div className="user-songs">
 
