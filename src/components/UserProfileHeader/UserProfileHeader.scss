@@ -3,7 +3,7 @@
   background: #fff;
 
   .profile-photo {
-    display: inline-block;
+    float: left;
     position:  relative;
 
     a {
@@ -57,7 +57,7 @@
   }
 
   .username-bio {
-    display: inline-block;
+    float: left;
     height: 100px;
     margin-left: 15px;
   }
