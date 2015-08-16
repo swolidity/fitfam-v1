@@ -4,6 +4,25 @@ import Follow from './models/follow';
 
 const router = new Router();
 
+router.post('/check', (req, res, next) => {
+  const followerID = req.body.follower_id;
+  const followedID = req.body.followed_id;
+
+  Follow.count({
+    _follower: followerID,
+    _followed: followedID,
+  },
+  (err, count) => {
+    if (err) return next(err);
+
+    if (count > 0) {
+      return res.send(true);
+    }
+
+    return res.send(false);
+  });
+});
+
 router.get('/following/:id', (req, res, next) => {
   const userID = req.params.id;
 
@@ -32,7 +51,7 @@ router.get('/followers/:id', (req, res, next) => {
 
 // post: /api/follows/follow
 router.post('/follow', authenticateToken, (req, res, next) => {
-  const followerID = req.body.follower_id || req.user._id;
+  const followerID = req.user._id;
   const followedID = req.body.followed_id;
 
   const follow = new Follow({
@@ -47,4 +66,17 @@ router.post('/follow', authenticateToken, (req, res, next) => {
   });
 });
 
+router.post('/unfollow', authenticateToken, (req, res, next) => {
+  const followerID = req.user._id;
+  const followedID = req.body.followed_id;
+
+  Follow.remove({
+    _follower: followerID,
+    _followed: followedID},
+  (err) => {
+    if (err) return next(err);
+
+    res.send(false); // isFollowing no false
+  });
+});
 module.exports = router;

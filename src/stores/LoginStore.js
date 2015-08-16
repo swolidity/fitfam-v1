@@ -49,6 +49,10 @@ class LoginStore {
     const state = this.getState();
     return state.token;
   }
+
+  static getUser() {
+    return this.getState().user;
+  }
 }
 
 module.exports = alt.createStore(LoginStore, 'LoginStore');
