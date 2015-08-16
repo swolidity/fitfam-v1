@@ -3,6 +3,7 @@ import { ButtonInput } from 'react-bootstrap';
 import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
 
 class FollowButton extends React.Component {
+  static propTypes = { bsStyle: React.PropTypes.string }
   static defaultProps = { showModal: false };
 
   constructor(props) {
@@ -21,7 +22,7 @@ class FollowButton extends React.Component {
   render() {
     return (
       <div>
-        <ButtonInput onClick={this._show} bsStyle="primary" className="follow-btn btn-block" standalone >Follow</ButtonInput>
+        <ButtonInput onClick={this._show} bsStyle={this.state.bsStyle} className="follow-btn btn-block" standalone >Follow</ButtonInput>
         <LoginSignupModal showModal={this.state.showModal} onShow={this._show} onHide={this._hide} />
       </div>
       );
