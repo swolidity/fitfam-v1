@@ -1,5 +1,6 @@
 import React from 'react';
 import UserSongsStore from '../../stores/UserSongsStore';
+import LoginStore from '../../stores/LoginStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import SongList from '../SongList/SongList';
 import AddSongModal from '../AddSongModal/AddSongModal';
@@ -19,6 +20,7 @@ class UserSongs extends React.Component {
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
     YouTubePlayerStore.listen(this._onChange);
+    LoginStore.listen(this._onChange);
 
     UserSongsStore.fetchSongs(this.props.user._id);
   }
@@ -26,6 +28,7 @@ class UserSongs extends React.Component {
   componentWillUnmount() {
     UserSongsStore.unlisten(this._onChange);
     YouTubePlayerStore.unlisten(this._onChange);
+    LoginStore.unlisten(this._onChange);
   }
 
   _getStateFromStores = () => {
@@ -44,8 +47,10 @@ class UserSongs extends React.Component {
   }
 
   render() {
-    if (!this.state.songs.length) {
-      return <div></div>;
+    let addSong;
+
+    if (LoginStore.isLoggedIn()) {
+      addSong = <AddSongModal showModal={false} />;
     }
 
     return (
@@ -57,7 +62,7 @@ class UserSongs extends React.Component {
               <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
 
-            <AddSongModal showModal={false} />
+            {addSong}
 
           </div>
 

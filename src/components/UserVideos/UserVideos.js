@@ -1,6 +1,7 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import LoginStore from '../../stores/LoginStore';
 import VideoList from '../VideoList/VideoList';
 import AddVideoModal from '../AddVideoModal/AddVideoModal';
 import { Input, ButtonInput } from 'react-bootstrap';
@@ -19,12 +20,14 @@ class UserVideos extends React.Component {
   componentDidMount() {
     UserVideosStore.listen(this._onChange);
     YouTubePlayerStore.listen(this._onChange);
+    LoginStore.listen(this._onChange);
     UserVideosStore.fetchVideos(this.user._id);
   }
 
   componentWillUnmount() {
     UserVideosStore.unlisten(this._onChange);
     YouTubePlayerStore.unlisten(this._onChange);
+    LoginStore.unlisten(this._onChange);
   }
 
   _getStateFromStores = () => {
@@ -43,8 +46,10 @@ class UserVideos extends React.Component {
   }
 
   render() {
-    if (!this.state.videos.length) {
-      return <div></div>;
+    let addVideo;
+
+    if (LoginStore.isLoggedIn()) {
+      addVideo = <AddVideoModal showModal={false} />;
     }
 
     return (
@@ -55,7 +60,7 @@ class UserVideos extends React.Component {
               <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
             </div>
 
-            <AddVideoModal showModal={false} />
+            {addVideo}
           </div>
 
 
