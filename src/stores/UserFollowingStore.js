@@ -18,6 +18,10 @@ class UserFollowingStore {
   onReceiveFollowingFailed(err) {
     this.err = err;
   }
+
+  static getFollowing() {
+    return this.getState().following;
+  }
 }
 
 module.exports = alt.createStore(UserFollowingStore, 'UserFollowingStore');

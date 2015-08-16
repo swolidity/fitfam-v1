@@ -1,6 +1,5 @@
 import React from 'react';
-import SongListItem from '../SongListItem/SongListItem';
-import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 
 require('./UserInfo.scss');
 
@@ -10,15 +9,8 @@ class UserInfo extends React.Component {
   render() {
     return (
       <div className="user-info">
-        <div className="user-info--bio row">
-          <div className="col-xs-12">
-            <h3>Bio</h3>
-            {this.props.user.bio}
-          </div>
-        </div>
+        <UserFollowFaces user={this.props.user} />
       </div>
-
-
     );
   }
 }

@@ -18,6 +18,10 @@ class UserFollowersStore {
   onReceiveFollowersFailed(err) {
     this.err = err;
   }
+
+  static getFollowers() {
+    return this.getState().followers;
+  }
 }
 
 module.exports = alt.createStore(UserFollowersStore, 'UserFollowersStore');
