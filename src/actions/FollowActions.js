@@ -1,26 +1,24 @@
 import alt from '../alt';
 
 class FollowActions {
-  fetchIsFollowingSuccess(isFollowing) {
-    this.dispatch(isFollowing);
+  fetchIsFollowingSuccess(followedID) {
+    this.dispatch(followedID);
   }
 
   fetchIsFollowingFailed(err) {
     this.dispatch(err);
   }
 
-  followSuccess() {
-    console.log('following');
-    this.dispatch();
+  followSuccess(followedID) {
+    this.dispatch(followedID);
   }
 
   followFailed(err) {
     this.dispatch(err);
   }
 
-  unfollowSuccess() {
-    console.log('unfollow');
-    this.dispatch();
+  unfollowSuccess(unfollowedID) {
+    this.dispatch(unfollowedID);
   }
 
   unfollowFailed(err) {

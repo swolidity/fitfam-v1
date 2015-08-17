@@ -4,39 +4,39 @@ import FollowSource from '../sources/FollowSource';
 
 class FollowStore {
   constructor() {
-    this.isFollowing = false;
+    this.isFollowing = {};
     this.err = null;
 
     this.bindActions(FollowActions);
     this.exportAsync(FollowSource);
   }
 
-  onFetchIsFollowingSuccess(isFollowing) {
-    this.isFollowing = isFollowing;
+  onFetchIsFollowingSuccess(followedID) {
+    this.isFollowing[followedID] = true;
   }
 
   onFetchIsFollowingFailed(err) {
     this.err = err;
   }
 
-  onFollowSuccess() {
-    this.isFollowing = true;
+  onFollowSuccess(followedID) {
+    this.isFollowing[followedID] = true;
   }
 
   onFollowFailed(err) {
     this.err = err;
   }
 
-  onUnfollowSuccess() {
-    this.isFollowing = false;
+  onUnfollowSuccess(unfollowedID) {
+    this.isFollowing[unfollowedID] = false;
   }
 
   onUnfollowFailed(err) {
     this.err = err;
   }
 
-  static getIsFollowing() {
-    return this.getState().isFollowing;
+  static getIsFollowing(followedID) {
+    return this.getState().isFollowing[followedID];
   }
 }
 

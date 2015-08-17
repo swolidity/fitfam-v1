@@ -45,7 +45,7 @@ class UserProfileNav extends React.Component {
               </div>
 
               <div className="col-xs-2">
-                <FollowButton user={this.props.user} bsStyle="primary" />
+                <FollowButton followedID={this.props.user._id} bsStyle="primary" />
               </div>
 
             </div>

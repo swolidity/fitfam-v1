@@ -16,7 +16,7 @@ router.post('/check', (req, res, next) => {
     if (err) return next(err);
 
     if (count > 0) {
-      return res.send(true);
+      return res.send(followedID);
     }
 
     return res.send(false);
@@ -62,7 +62,7 @@ router.post('/follow', authenticateToken, (req, res, next) => {
   follow.save((err) => {
     if (err) return next(err);
 
-    res.send(follow);
+    res.send(follow._followed);
   });
 });
 
@@ -76,7 +76,7 @@ router.post('/unfollow', authenticateToken, (req, res, next) => {
   (err) => {
     if (err) return next(err);
 
-    res.send(false); // isFollowing no false
+    res.send(followedID);
   });
 });
 module.exports = router;

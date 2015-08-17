@@ -6,9 +6,10 @@ import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
 
 class FollowButton extends React.Component {
   static propTypes = {
-    user: React.PropTypes.object.isRequired,
+    followedID: React.PropTypes.string.isRequired,
     bsStyle: React.PropTypes.string,
    }
+
   static defaultProps = { showModal: false };
 
   constructor(props) {
@@ -22,9 +23,9 @@ class FollowButton extends React.Component {
 
     if (LoginStore.isLoggedIn()) {
       const follower = LoginStore.getUser();
-      const followed = this.props.user;
+      const followedID = this.props.followedID;
 
-      FollowStore.fetchIsFollowing(follower._id, followed._id);
+      FollowStore.fetchIsFollowing(follower._id, followedID);
     }
   }
 
@@ -40,7 +41,7 @@ class FollowButton extends React.Component {
   _getState = (props) => {
     return {
       showModal: props.showModal,
-      isFollowing: FollowStore.getIsFollowing(),
+      isFollowing: FollowStore.getIsFollowing(props.followedID),
     };
   }
 
@@ -54,17 +55,17 @@ class FollowButton extends React.Component {
 
   _follow = () => {
     // user cant follow self
-    if (this.props.user._id === LoginStore.getUser()._id) {
+    if (this.props.followedID === LoginStore.getUser()._id) {
       return;
     }
 
     const follower = LoginStore.getUser();
-    const followed = this.props.user;
+    const followedID = this.props.followedID;
 
     if (this.state.isFollowing) {
-      FollowStore.unfollow(follower._id, followed._id);
+      FollowStore.unfollow(follower._id, followedID);
     } else {
-      FollowStore.follow(follower._id, followed._id);
+      FollowStore.follow(follower._id, followedID);
     }
   }
 

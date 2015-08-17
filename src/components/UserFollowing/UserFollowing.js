@@ -31,7 +31,7 @@ class UserFollowing extends React.Component {
       <div className="user-following">
         <div className="row">
           <div className="col-xs-12">
-            <FollowingList following={this.state.following} />
+            <FollowingList user={this.props.user} following={this.state.following} />
           </div>
         </div>
       </div>

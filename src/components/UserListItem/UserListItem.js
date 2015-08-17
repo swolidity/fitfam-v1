@@ -26,7 +26,7 @@ class FollowListItem extends React.Component {
         <div className="col-xs-2">
           <div className="user-list-item__follow-btn">
             <div className="v-align">
-              <FollowButton />
+              <FollowButton followedID={this.props.user._id} />
             </div>
           </div>
         </div>
