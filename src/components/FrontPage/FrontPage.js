@@ -1,5 +1,6 @@
 import React from 'react';
 import FrontPageStore from '../../stores/FrontPageStore';
+import PostList from '../PostList/PostList';
 
 class FrontPage extends React.Component {
   constructor(props) {
@@ -24,8 +25,7 @@ class FrontPage extends React.Component {
     return (
       <div className="front-page">
         <div className="col-xs-10 col-xs-offset-1">
-          <h2>Hey FITFAM!</h2>
-          {this.state.posts}
+          <PostList posts={this.state.posts} />
         </div>
       </div>
     );

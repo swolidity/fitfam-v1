@@ -7,7 +7,8 @@ const router = new Router();
 router.get('/', (req, res, next) => {
   Post
     .find({})
-    .populate('_photo _video _song')
+    .sort({date: 'desc'})
+    .populate('_user _photo _video _song')
     .exec((err, posts) => {
       if (err) return next(err);
 
