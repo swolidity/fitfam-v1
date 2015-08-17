@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import authenticateToken from './middleware/authenticate-token';
+import Post from './models/post';
 import Photo from './models/photo';
 
 const router = new Router();
@@ -21,6 +22,15 @@ router.post('/', authenticateToken, (req, res, next) => {
 
     photo._user = user;
     res.send(photo);
+  });
+
+  const post = new Post({
+    _user: user._id,
+    _photo: photo._id,
+  });
+
+  post.save((err) => {
+    if (err) return next(err);
   });
 });
 

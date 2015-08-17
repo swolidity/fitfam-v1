@@ -2,6 +2,7 @@ import { Router } from 'express';
 import authenticateToken from './middleware/authenticate-token';
 import Youtube from 'youtube-api';
 import getYouTubeId from 'get-youtube-id';
+import Post from './models/post';
 import Song from './models/song';
 
 const router = new Router();
@@ -12,6 +13,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
   const youtubeURL = req.body.url;
   const youtubeId = getYouTubeId(youtubeURL);
   const tags = req.body.tags.split(' ');
+  tags.shift() // remove first empty element
 
   Youtube.authenticate({
     type: 'key',
@@ -41,6 +43,15 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
 
       song._user = user;
       res.send(song);
+    });
+
+    const post = new Post({
+      _user: user._id,
+      _song: song._id,
+    });
+
+    post.save((err) => {
+      if (err) return next(err);
     });
   });
 });
