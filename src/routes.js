@@ -3,6 +3,9 @@ import React from 'react';
 
 import App from './components/App/App';
 import FrontPage from './components/FrontPage/FrontPage';
+import Photos from './components/Photos/Photos';
+import Videos from './components/Videos/Videos';
+import Songs from './components/Songs/Songs';
 import About from './components/About/About';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
@@ -17,6 +20,9 @@ import UserFollowing from './components/UserFollowing/UserFollowing';
 export default (
   <Route handler={App} path="/">
     <DefaultRoute name="front-page" handler={FrontPage} />
+    <Route name="photos" handler={Photos} path="/photos" />
+    <Route name="videos" handler={Videos} path="/videos" />
+    <Route name="songs" handler={Songs} path="/songs" />
     <Route name="about" handler={About} path="/about" />
 
     <Route handler={Login} name="login" path="/login" />
