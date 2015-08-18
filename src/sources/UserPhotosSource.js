@@ -21,11 +21,11 @@ const UserPhotosSource = {
   },
 
   addPhoto: {
-    remote(state, url, caption) {
+    remote(state, photo) {
       const token = LoginStore.getToken();
       return http.post('/api/photos/', {
-        url: url,
-        caption: caption,
+        url: photo.url,
+        caption: photo.caption,
       },
       {
         headers: { 'Authorization': 'JWT ' + token },

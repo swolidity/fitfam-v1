@@ -34,6 +34,11 @@ class PostList extends React.Component {
   }
 
   _getPostListItem = (post) => {
+    if (post._photo) {
+      post._photo._user = post._user; // tack the populated user object on
+      return <PhotoListItem key={post._id} photo={post._photo} />;
+    }
+
     if (post._video) {
       post._video._user = post._user; // tack the populated user object on
       return <VideoListItem key={post._id} video={post._video} youtube={this.state.youtube} />;

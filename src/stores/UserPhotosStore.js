@@ -20,7 +20,7 @@ class UserPhotosStore {
   }
 
   onAddPhoto(photo) {
-    this.photo.unshift(photo);
+    this.photos.unshift(photo);
   }
 
   onAddPhotoFailed(err) {
