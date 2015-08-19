@@ -2,6 +2,8 @@ import React from 'react';
 import FrontPageStore from '../../stores/FrontPageStore';
 import PostList from '../PostList/PostList';
 
+require('./FrontPage.scss');
+
 class FrontPage extends React.Component {
   constructor(props) {
     super(props);

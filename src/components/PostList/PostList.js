@@ -54,9 +54,9 @@ class PostList extends React.Component {
     const postListItems = this.props.posts.map(this._getPostListItem);
 
     return (
-      <ul className="post-list">
+      <div className="post-list">
         {postListItems}
-      </ul>
+      </div>
     );
   }
 }

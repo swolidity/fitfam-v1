@@ -19,9 +19,9 @@ class VideoList extends React.Component {
     const videoListItems = this.props.videos.map(this._getVideoListItem);
 
     return (
-      <ul className="video-list">
+      <div className="video-list">
         {videoListItems}
-      </ul>
+      </div>
     );
   }
 }

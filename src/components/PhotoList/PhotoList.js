@@ -18,9 +18,9 @@ class PhotoList extends React.Component {
     const photoListItems = this.props.photos.map(this._getPhotoListItem);
 
     return (
-      <ul className="photo-list">
+      <div className="photo-list">
         {photoListItems}
-      </ul>
+      </div>
     );
   }
 }

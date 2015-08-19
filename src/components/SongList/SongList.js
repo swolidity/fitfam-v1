@@ -19,9 +19,9 @@ class SongList extends React.Component {
     const songListItems = this.props.songs.map(this._getSongListItem);
 
     return (
-      <ul className="song-list">
+      <div className="song-list">
         {songListItems}
-      </ul>
+      </div>
     );
   }
 }

@@ -1,19 +1,26 @@
 .video-list-item {
-  padding: 15px 0;
-  background: #fff;
+  margin-bottom: 15px;
 
-  &:hover {
-    background: #f8f8f8;
+  &__col {
+    padding: 15px;
+    background: #fff;
+  }
+
+  &__top {
+    padding-bottom: 15px;
+    .user-photo {
+      margin-right: 7px;
+    }
+  }
+
+  &__thumbnail {
+    margin-bottom: 15px;
   }
 
   &--title {
     margin-bottom: 5px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-  }
-
-  .user-photo {
-    margin-right: 7px;
   }
 
   .yt-thumb {

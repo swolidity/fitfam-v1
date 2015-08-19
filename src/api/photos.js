@@ -5,6 +5,19 @@ import Photo from './models/photo';
 
 const router = new Router();
 
+// get: /api/photos
+router.get('/', (req, res, next) => {
+  Photo
+    .find({})
+    .sort({date: 'desc'})
+    .populate('_user')
+    .exec((err, photos) => {
+      if (err) return next(err);
+
+      res.send(photos);
+    });
+});
+
 // post: /api/photos
 router.post('/', authenticateToken, (req, res, next) => {
   const user = req.user;

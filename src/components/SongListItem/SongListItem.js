@@ -64,27 +64,33 @@ class SongListItem extends React.Component {
   }
 
   render() {
-    const thumbnail = this.song.thumbnails.medium;
+    const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <li className="song-list-item row">
-        <div className="song-list-item--thumbnail col-xs-3">
-          <div className="yt-thumb embed-responsive embed-responsive-16by9">
-            <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
-            <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
-              {this._getIcon()}
-            </div>
-          </div>
-        </div>
-        <div className="col-xs-9">
-          <div className="song-list-item--title">{this.song.title}</div>
-          <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
-          <div>
-            <ProfilePhoto height="25" className="user-photo img-circle" user={this.song._user} />
+      <div className="song-list-item row">
+        <div className="song-list-item__col col-xs-12 col-sm-6">
+
+          <div className="song-list-item__top">
+            <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
             Added {moment(this.song.date).fromNow()}
           </div>
+
+          <div className="song-list-item__thumbnail">
+            <div className="yt-thumb embed-responsive embed-responsive-16by9">
+              <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
+              <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
+                {this._getIcon()}
+              </div>
+            </div>
+          </div>
+
+          <div className="song-list-item__info">
+            <div className="song-list-item--title">{this.song.title}</div>
+            <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
+          </div>
+
         </div>
-      </li>
+      </div>
     );
   }
 }

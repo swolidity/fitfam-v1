@@ -1,14 +1,19 @@
 .photo-list-item {
-  padding: 15px 0;
-  background: #fff;
+  margin-bottom: 15px;
 
-  &:hover {
-    background: #f8f8f8;
+  &__col {
+    padding: 15px;
+    background: #fff;
   }
 
-  &--info {
+  &__info {
+    padding-bottom: 15px;
     .user-photo {
       margin-right: 7px;
     }
+  }
+
+  &__photo {
+    margin-bottom: 15px;
   }
 }
