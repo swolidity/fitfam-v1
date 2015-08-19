@@ -1,6 +1,5 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
-import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import LoginStore from '../../stores/LoginStore';
 import VideoList from '../VideoList/VideoList';
 import AddVideoModal from '../AddVideoModal/AddVideoModal';
@@ -19,21 +18,18 @@ class UserVideos extends React.Component {
 
   componentDidMount() {
     UserVideosStore.listen(this._onChange);
-    YouTubePlayerStore.listen(this._onChange);
     LoginStore.listen(this._onChange);
     UserVideosStore.fetchVideos(this.user._id);
   }
 
   componentWillUnmount() {
     UserVideosStore.unlisten(this._onChange);
-    YouTubePlayerStore.unlisten(this._onChange);
     LoginStore.unlisten(this._onChange);
   }
 
   _getStateFromStores = () => {
     return {
       videos: UserVideosStore.getVideos(),
-      youtube: YouTubePlayerStore.getState(),
     };
   }
 
@@ -66,10 +62,7 @@ class UserVideos extends React.Component {
 
           <div className="row">
             <div className="col-xs-12">
-              <VideoList
-                videos={this.state.videos}
-                youtube={this.state.youtube}
-              />
+              <VideoList videos={this.state.videos} />
             </div>
           </div>
 

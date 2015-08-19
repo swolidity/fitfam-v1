@@ -1,16 +1,35 @@
 import React from 'react';
+import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import VideoListItem from '../VideoListItem/VideoListItem';
 
 require('./VideoList.scss');
 
 class VideoList extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = { youtube: YouTubePlayerStore.getState() };
+  }
+
+  componentDidMount() {
+    YouTubePlayerStore.listen(this._onChange);
+  }
+
+  componentWillUnmount() {
+    YouTubePlayerStore.unlisten(this._onChange);
+  }
+
+  _onChange = (state) => {
+    this.setState({ youtube: state });
+  }
+
   _getVideoListItem = (video) => {
     return (
       <VideoListItem
         key={video._id}
         video={video}
-        youtube={this.props.youtube}
+        youtube={this.state.youtube}
       />
     );
   }
@@ -28,7 +47,6 @@ class VideoList extends React.Component {
 
 VideoList.propTypes = {
   videos: React.PropTypes.array,
-  youtube: React.PropTypes.object,
 };
 
 module.exports = VideoList;
