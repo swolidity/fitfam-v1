@@ -7,6 +7,19 @@ import Video from './models/video';
 
 const router = new Router();
 
+// get: /api/videos
+router.get('/', (req, res, next) => {
+  Video
+    .find({})
+    .sort({date: 'desc'})
+    .populate('_user')
+    .exec((err, videos) => {
+      if (err) return next(err);
+
+      res.send(videos);
+    });
+});
+
 // post: /api/videos/youtube
 router.post('/youtube', authenticateToken, (req, res, next) => {
   const user = req.user;
