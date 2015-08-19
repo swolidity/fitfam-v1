@@ -20,7 +20,7 @@ class UserProfileNav extends React.Component {
       <div className="user-profile-nav row">
         <div className="col-xs-10">
           <Nav bsStyle="pills">
-            <NavItemLink active={this._isActive('user-info')} to="user-profile" params={{username: this.props.user.username}}>
+            <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
               Profile
             </NavItemLink>
             <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
