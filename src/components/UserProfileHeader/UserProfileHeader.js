@@ -88,32 +88,25 @@ class UserProfileHeader extends React.Component {
 
   render() {
     return (
-      <div className="user-profile-header">
-        <div className="row">
+      <div className="user-profile-header row">
+        <div className="col-xs-12">
 
-          <div className="col-xs-10 col-xs-offset-1">
-            <div className="row">
-
-              <div className="col-xs-10">
-                <div className="profile-photo">
-                  <a href="#">
-                    <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-                  </a>
-                  <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-                    {this._getIcon()}
-                  </div>
-                </div>
-
-                <div className="username-bio">
-                  <div className="v-align">
-                    <div className="username">{this.props.user.username}</div>
-                    <div className="bio">{this.props.user.bio}</div>
-                  </div>
-                </div>
-              </div>
-
+          <div className="profile-photo">
+            <a href="#">
+              <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
+            </a>
+            <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
+              {this._getIcon()}
             </div>
           </div>
+
+          <div className="username-bio">
+            <div className="v-align">
+              <div className="username">{this.props.user.username}</div>
+              <div className="bio">{this.props.user.bio}</div>
+            </div>
+          </div>
+
         </div>
       </div>
     );

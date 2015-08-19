@@ -81,11 +81,11 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <div className="UserProfile" ref="userProfile">
-        <UserProfileHeader user={this.state.user} />
-        <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
-
+      <div className="UserProfile row" ref="userProfile">
         <div className="col-xs-10 col-xs-offset-1">
+          <UserProfileHeader user={this.state.user} />
+          <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
+
           <RouteHandler user={this.state.user} />
         </div>
       </div>

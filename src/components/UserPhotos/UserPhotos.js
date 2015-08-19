@@ -37,15 +37,13 @@ class UserPhotos extends React.Component {
 
     return (
       <div className="user-photos">
-        <div className="user-photos--header row clearfix">
+        <div className="user-photos--header row">
           {addPhoto}
         </div>
 
-        <div className="row">
-          <div className="col-xs-12">
-            <PhotoList photos={this.state.photos} />
-          </div>
-        </div>
+
+        <PhotoList photos={this.state.photos} />
+
       </div>
     );
   }

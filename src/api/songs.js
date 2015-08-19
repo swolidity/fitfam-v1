@@ -13,7 +13,6 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
   const youtubeURL = req.body.url;
   const youtubeId = getYouTubeId(youtubeURL);
   const tags = req.body.tags.split(' ');
-  tags.shift() // remove first empty element
 
   Youtube.authenticate({
     type: 'key',
