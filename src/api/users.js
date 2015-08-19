@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import User from './models/user';
+import Post from './models/post';
 import Photo from './models/photo';
 import Video from './models/video';
 import Song from './models/song';
@@ -42,6 +43,22 @@ router.get('/:username', (req, res, next) => {
 router.post('/edit', authenticateToken, (req, res, next) => {
   res.send({ username: req.user.username });
 });
+
+// get: /api/users/:id/posts
+router.get('/:id/posts', (req, res, next) => {
+  const userID = req.params.id;
+
+  Post
+    .find({_user: userID})
+    .sort({date: 'desc'})
+    .populate('_user _photo _video _song')
+    .exec((err, posts) => {
+      if (err) return next(err);
+
+      res.send(posts);
+    });
+});
+
 
 // get: /api/users/:id/videos
 router.get('/:id/videos', (req, res, next) => {
