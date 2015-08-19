@@ -19,14 +19,15 @@
   }
 
   &.navbar-default .navbar-nav > li > a {
-    color: #000;
+    color: #A2ADB5;
+    font-weight: 600;
   }
 
   &.navbar-default .navbar-nav > .active > a,
   &.navbar-default .navbar-nav > .active > a:hover,
   &.navbar-default .navbar-nav > .active > a:focus {
     background: none;
-    color: #000;
+    color: #408bff;
   }
 
   .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
