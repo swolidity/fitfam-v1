@@ -1,8 +1,8 @@
 import alt from '../alt';
 
 class PhotosActions {
-  fetchPhotosSuccess(posts) {
-    this.dispatch(posts);
+  fetchPhotosSuccess(photos) {
+    this.dispatch(photos);
   }
 
   fetchPhotosFailed(err) {

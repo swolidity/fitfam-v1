@@ -5,6 +5,7 @@ import PhotosSource from '../sources/PhotosSource';
 class PhotosStore {
   constructor() {
     this.photos = [];
+    this.err = null;
 
     this.bindActions(PhotosActions);
     this.exportAsync(PhotosSource);

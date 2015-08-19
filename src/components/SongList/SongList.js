@@ -1,16 +1,35 @@
 import React from 'react';
+import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import SongListItem from '../SongListItem/SongListItem';
 
 require('./SongList.scss');
 
 class SongList extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = { youtube: YouTubePlayerStore.getState() };
+  }
+
+  componentDidMount() {
+    YouTubePlayerStore.listen(this._onChange);
+  }
+
+  componentWillUnmount() {
+    YouTubePlayerStore.unlisten(this._onChange);
+  }
+
+  _onChange = (state) => {
+    this.setState({ youtube: state });
+  }
+
   _getSongListItem = (song) => {
     return (
       <SongListItem
         key={song._id}
         song={song}
-        youtube={this.props.youtube}
+        youtube={this.state.youtube}
       />
     );
   }

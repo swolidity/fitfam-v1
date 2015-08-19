@@ -1,7 +1,6 @@
 import React from 'react';
 import UserSongsStore from '../../stores/UserSongsStore';
 import LoginStore from '../../stores/LoginStore';
-import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import SongList from '../SongList/SongList';
 import AddSongModal from '../AddSongModal/AddSongModal';
 import { Input } from 'react-bootstrap';
@@ -19,7 +18,6 @@ class UserSongs extends React.Component {
 
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
-    YouTubePlayerStore.listen(this._onChange);
     LoginStore.listen(this._onChange);
 
     UserSongsStore.fetchSongs(this.props.user._id);
@@ -27,14 +25,12 @@ class UserSongs extends React.Component {
 
   componentWillUnmount() {
     UserSongsStore.unlisten(this._onChange);
-    YouTubePlayerStore.unlisten(this._onChange);
     LoginStore.unlisten(this._onChange);
   }
 
   _getStateFromStores = () => {
     return {
       songs: UserSongsStore.getSongs(),
-      youtube: YouTubePlayerStore.getState(),
     };
   }
 
@@ -68,10 +64,7 @@ class UserSongs extends React.Component {
 
           <div className="row">
             <div className="col-xs-12">
-              <SongList
-                songs={this.state.songs}
-                youtube={this.state.youtube}
-              />
+              <SongList songs={this.state.songs} />
             </div>
           </div>
       </div>

@@ -7,6 +7,19 @@ import Song from './models/song';
 
 const router = new Router();
 
+// get: /api/songs
+router.get('/', (req, res, next) => {
+  Song
+    .find({})
+    .sort({date: 'desc'})
+    .populate('_user')
+    .exec((err, songs) => {
+      if (err) return next(err);
+
+      res.send(songs);
+    });
+});
+
 // post: /api/songs/youtube
 router.post('/youtube', authenticateToken, (req, res, next) => {
   const user = req.user;
