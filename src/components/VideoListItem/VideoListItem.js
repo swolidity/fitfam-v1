@@ -72,7 +72,7 @@ class VideoListItem extends React.Component {
 
           <div className="video-list-item__top">
             <ProfilePhoto height="40" className="user-photo img-circle" user={this.video._user} />
-            Added {moment(this.video.date).fromNow()}
+            <span className="video-list-item__username">{this.video._user.username}</span> {moment(this.video.date).fromNow()}
           </div>
 
           <div className="video-list-item__thumbnail">

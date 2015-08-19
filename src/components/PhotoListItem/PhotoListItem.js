@@ -13,7 +13,7 @@ class PhotoListItem extends React.Component {
 
           <div className="photo-list-item__info">
             <ProfilePhoto height="40" className="user-photo img-circle" user={this.props.photo._user} />
-            Added {moment(this.props.photo.date).fromNow()}
+            <span className="photo-list-item__username">{this.props.photo._user.username}</span> {moment(this.props.photo.date).fromNow()}
           </div>
 
           <div className="photo-list-item__photo">

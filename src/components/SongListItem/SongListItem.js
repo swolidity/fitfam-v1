@@ -72,7 +72,7 @@ class SongListItem extends React.Component {
 
           <div className="song-list-item__top">
             <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
-            Added {moment(this.song.date).fromNow()}
+            <span className="song-list-item__username">{this.song._user.username}</span> {moment(this.song.date).fromNow()}
           </div>
 
           <div className="song-list-item__thumbnail">
