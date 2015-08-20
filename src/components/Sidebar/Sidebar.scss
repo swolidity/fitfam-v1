@@ -1,4 +1,13 @@
 #sidebar-wrapper {
   height: 100%;
   background: #fff;
+  position: fixed;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  #sidebar-wrapper {
+    height: auto;
+    position: relative;
+  }
 }
