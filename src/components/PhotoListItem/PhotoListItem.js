@@ -22,9 +22,7 @@ class PhotoListItem extends React.Component {
             </div>
 
             <div className="photo-list-item__caption">
-              <p>
-                {this.props.photo.caption}
-              </p>
+              {this.props.photo.caption}
             </div>
 
           </div>
