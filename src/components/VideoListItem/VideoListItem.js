@@ -3,6 +3,7 @@ import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 import TagItem from '../TagItem/TagItem';
+import { Link } from 'react-router';
 
 require('./VideoListItem.scss');
 
@@ -73,7 +74,7 @@ class VideoListItem extends React.Component {
 
             <div className="video-list-item__top">
               <ProfilePhoto height="40" className="user-photo img-circle" user={this.video._user} />
-              <span className="video-list-item__username">{this.video._user.username}</span> {moment(this.video.date).fromNow()}
+              <Link to="user-profile" params={{ username: this.video._user.username}} className="video-list-item__username">{this.video._user.username}</Link> {moment(this.video.date).fromNow()}
             </div>
 
             <div className="video-list-item__thumbnail">

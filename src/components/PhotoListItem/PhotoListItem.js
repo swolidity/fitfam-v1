@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import moment from 'moment';
+import { Link } from 'react-router';
 
 require('./PhotoListItem.scss');
 
@@ -14,7 +15,7 @@ class PhotoListItem extends React.Component {
 
             <div className="photo-list-item__info">
               <ProfilePhoto height="40" className="user-photo img-circle" user={this.props.photo._user} />
-              <span className="photo-list-item__username">{this.props.photo._user.username}</span> {moment(this.props.photo.date).fromNow()}
+              <Link to="user-profile" params={{ username: this.props.photo._user.username }} className="photo-list-item__username">{this.props.photo._user.username}</Link> {moment(this.props.photo.date).fromNow()}
             </div>
 
             <div className="photo-list-item__photo">

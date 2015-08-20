@@ -3,6 +3,7 @@ import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import moment from 'moment';
+import { Link } from 'react-router';
 
 require('./YouTubePlayer.scss');
 
@@ -72,7 +73,7 @@ class YouTubePlayer extends React.Component {
 
           <div className="yt-player--added-by">
             <ProfilePhoto height="35" className="user-photo img-circle" user={this.state.playing._user} />
-            <div className="username">{this.state.playing._user.username}</div>
+            <Link to="user-profile" params={{ username: this.state.playing._user.username }} className="username">{this.state.playing._user.username}</Link>
             {moment(this.state.playing.date).fromNow()}
 
           </div>

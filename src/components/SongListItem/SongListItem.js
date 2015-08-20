@@ -3,6 +3,7 @@ import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 import TagItem from '../TagItem/TagItem';
+import { Link } from 'react-router';
 
 require('./SongListItem.scss');
 
@@ -73,7 +74,7 @@ class SongListItem extends React.Component {
 
             <div className="song-list-item__top">
               <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
-              <span className="song-list-item__username">{this.song._user.username}</span> {moment(this.song.date).fromNow()}
+              <Link to="user-profile" params={{ username: this.song._user.username }} className="song-list-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
             </div>
 
             <div className="song-list-item__thumbnail">
