@@ -89,7 +89,7 @@ class UserProfile extends React.Component {
             <UserFollowFaces user={this.state.user} />
           </div>
 
-          <div className="col-xs-12 col-sm-6">
+          <div className="col-xs-12 col-sm-7">
             <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
             <RouteHandler user={this.state.user} />
           </div>
