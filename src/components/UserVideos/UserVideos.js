@@ -51,12 +51,16 @@ class UserVideos extends React.Component {
     return (
       <div className="user-videos">
 
-          <div className="user-videos--header row">
-            <div className="filter col-xs-4">
-              <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
-            </div>
+          <div className="user-videos--header">
+            <div className="row">
+              <div className="filter col-xs-8">
+                <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
+              </div>
 
-            {addVideo}
+              <div className="col-xs-4">
+                {addVideo}
+              </div>
+            </div>
           </div>
 
 

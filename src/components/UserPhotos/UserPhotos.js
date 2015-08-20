@@ -32,16 +32,16 @@ class UserPhotos extends React.Component {
     let addPhoto;
 
     if (LoginStore.isLoggedIn()) {
-      addPhoto = <AddPhotoModal showModal={false} />;
+      addPhoto = (
+        <div className="user-photos--header clearfix">
+            <AddPhotoModal showModal={false} />
+        </div>
+      );
     }
 
     return (
       <div className="user-photos">
-        <div className="user-photos--header row">
-          {addPhoto}
-        </div>
-
-
+        {addPhoto}
         <PhotoList photos={this.state.photos} />
 
       </div>

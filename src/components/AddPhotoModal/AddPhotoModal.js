@@ -66,7 +66,7 @@ class AddPhotoModal extends React.Component {
 
     return (
       <div>
-        <ButtonInput type="submit" bsStyle="default" value="Add Photo" onClick={this._show} className="btn-block" wrapperClassName="add-photo-wrapper col-xs-2 pull-right" standalone />
+        <ButtonInput type="submit" bsStyle="default" value="Add Photo" onClick={this._show} className="btn-block" wrapperClassName="add-photo-wrapper" standalone />
         {modal}
       </div>
     );

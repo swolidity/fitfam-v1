@@ -66,7 +66,7 @@ class AddSongModal extends React.Component {
 
     return (
       <div>
-        <ButtonInput type="submit" bsStyle="default" value="Add Song" onClick={this._show} className="btn-block" wrapperClassName="add-song-wrapper col-xs-2 pull-right" standalone />
+        <ButtonInput type="submit" bsStyle="default" value="Add Song" onClick={this._show} className="btn-block" wrapperClassName="add-song-wrapper" standalone />
         {modal}
       </div>
     );
