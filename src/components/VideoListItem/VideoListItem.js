@@ -67,26 +67,28 @@ class VideoListItem extends React.Component {
     const thumbnail = this.video.thumbnails.medium;
 
     return (
-      <div className="video-list-item row">
-        <div className="video-list-item__col col-xs-12 col-sm-6">
+      <div className="video-list-item">
+        <div className="row">
+          <div className="video-list-item__col col-xs-12">
 
-          <div className="video-list-item__top">
-            <ProfilePhoto height="40" className="user-photo img-circle" user={this.video._user} />
-            <span className="video-list-item__username">{this.video._user.username}</span> {moment(this.video.date).fromNow()}
-          </div>
+            <div className="video-list-item__top">
+              <ProfilePhoto height="40" className="user-photo img-circle" user={this.video._user} />
+              <span className="video-list-item__username">{this.video._user.username}</span> {moment(this.video.date).fromNow()}
+            </div>
 
-          <div className="video-list-item__thumbnail">
-            <div className="yt-thumb embed-responsive embed-responsive-16by9">
-              <img className="embed-responsive-item" src={thumbnail.url} alt={this.video.title} />
-              <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
-                {this._getIcon()}
+            <div className="video-list-item__thumbnail">
+              <div className="yt-thumb embed-responsive embed-responsive-16by9">
+                <img className="embed-responsive-item" src={thumbnail.url} alt={this.video.title} />
+                <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
+                  {this._getIcon()}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="video-list-item__info">
-            <div className="video-list-item--title">{this.video.title}</div>
-            <div className="tag-list">{this.video.tags.map(this._getTagItem)}</div>
+            <div className="video-list-item__info">
+              <div className="video-list-item--title">{this.video.title}</div>
+              <div className="tag-list">{this.video.tags.map(this._getTagItem)}</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,11 @@
 .Navbar {
-  background: #fff;
-  border-bottom: 1px solid #f8f8f8;
+  background: #0D6CFF;
   border-radius: 0;
   margin-bottom: 0;
+
+  &.navbar-default {
+    border: none;
+  }
 
   .profileDropdown .dropdown-toggle {
     padding: 7px 15px;
@@ -11,15 +14,16 @@
     padding: 12.5px 15px;
     font-size: 25px;
     font-weight: bold;
-    color: #0D6CFF;
+    color: #fff;
 
     &:hover {
-      color: #0D6CFF;
+      color: #fff;
     }
   }
 
   &.navbar-default .navbar-nav > li > a {
-    color: #A2ADB5;
+    color: darken(#0D6CFF, 15%);
+    font-weight: 700;
     text-transform: uppercase;
   }
 
@@ -27,7 +31,7 @@
   &.navbar-default .navbar-nav > .active > a:hover,
   &.navbar-default .navbar-nav > .active > a:focus {
     background: none;
-    color: #408bff;
+    color: #fff;
   }
 
   .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {

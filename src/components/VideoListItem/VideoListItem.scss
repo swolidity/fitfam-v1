@@ -1,11 +1,9 @@
 .video-list-item {
   margin-bottom: 15px;
-
-  &__col {
-    padding: 15px;
-    background: #fff;
-    box-shadow: 0 0 2px #ccc;
-  }
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 0 2px #ccc;
+  border-radius: 2px;
 
   &__top {
     padding-bottom: 15px;

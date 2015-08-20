@@ -6,6 +6,7 @@ require('./UserPosts.scss');
 
 class UserPosts extends React.Component {
   static propTypes = { user: React.PropTypes.object.isRequired };
+
   constructor(props) {
     super(props);
 

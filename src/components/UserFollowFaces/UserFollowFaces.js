@@ -47,12 +47,14 @@ class UserFollowFaces extends React.Component {
   render() {
     return (
       <div className="user-follow-faces">
-        <div className="user-follow-faces__followers row">
-          <div className="col-xs-12">
-            <h5>Followers <span className="count">{this.state.followers.length}</span></h5>
-            <ul className="follow-faces-list">
-              {this._getFollowerFaces()}
-            </ul>
+        <div className="user-follow-faces__followers">
+          <div className="row">
+            <div className="col-xs-12">
+              <h5>Followers <span className="count">{this.state.followers.length}</span></h5>
+              <ul className="follow-faces-list">
+                {this._getFollowerFaces()}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

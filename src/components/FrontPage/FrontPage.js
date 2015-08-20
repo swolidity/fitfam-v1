@@ -26,8 +26,10 @@ class FrontPage extends React.Component {
   render() {
     return (
       <div className="front-page">
-        <div className="col-xs-10 col-xs-offset-1">
-          <PostList posts={this.state.posts} />
+        <div className="row">
+          <div className="col-xs-6">
+            <PostList posts={this.state.posts} />
+          </div>
         </div>
       </div>
     );

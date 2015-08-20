@@ -1,15 +1,13 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
-import UserProfileNav from '../UserProfileNav/UserProfileNav';
-import { ButtonInput } from 'react-bootstrap';
+import FollowButton from '../FollowButton/FollowButton';
 
 require('./UserProfileHeader.scss');
 
 class UserProfileHeader extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-    activeTab: React.PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -92,8 +90,8 @@ class UserProfileHeader extends React.Component {
 
   render() {
     return (
-      <div className="user-profile-header row">
-        <div className="user-profile-header__user-info col-xs-12">
+      <div className="user-profile-header">
+        <div className="user-profile-header__user-info clearfix">
 
           <div className="profile-photo">
             <a href="#">
@@ -105,15 +103,14 @@ class UserProfileHeader extends React.Component {
           </div>
 
           <div className="username-bio">
-            <div className="v-align">
               <div className="username">{this.props.user.username}</div>
               <div className="bio">{this.props.user.bio}</div>
-            </div>
           </div>
-
         </div>
 
-        <UserProfileNav user={this.props.user} activeTab={this.props.activeTab} />
+
+        <FollowButton followedID={this.props.user._id} bsStyle="primary" />
+
       </div>
     );
   }

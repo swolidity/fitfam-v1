@@ -8,6 +8,7 @@ import UserFollowingStore from '../../stores/UserFollowingStore';
 import { RouteHandler } from 'react-router';
 import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
 import UserProfileNav from '../UserProfileNav/UserProfileNav';
+import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 
 
 require('./UserProfile.scss');
@@ -81,11 +82,17 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <div className="UserProfile row" ref="userProfile">
-        <div className="col-xs-10 col-xs-offset-1">
-          <UserProfileHeader user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)}/>
+      <div className="UserProfile" ref="userProfile">
+        <div className="row">
+          <div className="col-xs-12 col-sm-5">
+            <UserProfileHeader user={this.state.user} />
+            <UserFollowFaces user={this.state.user} />
+          </div>
 
-          <RouteHandler user={this.state.user} />
+          <div className="col-xs-12 col-sm-6">
+            <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
+            <RouteHandler user={this.state.user} />
+          </div>
         </div>
       </div>
     );

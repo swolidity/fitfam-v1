@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
-import FollowButton from '../FollowButton/FollowButton';
 
 require('./UserProfileNav.scss');
 
@@ -17,9 +16,9 @@ class UserProfileNav extends React.Component {
 
   render() {
     return (
-      <div className="col-xs-12 user-profile-nav">
+      <div className="user-profile-nav">
         <div className="row">
-          <div className="col-xs-10">
+          <div className="col-xs-12">
             <Nav bsStyle="pills">
               <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
                 Profile
@@ -33,17 +32,7 @@ class UserProfileNav extends React.Component {
               <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
                 Songs
               </NavItemLink>
-              <NavItemLink active={this._isActive('user-followers')} to="user-followers" params={{username: this.props.user.username}}>
-                Followers
-              </NavItemLink>
-              <NavItemLink active={this._isActive('user-following')} to="user-following" params={{username: this.props.user.username}}>
-                Following
-              </NavItemLink>
             </Nav>
-          </div>
-
-          <div className="col-xs-2">
-            <FollowButton followedID={this.props.user._id} bsStyle="primary" />
           </div>
         </div>
       </div>

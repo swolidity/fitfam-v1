@@ -67,28 +67,30 @@ class SongListItem extends React.Component {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <div className="song-list-item row">
-        <div className="song-list-item__col col-xs-12 col-sm-6">
+      <div className="song-list-item">
+        <div className="row">
+          <div className="song-list-item__col col-xs-12">
 
-          <div className="song-list-item__top">
-            <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
-            <span className="song-list-item__username">{this.song._user.username}</span> {moment(this.song.date).fromNow()}
-          </div>
+            <div className="song-list-item__top">
+              <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
+              <span className="song-list-item__username">{this.song._user.username}</span> {moment(this.song.date).fromNow()}
+            </div>
 
-          <div className="song-list-item__thumbnail">
-            <div className="yt-thumb embed-responsive embed-responsive-16by9">
-              <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
-              <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
-                {this._getIcon()}
+            <div className="song-list-item__thumbnail">
+              <div className="yt-thumb embed-responsive embed-responsive-16by9">
+                <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
+                <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
+                  {this._getIcon()}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="song-list-item__info">
-            <div className="song-list-item--title">{this.song.title}</div>
-            <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
-          </div>
+            <div className="song-list-item__info">
+              <div className="song-list-item--title">{this.song.title}</div>
+              <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
+            </div>
 
+          </div>
         </div>
       </div>
     );

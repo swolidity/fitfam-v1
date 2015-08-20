@@ -26,15 +26,17 @@ class App extends React.Component {
   }
 
   render() {
-    let mainContentClassNames = 'col-xs-12';
+    let mainContentClassNames = 'col-xs-10 col-xs-offset-1';
     let sidebar;
 
     if (this.state.sidebar) {
       mainContentClassNames = 'col-xs-9';
 
       sidebar = (
-        <div id="sidebar-wrapper" className="col-xs-3 col-xs-offset-9 fixed">
-          <Sidebar />
+        <div className="no-gutter">
+          <div id="sidebar-wrapper" className="col-xs-3 col-xs-offset-9 fixed">
+            <Sidebar />
+          </div>
         </div>
       );
     }
@@ -42,10 +44,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        
+
         <div className="app-main">
           <div className="container-fluid">
-            <div className="no-gutter">
 
               {sidebar}
 
@@ -53,7 +54,6 @@ class App extends React.Component {
                 <RouteHandler />
               </div>
 
-            </div>
           </div>
         </div>
 
