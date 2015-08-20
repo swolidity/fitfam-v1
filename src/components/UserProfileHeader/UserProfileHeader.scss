@@ -1,7 +1,13 @@
 .user-profile-header {
   margin-top: 15px;
-  padding: 15px 0;
+  margin-bottom: 15px;
   background: #fff;
+  box-shadow: 0 0 2px #ccc;
+
+  &__user-info {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 
   .profile-photo {
     float: left;

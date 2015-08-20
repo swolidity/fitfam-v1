@@ -1,12 +1,16 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import UserProfileNav from '../UserProfileNav/UserProfileNav';
 import { ButtonInput } from 'react-bootstrap';
 
 require('./UserProfileHeader.scss');
 
 class UserProfileHeader extends React.Component {
-  static propTypes = { user: React.PropTypes.object };
+  static propTypes = {
+    user: React.PropTypes.object.isRequired,
+    activeTab: React.PropTypes.string.isRequired,
+  };
 
   constructor(props) {
     super(props);
@@ -89,7 +93,7 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12">
+        <div className="user-profile-header__user-info col-xs-12">
 
           <div className="profile-photo">
             <a href="#">
@@ -108,6 +112,8 @@ class UserProfileHeader extends React.Component {
           </div>
 
         </div>
+
+        <UserProfileNav user={this.props.user} activeTab={this.props.activeTab} />
       </div>
     );
   }
