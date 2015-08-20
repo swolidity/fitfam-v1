@@ -28,7 +28,7 @@ class Songs extends React.Component {
     return (
       <div className="songs">
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-12 col-md-6">
             <SongList songs={this.state.songs} />
           </div>
         </div>

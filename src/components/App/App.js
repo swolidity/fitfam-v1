@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render() {
-    let mainContentClassNames = 'col-xs-10 col-xs-offset-1';
+    let mainContentClassNames = 'col-xs-12 col-md-10 col-md-offset-1';
     let sidebar;
 
     if (this.state.sidebar) {

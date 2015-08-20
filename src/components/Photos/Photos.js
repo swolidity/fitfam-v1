@@ -28,7 +28,7 @@ class Photos extends React.Component {
     return (
       <div className="photos">
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-12 col-md-6">
             <PhotoList photos={this.state.photos} />
           </div>
         </div>

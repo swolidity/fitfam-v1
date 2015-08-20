@@ -27,7 +27,7 @@ class FrontPage extends React.Component {
     return (
       <div className="front-page">
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-12 col-md-6">
             <PostList posts={this.state.posts} />
           </div>
         </div>
