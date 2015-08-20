@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, NavItem, DropdownButton } from 'react-bootstrap';
+import { Navbar, CollapsibleNav, Nav, NavItem, DropdownButton } from 'react-bootstrap';
 import { NavItemLink, MenuItemLink } from 'react-router-bootstrap';
 import LoginActions from '../../actions/LoginActions';
 import LoginStore from '../../stores/LoginStore';
@@ -67,18 +67,20 @@ class Header extends React.Component {
 
     return (
       <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam-white@2x.png" alt="FITFAM" /></Link>}>
-        <Nav className="main-links" left>
-          <MenuItemLink to="front-page">All</MenuItemLink>
-          <MenuItemLink to="photos">Photos</MenuItemLink>
-          <MenuItemLink to="videos">Videos</MenuItemLink>
-          <MenuItemLink to="songs">Songs</MenuItemLink>
-        </Nav>
+       <CollapsibleNav eventKey={0} >
+          <Nav navbar className="main-links" left>
+            <MenuItemLink to="front-page">All</MenuItemLink>
+            <MenuItemLink to="photos">Photos</MenuItemLink>
+            <MenuItemLink to="videos">Videos</MenuItemLink>
+            <MenuItemLink to="songs">Songs</MenuItemLink>
+          </Nav>
 
-        <Nav eventKey={0} right>
-          {loginNavItem}
-          {signupNavItem}
-          {profileDropdown}
-        </Nav>
+          <Nav navbar right>
+            {loginNavItem}
+            {signupNavItem}
+            {profileDropdown}
+          </Nav>
+        </CollapsibleNav>
       </Navbar>
       );
   }

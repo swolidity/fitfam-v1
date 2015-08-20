@@ -38,4 +38,17 @@
     background: #fff;
     color: #408bff;
   }
+
+  &.navbar-default .navbar-toggle {
+    border-color: #fff;
+    color: #fff;
+  }
+  &.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+
+  &.navbar-default .navbar-collapse,
+  &.navbar-default .navbar-form {
+    border-color: #0D6CFF;
+  }
 }
