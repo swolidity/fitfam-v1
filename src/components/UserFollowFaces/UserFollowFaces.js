@@ -2,6 +2,7 @@ import React from 'react';
 import UserFollowersStore from '../../stores/UserFollowersStore';
 import UserFollowingStore from '../../stores/UserFollowingStore';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
+import { TabbedArea, TabPane } from 'react-bootstrap';
 
 require('./UserFollowFaces.scss');
 
@@ -36,6 +37,14 @@ class UserFollowFaces extends React.Component {
     this.setState(this._getStateFromStores);
   }
 
+  _getFollowingFaces = () => {
+    return this.state.following.map((follow) => {
+      return (
+        <li><ProfilePhoto className="img-circle" width="45" height="45" user={follow._followed} /></li>
+      );
+    });
+  }
+
   _getFollowerFaces = () => {
     return this.state.followers.map((follow) => {
       return (
@@ -47,16 +56,27 @@ class UserFollowFaces extends React.Component {
   render() {
     return (
       <div className="user-follow-faces">
-        <div className="user-follow-faces__followers">
-          <div className="row">
-            <div className="col-xs-12">
-              <h5>Followers <span className="count">{this.state.followers.length}</span></h5>
+
+        <TabbedArea defaultActiveKey={1}>
+          <TabPane eventKey={1} tab={'Following ' + this.state.following.length}>
+            <div className="user-follow-faces__following">
+              <ul className="follow-faces-list">
+                {this._getFollowingFaces()}
+              </ul>
+            </div>
+          </TabPane>
+
+          <TabPane eventKey={2} tab={'Followers ' + this.state.followers.length} >
+            <div className="user-follow-faces__followers">
               <ul className="follow-faces-list">
                 {this._getFollowerFaces()}
               </ul>
             </div>
-          </div>
-        </div>
+          </TabPane>
+
+        </TabbedArea>
+
+
       </div>
     );
   }
