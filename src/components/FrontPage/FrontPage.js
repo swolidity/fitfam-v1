@@ -1,6 +1,7 @@
 import React from 'react';
 import FrontPageStore from '../../stores/FrontPageStore';
 import PostList from '../PostList/PostList';
+import moment from 'moment';
 
 require('./FrontPage.scss');
 
@@ -27,7 +28,18 @@ class FrontPage extends React.Component {
     return (
       <div className="front-page">
         <div className="row">
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-sm-4 col-md-3">
+            <ul>
+              <li>t/Powerlifting</li>
+              <li>t/Bodybuilding</li>
+              <li>t/CrossFit</li>
+            </ul>
+          </div>
+          <div className="col-xs-12 col-sm-7">
+            <div className="top-date">
+              <h3 className="center">Today</h3>
+              <h5 className="center">{moment().format('MMMM Do, YYYY')}</h5>
+            </div>
             <PostList posts={this.state.posts} />
           </div>
         </div>

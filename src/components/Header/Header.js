@@ -69,7 +69,7 @@ class Header extends React.Component {
       <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam-white@2x.png" alt="FITFAM" /></Link>}>
        <CollapsibleNav eventKey={0} >
           <Nav navbar className="main-links" left>
-            <MenuItemLink to="front-page">All</MenuItemLink>
+            <MenuItemLink to="front-page">Top</MenuItemLink>
             <MenuItemLink to="photos">Photos</MenuItemLink>
             <MenuItemLink to="videos">Videos</MenuItemLink>
             <MenuItemLink to="songs">Songs</MenuItemLink>

@@ -9,6 +9,30 @@
   .tab-content {
     padding: 10px 0;
   }
+
+  .nav-tabs {
+    border: none;
+  }
+
+  .nav-tabs > li > a {
+    padding-left: 5px;
+    color: #000;
+    border: none;
+  }
+
+  .nav-tabs > li > a,
+  .nav-tabs > li > a:hover,
+  .nav-tabs > li > a:focus {
+    background: none;
+  }
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    background: none;
+    border: none;
+    color: #408bff;
+  }
 }
 .follow-faces-list {
   list-style: none;
@@ -20,4 +44,5 @@
     margin: 0 8px 5px 0;
     padding: 0;
   }
+
 }
