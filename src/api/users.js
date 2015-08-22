@@ -4,6 +4,7 @@ import Post from './models/post';
 import Photo from './models/photo';
 import Video from './models/video';
 import Song from './models/song';
+import Like from './models/like';
 import authenticateToken from './middleware/authenticate-token';
 
 const router = new Router();
@@ -129,6 +130,26 @@ router.get('/:id/photos', (req, res, next) => {
 
       res.send(photos);
     });
+});
+
+// post: /api/users/:id/liked
+router.post('/:id/liked', (req, res, next) => {
+  const userID = req.params.id;
+  const postID = req.body.post_id;
+
+  Like.count({
+    _user: userID,
+    _post: postID,
+  },
+  (err, count) => {
+    if (err) return next(err);
+
+    if (count > 0) {
+      return res.send(true);
+    }
+
+    return res.send(false);
+  });
 });
 
 module.exports = router;

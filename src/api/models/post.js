@@ -23,6 +23,11 @@ const PostSchema = new mongoose.Schema({
     ref: 'Song',
   },
 
+  likes: {
+    type: Number,
+    'default': 0,
+  },
+
   date: {
     type: Date,
     'default': Date.now,

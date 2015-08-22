@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
+import LikeBox from '../LikeBox/LikeBox';
 import moment from 'moment';
 import { Link } from 'react-router';
 
@@ -24,6 +25,12 @@ class PhotoListItem extends React.Component {
 
             <div className="photo-list-item__caption">
               {this.props.photo.caption}
+
+              <div className="inner-border"></div>
+            </div>
+
+            <div className="photo-list-item__action-box">
+              <LikeBox postID={this.props.postID} likes={this.props.likes} />
             </div>
 
           </div>
@@ -34,7 +41,9 @@ class PhotoListItem extends React.Component {
 }
 
 PhotoListItem.propTypes = {
-  photo: React.PropTypes.object,
+  photo: React.PropTypes.object.isRequired,
+  postID: React.PropTypes.string.isRequired,
+  likes: React.PropTypes.number.isRequired,
 };
 
 module.exports = PhotoListItem;

@@ -11,5 +11,6 @@ router.use('/photos', require('./photos'));
 router.use('/videos', require('./videos'));
 router.use('/songs', require('./songs'));
 router.use('/follows', require('./follows'));
+router.use('/likes', require('./likes'));
 
 module.exports = router;

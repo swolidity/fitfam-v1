@@ -3,6 +3,7 @@ import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 import TagItem from '../TagItem/TagItem';
+import LikeBox from '../LikeBox/LikeBox';
 import { Link } from 'react-router';
 
 require('./VideoListItem.scss');
@@ -89,6 +90,12 @@ class VideoListItem extends React.Component {
             <div className="video-list-item__info">
               <div className="video-list-item--title">{this.video.title}</div>
               <div className="tag-list">{this.video.tags.map(this._getTagItem)}</div>
+
+              <div className="inner-border"></div>
+            </div>
+
+            <div className="video-list-item__action-box">
+              <LikeBox postID={this.props.postID} likes={this.props.likes} />
             </div>
           </div>
         </div>
@@ -98,8 +105,10 @@ class VideoListItem extends React.Component {
 }
 
 VideoListItem.propTypes = {
-  video: React.PropTypes.object,
-  youtube: React.PropTypes.object,
+  video: React.PropTypes.object.isRequired,
+  youtube: React.PropTypes.object.isRequired,
+  postID: React.PropTypes.string.isRequired,
+  likes: React.PropTypes.number.isRequired,
 };
 
 module.exports = VideoListItem;

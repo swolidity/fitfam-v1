@@ -3,6 +3,7 @@ import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import moment from 'moment';
 import TagItem from '../TagItem/TagItem';
+import LikeBox from '../LikeBox/LikeBox';
 import { Link } from 'react-router';
 
 require('./SongListItem.scss');
@@ -89,8 +90,12 @@ class SongListItem extends React.Component {
             <div className="song-list-item__info">
               <div className="song-list-item--title">{this.song.title}</div>
               <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
+              <div className="inner-border"></div>
             </div>
 
+            <div className="song-list-item__action-box">
+              <LikeBox postID={this.props.postID} likes={this.props.likes} />
+            </div>
           </div>
         </div>
       </div>
@@ -101,6 +106,8 @@ class SongListItem extends React.Component {
 SongListItem.propTypes = {
   song: React.PropTypes.object,
   youtube: React.PropTypes.object,
+  postID: React.PropTypes.string,
+  likes: React.PropTypes.number,
 };
 
 module.exports = SongListItem;
