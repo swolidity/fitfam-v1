@@ -28,7 +28,7 @@ class Videos extends React.Component {
     return (
       <div className="videos">
         <div className="row">
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-sm-7">
             <VideoList videos={this.state.videos} />
           </div>
         </div>

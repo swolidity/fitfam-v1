@@ -28,13 +28,6 @@ class FrontPage extends React.Component {
     return (
       <div className="front-page">
         <div className="row">
-          <div className="col-xs-12 col-sm-4 col-md-3">
-            <ul>
-              <li>t/Powerlifting</li>
-              <li>t/Bodybuilding</li>
-              <li>t/CrossFit</li>
-            </ul>
-          </div>
           <div className="col-xs-12 col-sm-7">
             <PostList posts={this.state.posts} />
           </div>

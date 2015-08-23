@@ -15,6 +15,8 @@ require('./UserProfile.scss');
 
 class UserProfile extends React.Component {
 
+  static propTypes = { params: React.PropTypes.object.isRequired };
+
   static contextTypes = {
     router: React.PropTypes.func.isRequired,
   }
@@ -84,13 +86,12 @@ class UserProfile extends React.Component {
     return (
       <div className="UserProfile" ref="userProfile">
         <div className="row">
-          <div className="col-xs-12 col-sm-5">
+          <div className="col-xs-12">
             <UserProfileHeader user={this.state.user} />
-            <UserFollowFaces user={this.state.user} />
+            <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
           </div>
 
           <div className="col-xs-12 col-sm-7">
-            <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
             <RouteHandler user={this.state.user} />
           </div>
         </div>
