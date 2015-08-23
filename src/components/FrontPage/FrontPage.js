@@ -36,10 +36,6 @@ class FrontPage extends React.Component {
             </ul>
           </div>
           <div className="col-xs-12 col-sm-7">
-            <div className="top-date">
-              <h3 className="center">Today</h3>
-              <h5 className="center">{moment().format('MMMM Do, YYYY')}</h5>
-            </div>
             <PostList posts={this.state.posts} />
           </div>
         </div>
