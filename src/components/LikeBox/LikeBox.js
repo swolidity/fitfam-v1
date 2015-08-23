@@ -2,6 +2,8 @@ import React from 'react';
 import LoginStore from '../../stores/LoginStore';
 import http from 'axios';
 
+require('./LikeBox.scss');
+
 class LikeBox extends React.Component {
   static propTypes = {
     postID: React.PropTypes.string.isRequired,
@@ -56,13 +58,13 @@ class LikeBox extends React.Component {
     let likeIcon;
 
     if (this.state.liked) {
-      likeIcon = <i className="fa fa-2x fa-heart"></i>;
+      likeIcon = <a href="#" className="like-btn"><i className="fa fa-2x fa-heart"></i></a>;
     } else {
-      likeIcon = <i onClick={this._onLike} className="fa fa-2x fa-heart-o"></i>;
+      likeIcon = <a href="#" className="like-btn" onClick={this._onLike}><i className="fa fa-2x fa-heart-o"></i></a>;
     }
 
     return (
-      <div className="favorite-box">
+      <div className="like-box">
          {likeIcon}
       </div>
     );
