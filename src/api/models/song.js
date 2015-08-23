@@ -33,6 +33,12 @@ const SongSchema = new mongoose.Schema({
     required: true,
   },
 
+  genre: {
+    type: String,
+    ref: 'Genre',
+    required: true,
+  },
+
   tags: {
     type: Array,
   },

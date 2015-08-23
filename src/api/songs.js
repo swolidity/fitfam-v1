@@ -25,7 +25,12 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
   const user = req.user;
   const youtubeURL = req.body.url;
   const youtubeId = getYouTubeId(youtubeURL);
-  const tags = req.body.tags.split(' ');
+  const genre = req.body.genre;
+  let tags;
+
+  if (req.body.tags.length) {
+    tags = req.body.tags.split(' ');
+  }
 
   Youtube.authenticate({
     type: 'key',
@@ -47,6 +52,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
       provider: 'youtube',
       provider_id: youtubeId,
       thumbnails: snippet.thumbnails,
+      genre: genre,
       tags: tags,
     });
 

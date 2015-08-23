@@ -11,6 +11,10 @@ const LikeSchema = new mongoose.Schema({
     ref: 'Post',
     required: true,
   },
+  date: {
+    type: Date,
+    'default': Date.now,
+  },
 });
 
 LikeSchema.index({ _user: 1, _post: 1 }, { unique: true });

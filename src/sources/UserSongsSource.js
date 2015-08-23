@@ -29,6 +29,7 @@ const UserSongsSource = {
       const token = LoginStore.getToken();
       return http.post('/api/songs/youtube', {
         url: song.url,
+        genre: song.genre,
         tags: song.tags,
       },
       {
