@@ -52,7 +52,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
       provider: 'youtube',
       provider_id: youtubeId,
       thumbnails: snippet.thumbnails,
-      genre: genre,
+      _genre: genre,
       tags: tags,
     });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
+import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 
 require('./UserPosts.scss');
 
@@ -27,8 +28,18 @@ class UserPosts extends React.Component {
 
   render() {
     return (
-      <div className="user-posts">
-        <PostList posts={this.state.posts} />
+      <div className="row">
+        <div className="col-xs-12 col-sm-5">
+          <div className="user-posts__sidebar">
+            <UserFollowFaces user={this.props.user} />
+          </div>
+        </div>
+
+        <div className="col-xs-12 col-sm-7">
+          <div className="user-posts">
+            <PostList posts={this.state.posts} />
+          </div>
+        </div>
       </div>
     );
   }

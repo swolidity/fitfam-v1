@@ -8,14 +8,16 @@ import UserFollowingStore from '../../stores/UserFollowingStore';
 import { RouteHandler } from 'react-router';
 import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
 import UserProfileNav from '../UserProfileNav/UserProfileNav';
-import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 
 
 require('./UserProfile.scss');
 
 class UserProfile extends React.Component {
 
-  static propTypes = { params: React.PropTypes.object.isRequired };
+  static propTypes = {
+    params: React.PropTypes.object.isRequired,
+    query: React.PropTypes.object,
+  };
 
   static contextTypes = {
     router: React.PropTypes.func.isRequired,
@@ -56,10 +58,6 @@ class UserProfile extends React.Component {
 
   handleChange = (state) => {
     this.setState(state);
-
-    if (state.user) {
-      this._preFetchUserStores(state.user._id);
-    }
   }
 
   _preFetchUserStores(userID) {
@@ -90,11 +88,9 @@ class UserProfile extends React.Component {
             <UserProfileHeader user={this.state.user} />
             <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
           </div>
-
-          <div className="col-xs-12 col-sm-7">
-            <RouteHandler user={this.state.user} />
-          </div>
         </div>
+
+        <RouteHandler user={this.state.user} query={this.props.query} />
       </div>
     );
   }

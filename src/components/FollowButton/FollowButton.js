@@ -4,6 +4,8 @@ import LoginStore from '../../stores/LoginStore';
 import { ButtonInput } from 'react-bootstrap';
 import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
 
+require('./FollowButton.scss');
+
 class FollowButton extends React.Component {
   static propTypes = {
     followedID: React.PropTypes.string.isRequired,

@@ -33,7 +33,7 @@ const SongSchema = new mongoose.Schema({
     required: true,
   },
 
-  genre: {
+  _genre: {
     type: String,
     ref: 'Genre',
     required: true,

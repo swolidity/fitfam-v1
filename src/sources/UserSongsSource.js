@@ -4,9 +4,10 @@ import http from 'axios';
 
 const UserSongsSource = {
   fetchSongs: {
-    remote(state, userId, query) {
+    remote(state, userId, query, genre) {
       return http.post('/api/users/' + userId + '/songs', {
         q: query,
+        genre: genre,
       })
       .then((res) => {
         return res.data;

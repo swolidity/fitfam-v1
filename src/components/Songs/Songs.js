@@ -28,6 +28,9 @@ class Songs extends React.Component {
     return (
       <div className="songs">
         <div className="row">
+          <div className="col-xs-12 col-sm-5">
+            
+          </div>
           <div className="col-xs-12 col-sm-7">
             <SongList songs={this.state.songs} />
           </div>

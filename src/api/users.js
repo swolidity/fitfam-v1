@@ -5,6 +5,7 @@ import Photo from './models/photo';
 import Video from './models/video';
 import Song from './models/song';
 import Like from './models/like';
+import Genre from './models/genre';
 import authenticateToken from './middleware/authenticate-token';
 
 const router = new Router();
@@ -94,6 +95,7 @@ router.get('/:id/videos', (req, res, next) => {
 router.post('/:id/songs', (req, res, next) => {
   const userId = req.params.id;
   const query = req.body.q;
+  const genreSlug = req.body.genre;
   const qx = new RegExp(query, 'i');
 
   const find = {
@@ -109,14 +111,31 @@ router.post('/:id/songs', (req, res, next) => {
     find.tags = { $all: tags };
   }
 
-  Song.find(find)
-    .sort({date: 'desc'})
-    .populate('_user')
-    .exec((err, songs) => {
+  if (genreSlug) {
+    Genre.findOne({slug: genreSlug}, (err, genre) => {
       if (err) return next(err);
 
-      res.send(songs);
+      find._genre = genre._id;
+
+      Song.find(find)
+        .sort({date: 'desc'})
+        .populate('_user')
+        .exec((err, songs) => {
+          if (err) return next(err);
+
+          res.send(songs);
+        });
     });
+  } else {
+    Song.find(find)
+      .sort({date: 'desc'})
+      .populate('_user _genre')
+      .exec((err, songs) => {
+        if (err) return next(err);
+
+        res.send(songs);
+      });
+  }
 });
 
 // get: /api/users/:id/photos

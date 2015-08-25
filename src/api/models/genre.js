@@ -5,6 +5,10 @@ const GenreSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Genre', GenreSchema);
