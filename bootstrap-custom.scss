@@ -8,8 +8,8 @@ $border-radius-base:        2px;
 $border-radius-large:       2px;
 $border-radius-small:       2px;
 
-$btn-primary-color: #fff;
-$btn-primary-bg: $brand-primary !default;
-$btn-primary-border: #0D6CFF;
+$btn-primary-color: $brand-primary;
+$btn-primary-bg: #fff;
+$btn-primary-border: $brand-primary;
 
-$btn-default-bg: #f8f8f8;
+$btn-default-bg: #fff;
