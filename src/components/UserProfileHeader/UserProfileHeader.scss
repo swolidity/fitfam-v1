@@ -5,10 +5,14 @@
   &__user-info {
   }
 
-  .profile-photo {
-    position:  relative;
+  .profile-photo-container {
     float: left;
     margin-right: 15px;
+  }
+
+  .profile-photo {
+    position: relative;
+    display: inline-block;
 
     a {
       display: inline-block;
@@ -64,6 +68,21 @@
 
   .username-bio {
     float: left;
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (max-width : 768px) {
+    .profile-photo-container {
+      margin-right: 0;
+      display: block;
+      text-align: center;
+      float: none;
+    }
+    .username-bio {
+      display: block;
+      text-align: center;
+      float: none;
+    }
   }
 
   .username {

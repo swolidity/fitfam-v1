@@ -95,12 +95,14 @@ class UserProfileHeader extends React.Component {
           <div className="row">
 
             <div className="col-xs-12 col-sm-9 col-md-10">
-              <div className="profile-photo center">
-                <a href="#">
-                  <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-                </a>
-                <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-                  {this._getIcon()}
+              <div className="profile-photo-container">
+                <div className="profile-photo center">
+                  <a href="#">
+                    <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
+                  </a>
+                  <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
+                    {this._getIcon()}
+                  </div>
                 </div>
               </div>
 
