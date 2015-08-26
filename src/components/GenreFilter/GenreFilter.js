@@ -38,7 +38,7 @@ class GenreFilter extends React.Component {
     const genreListItems = this.state.genres.map(this._getGenreListItem);
 
     return (
-      <div className="genre-filter">
+      <div className="genre-filter component-box">
         <div className="genre-filter__title">
           Filter Genre
           <ul className="genre-list">

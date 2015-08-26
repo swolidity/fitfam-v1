@@ -10,7 +10,7 @@ class PhotoListItem extends React.Component {
 
   render() {
     return (
-      <div className="photo-list-item">
+      <div className="photo-list-item component-box">
         <div className="row">
           <div className="photo-list-item__col col-xs-12">
 

@@ -69,7 +69,7 @@ class VideoListItem extends React.Component {
     const thumbnail = this.video.thumbnails.medium;
 
     return (
-      <div className="video-list-item">
+      <div className="video-list-item component-box">
         <div className="row">
           <div className="video-list-item__col col-xs-12">
 

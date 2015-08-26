@@ -69,7 +69,7 @@ class SongListItem extends React.Component {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <div className="song-list-item">
+      <div className="song-list-item component-box">
         <div className="row">
           <div className="song-list-item__col col-xs-12">
 
