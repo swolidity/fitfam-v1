@@ -9,6 +9,11 @@
 
   &__username {
     font-weight: 700;
+    color: #000;
+
+    &:hover {
+      color: #000;
+    }
   }
 
   &__thumbnail {
