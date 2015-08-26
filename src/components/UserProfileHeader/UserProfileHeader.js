@@ -92,25 +92,30 @@ class UserProfileHeader extends React.Component {
     return (
       <div className="user-profile-header">
         <div className="user-profile-header__user-info clearfix">
+          <div className="row">
 
-          <div className="profile-photo">
-            <a href="#">
-              <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-            </a>
-            <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-              {this._getIcon()}
+            <div className="col-xs-12 col-sm-9 col-md-10">
+              <div className="profile-photo center">
+                <a href="#">
+                  <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
+                </a>
+                <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
+                  {this._getIcon()}
+                </div>
+              </div>
+
+              <div className="username-bio">
+                  <div className="username">{this.props.user.username}</div>
+                  <div className="bio">{this.props.user.bio}</div>
+              </div>
             </div>
-          </div>
 
-          <div className="username-bio">
-              <div className="username">{this.props.user.username}</div>
-              <div className="bio">{this.props.user.bio}</div>
+            <div className="col-xs-12 col-sm-3 col-md-2">
+              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="pull-right" />
+            </div>
+
           </div>
         </div>
-
-
-        <FollowButton followedID={this.props.user._id} bsStyle="primary" />
-
       </div>
     );
   }

@@ -85,8 +85,10 @@ class UserProfile extends React.Component {
       <div className="UserProfile" ref="userProfile">
         <div className="row">
           <div className="col-xs-12">
-            <UserProfileHeader user={this.state.user} />
-            <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
+            <div className="component-box">
+              <UserProfileHeader user={this.state.user} />
+              <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
+            </div>
           </div>
         </div>
 

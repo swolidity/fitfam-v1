@@ -1,16 +1,14 @@
 .user-profile-header {
   margin-top: 15px;
-  margin-bottom: 15px;
   padding: 15px;
-  text-align: center;
 
   &__user-info {
-    margin-bottom: 15px;
   }
 
   .profile-photo {
     position:  relative;
-    display: inline-block;
+    float: left;
+    margin-right: 15px;
 
     a {
       display: inline-block;
@@ -65,9 +63,11 @@
   }
 
   .username-bio {
+    float: left;
   }
 
   .username {
+    margin-top: 15px;
     font-size: 26px;
     color: #000;
     font-weight: 700;
@@ -78,7 +78,8 @@
   }
 
   .follow-btn {
-    background: #f8f8f8;
+    margin-top: 15px;
+    background: #fff;
   }
 
 }
