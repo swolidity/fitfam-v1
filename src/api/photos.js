@@ -39,6 +39,7 @@ router.post('/', authenticateToken, (req, res, next) => {
 
   const post = new Post({
     _user: user._id,
+    type: 'photo',
     _photo: photo._id,
   });
 

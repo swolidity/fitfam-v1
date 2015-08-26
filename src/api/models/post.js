@@ -8,6 +8,11 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
 
+  type: {
+    type: String,
+    required: true,
+  },
+
   _photo: {
     type: String,
     ref: 'Photo',

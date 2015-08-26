@@ -65,6 +65,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
 
     const post = new Post({
       _user: user._id,
+      type: 'song',
       _song: song._id,
     });
 

@@ -60,6 +60,7 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
 
     const post = new Post({
       _user: user._id,
+      type: 'video',
       _video: video._id,
     });
 
