@@ -38,7 +38,7 @@ router.post('/fb', (req, res, next) => {
     username: signup.username,
     email: signup.email,
     password: signup.password,
-    photo: 'https://graph.facebook.com/' + facebook.id + '/picture?width=100&height=100',
+    photo: 'https://graph.facebook.com/' + facebook.id + '/picture?width=120&height=120',
     'facebook.id': facebook.id,
     'facebook.token': facebook.accessToken,
   });
