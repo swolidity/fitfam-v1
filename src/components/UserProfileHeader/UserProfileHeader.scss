@@ -88,8 +88,15 @@
   .username {
     margin-top: 15px;
     font-size: 26px;
-    color: #000;
     font-weight: 700;
+
+    a {
+      color: #000;
+
+      &:hover {
+        color: #000;
+      }
+    }
   }
 
   .bio {
