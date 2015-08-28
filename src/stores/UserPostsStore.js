@@ -4,6 +4,7 @@ import UserPostsSource from '../sources/UserPostsSource';
 
 class UserPostsStore {
   constructor() {
+    this.user = null;
     this.posts = [];
 
     this.bindActions(UserPostsActions);
@@ -14,8 +15,9 @@ class UserPostsStore {
     this.posts = null;
   }
 
-  onFetchPostsSuccess(posts) {
-    this.posts = posts;
+  onFetchPostsSuccess(res) {
+    this.posts = res.posts;
+    this.userID = res.user_id;
   }
 
   onFetchPostsFailed(err) {

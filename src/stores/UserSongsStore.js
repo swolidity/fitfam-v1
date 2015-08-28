@@ -4,6 +4,7 @@ import UserSongsSource from '../sources/UserSongsSource';
 
 class UserSongsStore {
   constructor() {
+    this.userID = null;
     this.songs = [];
     this.err = null;
 
@@ -15,8 +16,9 @@ class UserSongsStore {
     this.songs = null;
   }
 
-  onReceiveSongs(songs) {
-    this.songs = songs;
+  onReceiveSongs(res) {
+    this.songs = res.songs;
+    this.userID = res.user_id;
   }
 
   onReceiveSongsFailed(err) {

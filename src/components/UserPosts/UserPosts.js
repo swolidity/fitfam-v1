@@ -1,5 +1,4 @@
 import React from 'react';
-import UserPostsActions from '../../actions/UserPostsActions';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
 import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
@@ -14,9 +13,15 @@ class UserPosts extends React.Component {
 
     this.state = UserPostsStore.getState();
   }
+
+  componentWillMount() {
+    if (this.state.userID && this.props.user._id !== this.state.userID) {
+      this.setState({ posts: null });
+    }
+  }
+
   componentDidMount() {
     UserPostsStore.listen(this._onChange);
-    UserPostsActions.fetchPosts.defer();
     UserPostsStore.fetchPosts(this.props.user._id);
   }
 

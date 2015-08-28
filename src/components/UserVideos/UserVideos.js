@@ -17,6 +17,12 @@ class UserVideos extends React.Component {
     this.user = props.user;
   }
 
+  componentWillMount() {
+    if (this.state.userID && this.props.user._id !== this.state.userID) {
+      this.setState({ videos: null });
+    }
+  }
+
   componentDidMount() {
     UserVideosStore.listen(this._onChange);
     LoginStore.listen(this._onChange);

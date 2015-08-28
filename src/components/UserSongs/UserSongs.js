@@ -17,18 +17,24 @@ class UserSongs extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this._getStateFromStores();
+    this.state = UserSongsStore.getState();
+  }
+
+  componentWillMount() {
+    if (this.state.userID && this.props.user._id !== this.state.userID) {
+      this.setState({ songs: null });
+    }
   }
 
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
     LoginStore.listen(this._onChange);
 
-    UserSongsActions.fetchSongs.defer();
     UserSongsStore.fetchSongs(this.props.user._id, '', this.props.query.genre);
   }
 
   componentWillReceiveProps(nextProps) {
+    UserSongsActions.fetchSongs.defer();
     UserSongsStore.fetchSongs(this.props.user._id, '', nextProps.query.genre);
   }
 
@@ -37,14 +43,8 @@ class UserSongs extends React.Component {
     LoginStore.unlisten(this._onChange);
   }
 
-  _getStateFromStores = () => {
-    return {
-      songs: UserSongsStore.getSongs(),
-    };
-  }
-
-  _onChange = () => {
-    this.setState(this._getStateFromStores);
+  _onChange = (state) => {
+    this.setState(state);
   }
 
   _onFilter = (e) => {

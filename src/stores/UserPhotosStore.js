@@ -4,6 +4,7 @@ import UserPhotosSource from '../sources/UserPhotosSource';
 
 class UserPhotosStore {
   constructor() {
+    this.userID = null;
     this.photos = [];
     this.err = null;
 
@@ -15,8 +16,9 @@ class UserPhotosStore {
     this.photos = null;
   }
 
-  onReceivePhotos(photos) {
-    this.photos = photos;
+  onReceivePhotos(res) {
+    this.photos = res.photos;
+    this.userID = res.user_id;
   }
 
   onReceivePhotosFailed(err) {

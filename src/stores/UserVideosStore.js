@@ -4,6 +4,7 @@ import UserVideosSource from '../sources/UserVideosSource';
 
 class UserVideosStore {
   constructor() {
+    this.userID = null;
     this.videos = [];
     this.err = null;
 
@@ -15,8 +16,9 @@ class UserVideosStore {
     this.videos = null;
   }
 
-  onReceiveVideos(videos) {
-    this.videos = videos;
+  onReceiveVideos(res) {
+    this.videos = res.videos;
+    this.userID = res.user_id;
   }
 
   onReceiveVideosFailed(err) {

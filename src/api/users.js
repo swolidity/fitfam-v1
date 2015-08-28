@@ -57,19 +57,22 @@ router.get('/:id/posts', (req, res, next) => {
     .exec((err, posts) => {
       if (err) return next(err);
 
-      res.send(posts);
+      res.send({
+        user_id: userID,
+        posts: posts,
+      });
     });
 });
 
 
 // get: /api/users/:id/videos
 router.get('/:id/videos', (req, res, next) => {
-  const userId = req.params.id;
+  const userID = req.params.id;
   const query = req.query.q;
   const qx = new RegExp(query, 'i');
 
   const find = {
-    _user: userId,
+    _user: userID,
     title: qx,
   };
 
@@ -87,19 +90,22 @@ router.get('/:id/videos', (req, res, next) => {
     .exec((err, videos) => {
       if (err) return next(err);
 
-      res.send(videos);
+      res.send({
+        user_id: userID,
+        videos: videos,
+      });
     });
 });
 
 // post: /api/users/:id/songs
 router.post('/:id/songs', (req, res, next) => {
-  const userId = req.params.id;
+  const userID = req.params.id;
   const query = req.body.q;
   const genreSlug = req.body.genre;
   const qx = new RegExp(query, 'i');
 
   const find = {
-    _user: userId,
+    _user: userID,
     title: qx,
   };
 
@@ -123,7 +129,10 @@ router.post('/:id/songs', (req, res, next) => {
         .exec((err, songs) => {
           if (err) return next(err);
 
-          res.send(songs);
+          res.send({
+            user_id: userID,
+            songs: songs,
+          });
         });
     });
   } else {
@@ -133,21 +142,27 @@ router.post('/:id/songs', (req, res, next) => {
       .exec((err, songs) => {
         if (err) return next(err);
 
-        res.send(songs);
+        res.send({
+          user_id: userID,
+          songs: songs,
+        });
       });
   }
 });
 
 // get: /api/users/:id/photos
 router.get('/:id/photos', (req, res, next) => {
-  const userId = req.params.id;
-  Photo.find({_user: userId})
+  const userID = req.params.id;
+  Photo.find({_user: userID})
     .sort({date: 'desc'})
     .populate('_user')
     .exec((err, photos) => {
       if (err) return next(err);
 
-      res.send(photos);
+      res.send({
+        user_id: userID,
+        photos: photos,
+      });
     });
 });
 
