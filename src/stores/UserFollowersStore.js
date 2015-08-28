@@ -4,6 +4,7 @@ import UserFollowersSource from '../sources/UserFollowersSource';
 
 class UserFollowersStore {
   constructor() {
+    this.userID = null;
     this.followers = [];
     this.err = null;
 
@@ -15,8 +16,9 @@ class UserFollowersStore {
     this.followers = null;
   }
 
-  onReceiveFollowers(followers) {
-    this.followers = followers;
+  onReceiveFollowers(res) {
+    this.followers = res.followers;
+    this.userID = res.userID;
   }
 
   onReceiveFollowersFailed(err) {

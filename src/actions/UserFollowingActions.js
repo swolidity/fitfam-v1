@@ -5,8 +5,8 @@ class UserFollowingActions {
     this.dispatch();
   }
 
-  receiveFollowing(following) {
-    this.dispatch(following);
+  receiveFollowing(res) {
+    this.dispatch(res);
   }
 
   receiveFollowingFailed(err) {

@@ -32,7 +32,10 @@ router.get('/following/:id', (req, res, next) => {
     .exec((err, following) => {
       if (err) return next(err);
 
-      return res.send(following);
+      return res.send({
+        following: following,
+        user_id: userID,
+      });
     });
 });
 
@@ -45,7 +48,10 @@ router.get('/followers/:id', (req, res, next) => {
     .exec((err, followers) => {
       if (err) return next(err);
 
-      return res.send(followers);
+      return res.send({
+        followers: followers,
+        user_id: userID,
+      });
     });
 });
 

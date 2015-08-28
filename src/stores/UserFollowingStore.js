@@ -4,6 +4,7 @@ import UserFollowingSource from '../sources/UserFollowingSource';
 
 class UserFollowingStore {
   constructor() {
+    this.userID = null;
     this.following = [];
     this.err = null;
 
@@ -15,8 +16,9 @@ class UserFollowingStore {
     this.following = null;
   }
 
-  onReceiveFollowing(following) {
-    this.following = following;
+  onReceiveFollowing(res) {
+    this.following = res.following;
+    this.userID = res.user_id;
   }
 
   onReceiveFollowingFailed(err) {
@@ -25,6 +27,10 @@ class UserFollowingStore {
 
   static getFollowing() {
     return this.getState().following;
+  }
+
+  static getUserID() {
+    return this.getState().userID;
   }
 }
 

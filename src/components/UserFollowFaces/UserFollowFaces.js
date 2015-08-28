@@ -16,12 +16,19 @@ class UserFollowFaces extends React.Component {
     this.state = this._getStateFromStores();
   }
 
+  componentWillMount() {
+    if (this.state.userID && this.props.user._id !== this.state.userID) {
+      this.setState({
+        followers: null,
+        following: null,
+      });
+    }
+  }
+
+
   componentDidMount() {
     UserFollowersStore.listen(this._onChange);
     UserFollowingStore.listen(this._onChange);
-
-    UserFollowingActions.fetchFollowing.defer();
-    UserFollowersActions.fetchFollowers.defer();
 
     UserFollowersStore.fetchFollowers(this.props.user._id);
     UserFollowingStore.fetchFollowing(this.props.user._id);
@@ -36,6 +43,7 @@ class UserFollowFaces extends React.Component {
     return {
       followers: UserFollowersStore.getFollowers(),
       following: UserFollowingStore.getFollowing(),
+      userID: UserFollowingStore.getUserID(),
     };
   }
 
