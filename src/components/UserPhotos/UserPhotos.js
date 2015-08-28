@@ -1,4 +1,5 @@
 import React from 'react';
+import UserPhotosActions from '../../actions/UserPhotosActions';
 import UserPhotosStore from '../../stores/UserPhotosStore';
 import LoginStore from '../../stores/LoginStore';
 import PhotoList from '../PhotoList/PhotoList';
@@ -17,6 +18,7 @@ class UserPhotos extends React.Component {
 
   componentDidMount() {
     UserPhotosStore.listen(this._onChange);
+    UserPhotosActions.fetchPhotos.defer();
     UserPhotosStore.fetchPhotos(this.props.user._id);
   }
 

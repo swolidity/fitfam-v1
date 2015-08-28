@@ -1,4 +1,5 @@
 import React from 'react';
+import UserPostsActions from '../../actions/UserPostsActions';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
 import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
@@ -15,6 +16,7 @@ class UserPosts extends React.Component {
   }
   componentDidMount() {
     UserPostsStore.listen(this._onChange);
+    UserPostsActions.fetchPosts.defer();
     UserPostsStore.fetchPosts(this.props.user._id);
   }
 

@@ -1,6 +1,10 @@
 import alt from '../alt';
 
 class UserFollowersActions {
+  fetchFollowers() {
+    this.dispatch();
+  }
+
   receiveFollowers(followers) {
     this.dispatch(followers);
   }

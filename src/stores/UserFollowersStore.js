@@ -11,6 +11,10 @@ class UserFollowersStore {
     this.exportAsync(UserFollowersSource);
   }
 
+  onFetchFollowers() {
+    this.followers = null;
+  }
+
   onReceiveFollowers(followers) {
     this.followers = followers;
   }

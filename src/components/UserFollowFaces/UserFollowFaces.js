@@ -1,4 +1,6 @@
 import React from 'react';
+import UserFollowersActions from '../../actions/UserFollowersActions';
+import UserFollowingActions from '../../actions/UserFollowingActions';
 import UserFollowersStore from '../../stores/UserFollowersStore';
 import UserFollowingStore from '../../stores/UserFollowingStore';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
@@ -17,6 +19,10 @@ class UserFollowFaces extends React.Component {
   componentDidMount() {
     UserFollowersStore.listen(this._onChange);
     UserFollowingStore.listen(this._onChange);
+
+    UserFollowingActions.fetchFollowing.defer();
+    UserFollowersActions.fetchFollowers.defer();
+
     UserFollowersStore.fetchFollowers(this.props.user._id);
     UserFollowingStore.fetchFollowing(this.props.user._id);
   }
@@ -54,6 +60,10 @@ class UserFollowFaces extends React.Component {
   }
 
   render() {
+    if (!this.state.following) {
+      return <div></div>;
+    }
+
     return (
       <div className="user-follow-faces">
 

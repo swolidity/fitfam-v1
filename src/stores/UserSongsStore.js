@@ -11,6 +11,10 @@ class UserSongsStore {
     this.exportAsync(UserSongsSource);
   }
 
+  onFetchSongs() {
+    this.songs = null;
+  }
+
   onReceiveSongs(songs) {
     this.songs = songs;
   }

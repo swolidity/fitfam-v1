@@ -1,4 +1,5 @@
 import React from 'react';
+import UserVideosActions from '../../actions/UserVideosActions';
 import UserVideosStore from '../../stores/UserVideosStore';
 import LoginStore from '../../stores/LoginStore';
 import VideoList from '../VideoList/VideoList';
@@ -19,6 +20,7 @@ class UserVideos extends React.Component {
   componentDidMount() {
     UserVideosStore.listen(this._onChange);
     LoginStore.listen(this._onChange);
+    UserVideosActions.fetchVideos.defer();
     UserVideosStore.fetchVideos(this.user._id);
   }
 

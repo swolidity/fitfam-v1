@@ -3,6 +3,7 @@ import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import PhotoListItem from '../PhotoListItem/PhotoListItem';
 import VideoListItem from '../VideoListItem/VideoListItem';
 import SongListItem from '../SongListItem/SongListItem';
+import Spinner from '../Spinner/Spinner';
 
 require('./PostList.scss');
 
@@ -51,6 +52,10 @@ class PostList extends React.Component {
   }
 
   render() {
+    if (!this.props.posts) {
+      return <Spinner />;
+    }
+
     const postListItems = this.props.posts.map(this._getPostListItem);
 
     return (

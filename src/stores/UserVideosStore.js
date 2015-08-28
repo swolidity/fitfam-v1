@@ -11,6 +11,10 @@ class UserVideosStore {
     this.exportAsync(UserVideosSource);
   }
 
+  onFetchVideos() {
+    this.videos = null;
+  }
+
   onReceiveVideos(videos) {
     this.videos = videos;
   }

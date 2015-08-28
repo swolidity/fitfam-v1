@@ -1,6 +1,11 @@
 import alt from '../alt';
 
 class UserPostsActions {
+
+  fetchPosts() {
+    this.dispatch();
+  }
+
   fetchPostsSuccess(posts) {
     this.dispatch(posts);
   }

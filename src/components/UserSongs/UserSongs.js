@@ -1,4 +1,5 @@
 import React from 'react';
+import UserSongsActions from '../../actions/UserSongsActions';
 import UserSongsStore from '../../stores/UserSongsStore';
 import LoginStore from '../../stores/LoginStore';
 import SongList from '../SongList/SongList';
@@ -23,6 +24,7 @@ class UserSongs extends React.Component {
     UserSongsStore.listen(this._onChange);
     LoginStore.listen(this._onChange);
 
+    UserSongsActions.fetchSongs.defer();
     UserSongsStore.fetchSongs(this.props.user._id, '', this.props.query.genre);
   }
 

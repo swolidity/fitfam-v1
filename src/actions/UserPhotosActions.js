@@ -1,6 +1,10 @@
 import alt from '../alt';
 
 class UserPhotosActions {
+  fetchPhotos() {
+    this.dispatch();
+  }
+
   receivePhotos(photos) {
     this.dispatch(photos);
   }

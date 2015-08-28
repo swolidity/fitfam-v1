@@ -11,6 +11,10 @@ class UserFollowingStore {
     this.exportAsync(UserFollowingSource);
   }
 
+  onFetchFollowing() {
+    this.following = null;
+  }
+
   onReceiveFollowing(following) {
     this.following = following;
   }

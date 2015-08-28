@@ -10,6 +10,10 @@ class UserPostsStore {
     this.exportAsync(UserPostsSource);
   }
 
+  onFetchPosts() {
+    this.posts = null;
+  }
+
   onFetchPostsSuccess(posts) {
     this.posts = posts;
   }

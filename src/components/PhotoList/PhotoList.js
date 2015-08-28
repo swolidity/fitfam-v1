@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoListItem from '../PhotoListItem/PhotoListItem';
+import Spinner from '../Spinner/Spinner';
 
 require('./PhotoList.scss');
 
@@ -15,6 +16,10 @@ class PhotoList extends React.Component {
   }
 
   render() {
+    if (!this.props.photos) {
+      return <Spinner />;
+    }
+
     const photoListItems = this.props.photos.map(this._getPhotoListItem);
 
     return (

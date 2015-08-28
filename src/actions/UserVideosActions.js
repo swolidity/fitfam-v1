@@ -1,6 +1,10 @@
 import alt from '../alt';
 
 class UserVideosActions {
+  fetchVideos() {
+    this.dispatch();
+  }
+
   receiveVideos(videos) {
     this.dispatch(videos);
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import SongListItem from '../SongListItem/SongListItem';
+import Spinner from '../Spinner/Spinner';
 
 require('./SongList.scss');
 
@@ -35,6 +36,10 @@ class SongList extends React.Component {
   }
 
   render() {
+    if (!this.props.songs) {
+      return <Spinner />;
+    }
+
     const songListItems = this.props.songs.map(this._getSongListItem);
 
     return (

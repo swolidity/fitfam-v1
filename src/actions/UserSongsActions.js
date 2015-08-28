@@ -1,6 +1,10 @@
 import alt from '../alt';
 
 class UserSongsActions {
+  fetchSongs() {
+    this.dispatch();
+  }
+
   receiveSongs(songs) {
     this.dispatch(songs);
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import VideoListItem from '../VideoListItem/VideoListItem';
+import Spinner from '../Spinner/Spinner';
 
 require('./VideoList.scss');
 
@@ -35,6 +36,10 @@ class VideoList extends React.Component {
   }
 
   render() {
+    if (!this.props.videos) {
+      return <Spinner />;
+    }
+
     const videoListItems = this.props.videos.map(this._getVideoListItem);
 
     return (

@@ -11,6 +11,10 @@ class UserPhotosStore {
     this.exportAsync(UserPhotosSource);
   }
 
+  onFetchPhotos() {
+    this.photos = null;
+  }
+
   onReceivePhotos(photos) {
     this.photos = photos;
   }
