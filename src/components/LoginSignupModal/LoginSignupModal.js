@@ -28,7 +28,7 @@ class LoginSignupModal extends React.Component {
           <Modal.Title>Login / Signup</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Pleas login or signup
+          Please login or signup
         </Modal.Body>
       </Modal>
     );
