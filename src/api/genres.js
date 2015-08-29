@@ -16,9 +16,11 @@ router.get('/', (req, res, next) => {
 // post: /api/genres
 router.post('/', authenticateToken, (req, res, next) => {
   const name = req.body.name;
+  const slug = req.body.slug;
 
   const genre = new Genre({
     name: name,
+    slug: slug,
   });
 
   genre.save((err) => {
