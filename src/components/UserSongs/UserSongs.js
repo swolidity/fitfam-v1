@@ -34,7 +34,6 @@ class UserSongs extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    UserSongsActions.fetchSongs.defer();
     UserSongsStore.fetchSongs(this.props.user._id, '', nextProps.query.genre);
   }
 
@@ -52,6 +51,7 @@ class UserSongs extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     let addSong;
 
     if (LoginStore.isLoggedIn()) {
