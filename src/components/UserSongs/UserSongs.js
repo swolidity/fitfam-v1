@@ -51,7 +51,6 @@ class UserSongs extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let addSong;
 
     if (LoginStore.isLoggedIn()) {
