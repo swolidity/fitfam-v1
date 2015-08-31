@@ -6,6 +6,7 @@ import Video from './models/video';
 import Song from './models/song';
 import Like from './models/like';
 import Genre from './models/genre';
+import SongPlaylist from './models/song_playlist';
 import authenticateToken from './middleware/authenticate-token';
 
 const router = new Router();
@@ -184,6 +185,21 @@ router.post('/:id/liked', (req, res, next) => {
 
     return res.send(false);
   });
+});
+
+// get: /api/users/:id/songs/playlists
+router.get('/:id/songs/playlists', (req, res, next) => {
+  const userID = req.params.id;
+
+  SongPlaylist.find({_user: userID})
+    .exec((err, playlists) => {
+      if (err) return next(err);
+
+      res.send({
+        user_id: userID,
+        playlists: playlists,
+      });
+    });
 });
 
 module.exports = router;

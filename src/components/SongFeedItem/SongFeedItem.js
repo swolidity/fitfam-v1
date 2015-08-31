@@ -6,9 +6,9 @@ import TagItem from '../TagItem/TagItem';
 import LikeBox from '../LikeBox/LikeBox';
 import { Link } from 'react-router';
 
-require('./SongListItem.scss');
+require('./SongFeedItem.scss');
 
-class SongListItem extends React.Component {
+class SongFeedItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -69,11 +69,16 @@ class SongListItem extends React.Component {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <div className="song-list-item">
+      <div className="song-feed-item component-box">
         <div className="row">
+          <div className="song-feed-item__col col-xs-12">
 
-          <div className="col-xs-12 col-sm-3">
-            <div className="song-list-item__thumbnail">
+            <div className="song-feed-item__top">
+              <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
+              <Link to="user-profile" params={{ username: this.song._user.username }} className="song-feed-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
+            </div>
+
+            <div className="song-feed-item__thumbnail">
               <div className="yt-thumb embed-responsive embed-responsive-16by9">
                 <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
                 <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
@@ -81,33 +86,28 @@ class SongListItem extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-xs-10 col-sm-8">
-            <div className="song-list-item__info">
-              <div className="song-list-item--title">{this.song.title}</div>
+            <div className="song-feed-item__info">
+              <div className="song-feed-item--title">{this.song.title}</div>
               <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
+              <div className="inner-border"></div>
             </div>
-            <Link to="user-profile" params={{ username: this.song._user.username }} className="song-list-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
 
-            <LikeBox postID={this.props.postID} likes={this.props.likes} />
+            <div className="song-feed-item__action-box">
+              <LikeBox postID={this.props.postID} likes={this.props.likes} />
+            </div>
           </div>
-
-          <div className="col-xs-2 col-sm-1">
-            <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
-          </div>
-
         </div>
       </div>
     );
   }
 }
 
-SongListItem.propTypes = {
+SongFeedItem.propTypes = {
   song: React.PropTypes.object,
   youtube: React.PropTypes.object,
   postID: React.PropTypes.string,
   likes: React.PropTypes.number,
 };
 
-module.exports = SongListItem;
+module.exports = SongFeedItem;

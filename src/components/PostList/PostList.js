@@ -2,7 +2,7 @@ import React from 'react';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import PhotoListItem from '../PhotoListItem/PhotoListItem';
 import VideoListItem from '../VideoListItem/VideoListItem';
-import SongListItem from '../SongListItem/SongListItem';
+import SongFeedItem from '../SongFeedItem/SongFeedItem';
 import Spinner from '../Spinner/Spinner';
 
 require('./PostList.scss');
@@ -47,7 +47,7 @@ class PostList extends React.Component {
 
     if (post._song) {
       post._song._user = post._user; // tack the populated user object on
-      return <SongListItem key={post._id} postID={post._id} likes={post.likes} song={post._song} youtube={this.state.youtube} />;
+      return <SongFeedItem key={post._id} postID={post._id} likes={post.likes} song={post._song} youtube={this.state.youtube} />;
     }
   }
 

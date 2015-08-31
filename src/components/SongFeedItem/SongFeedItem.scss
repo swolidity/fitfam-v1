@@ -1,8 +1,10 @@
-.song-list-item {
-  padding: 15px;
+.song-feed-item {
 
-  &:hover {
-    background: #f8f8f8;
+  &__top {
+    padding: 10px 15px;
+    .user-photo {
+      margin-right: 7px;
+    }
   }
 
   &__username {
@@ -19,7 +21,7 @@
 
   &--title {
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
   }
 
@@ -64,6 +66,7 @@
   }
 
   &__info {
+    padding: 10px 15px;
   }
 
   &__action-box {

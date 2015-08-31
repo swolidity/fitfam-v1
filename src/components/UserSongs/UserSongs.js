@@ -59,11 +59,11 @@ class UserSongs extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-xs-12 col-sm-5">
+        <div className="col-xs-12">
           <GenreFilter user={this.props.user} />
         </div>
 
-        <div className="col-xs-12 col-sm-7">
+        <div className="col-xs-12">
           <div className="user-songs">
 
               <div className="user-songs--header clearfix">

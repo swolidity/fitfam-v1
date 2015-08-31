@@ -6,6 +6,7 @@ import FrontPage from './components/FrontPage/FrontPage';
 import Photos from './components/Photos/Photos';
 import Videos from './components/Videos/Videos';
 import Songs from './components/Songs/Songs';
+import SongPlaylist from './components/SongPlaylist/SongPlaylist';
 import About from './components/About/About';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
@@ -14,6 +15,7 @@ import UserPosts from './components/UserPosts/UserPosts';
 import UserPhotos from './components/UserPhotos/UserPhotos';
 import UserVideos from './components/UserVideos/UserVideos';
 import UserSongs from './components/UserSongs/UserSongs';
+import UserSongPlaylists from './components/UserSongPlaylists/UserSongPlaylists';
 import UserFollowers from './components/UserFollowers/UserFollowers';
 import UserFollowing from './components/UserFollowing/UserFollowing';
 
@@ -25,6 +27,8 @@ export default (
     <Route name="songs" handler={Songs} path="/songs" />
     <Route name="about" handler={About} path="/about" />
 
+    <Route name="song-playlist" handler={SongPlaylist} path="/songs/playlist/:playlist_id" />
+
     <Route handler={Login} name="login" path="/login" />
     <Route handler={Signup} name="signup" path="/signup" />
 
@@ -34,6 +38,7 @@ export default (
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />
+      <Route name="user-song-playlists" handler={UserSongPlaylists} path="songs/playlists" />
       <Route name="user-followers" handler={UserFollowers} path="followers" />
       <Route name="user-following" handler={UserFollowing} path="following" />
     </Route>
