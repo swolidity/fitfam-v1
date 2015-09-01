@@ -30,6 +30,8 @@ router.post('/youtube', authenticateToken, (req, res, next) => {
 
   if (req.body.tags.length) {
     tags = req.body.tags.split(' ');
+  } else {
+    tags = [];
   }
 
   Youtube.authenticate({

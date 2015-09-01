@@ -1,5 +1,4 @@
 import React from 'react';
-import UserSongsActions from '../../actions/UserSongsActions';
 import UserSongsStore from '../../stores/UserSongsStore';
 import LoginStore from '../../stores/LoginStore';
 import SongList from '../SongList/SongList';
@@ -28,7 +27,6 @@ class UserSongs extends React.Component {
 
   componentDidMount() {
     UserSongsStore.listen(this._onChange);
-    LoginStore.listen(this._onChange);
 
     UserSongsStore.fetchSongs(this.props.user._id, '', this.props.query.genre);
   }
@@ -39,7 +37,6 @@ class UserSongs extends React.Component {
 
   componentWillUnmount() {
     UserSongsStore.unlisten(this._onChange);
-    LoginStore.unlisten(this._onChange);
   }
 
   _onChange = (state) => {

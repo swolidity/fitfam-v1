@@ -61,15 +61,15 @@ class SongListItem extends React.Component {
     return playIcon;
   }
 
-  _getTagItem = (tag) => {
-    return <TagItem tag={tag} />;
+  _getTagItem = (tag, i) => {
+    return <TagItem key={i} tag={tag} />;
   }
 
   render() {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <div className="song-list-item">
+      <li className="song-list-item">
         <div className="row">
 
           <div className="col-xs-12 col-sm-3">
@@ -90,7 +90,6 @@ class SongListItem extends React.Component {
             </div>
             <Link to="user-profile" params={{ username: this.song._user.username }} className="song-list-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
 
-            <LikeBox postID={this.props.postID} likes={this.props.likes} />
           </div>
 
           <div className="col-xs-2 col-sm-1">
@@ -98,7 +97,7 @@ class SongListItem extends React.Component {
           </div>
 
         </div>
-      </div>
+      </li>
     );
   }
 }

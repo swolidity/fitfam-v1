@@ -10,7 +10,9 @@ class SongList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { youtube: YouTubePlayerStore.getState() };
+    this.state = {
+      youtube: YouTubePlayerStore.getState(),
+    };
   }
 
   componentDidMount() {
@@ -43,9 +45,9 @@ class SongList extends React.Component {
     const songListItems = this.props.songs.map(this._getSongListItem);
 
     return (
-      <div className="song-list">
+      <ul className="song-list">
         {songListItems}
-      </div>
+      </ul>
     );
   }
 }
