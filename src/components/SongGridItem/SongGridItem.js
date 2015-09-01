@@ -1,13 +1,10 @@
 import React from 'react';
-import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
-import moment from 'moment';
 import TagItem from '../TagItem/TagItem';
-import { Link } from 'react-router';
 
-require('./SongListItem.scss');
+require('./SongGridItem.scss');
 
-class SongListItem extends React.Component {
+class SongGridItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -68,44 +65,25 @@ class SongListItem extends React.Component {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <li className="song-list-item">
-        <div className="row">
+      <div className="song-grid-item col-xs-12 col-sm-4">
 
-          <div className="col-xs-12 col-sm-3">
-            <div className="song-list-item__thumbnail">
-              <div className="yt-thumb embed-responsive embed-responsive-16by9">
-                <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
-                <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
-                  {this._getIcon()}
-                </div>
-              </div>
+        <div className="song-grid-item__thumbnail">
+          <div className="yt-thumb embed-responsive embed-responsive-16by9">
+            <img className="embed-responsive-item" src={thumbnail.url} alt={this.song.title} />
+            <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
+              {this._getIcon()}
             </div>
           </div>
-
-          <div className="col-xs-10 col-sm-8">
-            <div className="song-list-item__info">
-              <div className="song-list-item--title">{this.song.title}</div>
-              <div className="tag-list">{this.song.tags.map(this._getTagItem)}</div>
-            </div>
-            <Link to="user-profile" params={{ username: this.song._user.username }} className="song-list-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
-
-          </div>
-
-          <div className="col-xs-2 col-sm-1">
-            <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
-          </div>
-
         </div>
-      </li>
+
+      </div>
     );
   }
 }
 
-SongListItem.propTypes = {
+SongGridItem.propTypes = {
   song: React.PropTypes.object,
   youtube: React.PropTypes.object,
-  postID: React.PropTypes.string,
-  likes: React.PropTypes.number,
 };
 
-module.exports = SongListItem;
+module.exports = SongGridItem;

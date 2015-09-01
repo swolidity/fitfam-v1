@@ -5,7 +5,7 @@ import UserPhotosSource from '../sources/UserPhotosSource';
 class UserPhotosStore {
   constructor() {
     this.userID = null;
-    this.photos = [];
+    this.photos = null;
     this.err = null;
 
     this.bindActions(UserPhotosActions);

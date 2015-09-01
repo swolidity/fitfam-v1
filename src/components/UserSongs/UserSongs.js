@@ -1,7 +1,8 @@
 import React from 'react';
+import UserSongsActions from '../../actions/UserSongsActions';
 import UserSongsStore from '../../stores/UserSongsStore';
 import LoginStore from '../../stores/LoginStore';
-import SongList from '../SongList/SongList';
+import SongGrid from '../SongGrid/SongGrid';
 import AddSongModal from '../AddSongModal/AddSongModal';
 import GenreFilter from '../GenreFilter/GenreFilter';
 import { Input } from 'react-bootstrap';
@@ -32,6 +33,10 @@ class UserSongs extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.query.genre || this.props.query.genre) {
+      UserSongsActions.fetchSongs();
+    }
+
     UserSongsStore.fetchSongs(this.props.user._id, '', nextProps.query.genre);
   }
 
@@ -81,7 +86,7 @@ class UserSongs extends React.Component {
 
               <div className="row">
                 <div className="col-xs-12">
-                  <SongList songs={this.state.songs} />
+                  <SongGrid songs={this.state.songs} />
                 </div>
               </div>
           </div>

@@ -5,7 +5,7 @@ import UserVideosSource from '../sources/UserVideosSource';
 class UserVideosStore {
   constructor() {
     this.userID = null;
-    this.videos = [];
+    this.videos = null;
     this.err = null;
 
     this.bindActions(UserVideosActions);
