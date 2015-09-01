@@ -59,21 +59,24 @@ class UserSongs extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-xs-12">
-          <GenreFilter user={this.props.user} />
-        </div>
 
         <div className="col-xs-12">
           <div className="user-songs">
 
               <div className="user-songs--header clearfix">
                 <div className="row">
-                  <div className="filter col-xs-8">
+                  <div className="filter col-xs-12 col-sm-8">
                     <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
                   </div>
 
-                  <div className="col-xs-4">
-                    {addSong}
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="add-song-btn-container pull-right">
+                      {addSong}
+                    </div>
+
+                    <div className="genre-filter-container pull-right">
+                      <GenreFilter user={this.props.user}/>
+                    </div>
                   </div>
                 </div>
 

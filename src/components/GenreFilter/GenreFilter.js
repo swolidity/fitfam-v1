@@ -1,6 +1,7 @@
 import React from 'react';
 import GenreStore from '../../stores/GenreStore';
-import { Link } from 'react-router';
+import { SplitButton } from 'react-bootstrap';
+import { MenuItemLink } from 'react-router-bootstrap';
 
 require('./GenreFilter.scss');
 
@@ -28,9 +29,14 @@ class GenreFilter extends React.Component {
 
   _getGenreListItem = (genre) => {
     return (
-      <li key={genre._id}>
-        <Link to="user-songs" params={{ username: this.props.user.username }} query={{ genre: genre.slug }}>{genre.name}</Link>
-      </li>
+      <MenuItemLink
+        key={genre._id}
+        to="user-songs"
+        params={{ username: this.props.user.username }}
+        query={{ genre: genre.slug }}
+        >
+        {genre.name}
+      </MenuItemLink>
     );
   }
 
@@ -38,14 +44,11 @@ class GenreFilter extends React.Component {
     const genreListItems = this.state.genres.map(this._getGenreListItem);
 
     return (
-      <div className="genre-filter component-box">
-        <div className="genre-filter__title">
-          Filter Genre
-          <ul className="genre-list">
-            <li><Link to={'/' + this.props.user.username + '/songs'}>All</Link></li>
-            {genreListItems}
-          </ul>
-        </div>
+      <div className="genre-filter">
+        <SplitButton bsStyle="default" title="Genre">
+          <MenuItemLink key={this.props.user._id} to={'/' + this.props.user.username + '/songs'}>All</MenuItemLink>
+          {genreListItems}
+        </SplitButton>
       </div>
     );
   }

@@ -9,11 +9,11 @@ const GenreSource = {
         return res.data;
       })
       .catch((err) => {
-        return err.data;
+        return Promise.reject(err.data);
       });
     },
-    local() {
-      return null;
+    local(state) {
+      return state.genres.length ? state.genres : null;
     },
     success: GenreActions.fetchGenresSuccess,
     error: GenreActions.fetchGenresFailed,

@@ -17,7 +17,8 @@ class AddSongModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this._getState(props.showModal);
+    this.state = this._getState();
+    this.state.showModal = props.showModal;
   }
 
   componentDidMount() {
@@ -29,14 +30,13 @@ class AddSongModal extends React.Component {
     GenreStore.unlisten(this._onChange);
   }
 
-  _onChange() {
+  _onChange = () => {
     this.setState(this._getState());
   }
 
-  _getState = (showModal) => {
+  _getState = () => {
     return {
       genres: GenreStore.getGenres(),
-      showModal: showModal,
     };
   }
 
@@ -53,11 +53,11 @@ class AddSongModal extends React.Component {
   }
 
   _show = () => {
-    this.setState(this._getState(true));
+    this.setState({ showModal: true });
   }
 
   _onHide = () => {
-    this.setState(this._getState(false));
+    this.setState({ showModal: false });
   }
 
   _getGenreSelectItem = (genre) => {
@@ -98,7 +98,7 @@ class AddSongModal extends React.Component {
 
     return (
       <div>
-        <ButtonInput type="submit" bsStyle="default" value="Add Song" onClick={this._show} className="btn-block" wrapperClassName="add-song-wrapper" standalone />
+        <ButtonInput type="submit" bsStyle="default" value="Add Song" onClick={this._show} wrapperClassName="add-song-wrapper" standalone />
         {modal}
       </div>
     );

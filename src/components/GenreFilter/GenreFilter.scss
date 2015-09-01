@@ -1,21 +1,5 @@
 .genre-filter {
-  padding: 10px 15px;
-
-  .genre-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      text-transform: capitalize;
-    }
-
-    li > a {
-      color: #A2ADB5;
-    }
-
-    li > a.active {
-      color: #408bff;
-    }
+  .dropdown-menu > li > a {
+    text-transform: capitalize;
   }
 }
