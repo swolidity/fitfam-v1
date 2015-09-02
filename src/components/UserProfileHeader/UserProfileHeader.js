@@ -95,7 +95,7 @@ class UserProfileHeader extends React.Component {
         <div className="user-profile-header__user-info clearfix">
           <div className="row">
 
-            <div className="col-xs-12 col-sm-9 col-md-10">
+            <div className="col-xs-12 center">
               <div className="profile-photo-container">
                 <div className="profile-photo center">
                   <a href="#">
@@ -113,10 +113,7 @@ class UserProfileHeader extends React.Component {
               </div>
             </div>
 
-            <div className="col-xs-12 col-sm-3 col-md-2">
-              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="pull-right" />
-            </div>
-
+            <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
           </div>
         </div>
       </div>
