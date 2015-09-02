@@ -1,9 +1,9 @@
 import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import LoginStore from '../../stores/LoginStore';
-import VideoList from '../VideoList/VideoList';
+import VideoGrid from '../VideoGrid/VideoGrid';
 import AddVideoModal from '../AddVideoModal/AddVideoModal';
-import { Input, ButtonInput } from 'react-bootstrap';
+import { Input } from 'react-bootstrap';
 
 require('./UserVideos.scss');
 
@@ -73,7 +73,7 @@ class UserVideos extends React.Component {
 
           <div className="row">
             <div className="col-xs-12">
-              <VideoList videos={this.state.videos} />
+              <VideoGrid videos={this.state.videos} />
             </div>
           </div>
 
