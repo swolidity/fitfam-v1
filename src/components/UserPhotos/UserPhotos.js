@@ -1,7 +1,7 @@
 import React from 'react';
 import UserPhotosStore from '../../stores/UserPhotosStore';
 import LoginStore from '../../stores/LoginStore';
-import PhotoList from '../PhotoList/PhotoList';
+import PhotoGrid from '../PhotoGrid/PhotoGrid';
 import AddPhotoModal from '../AddPhotoModal/AddPhotoModal';
 
 require('./UserPhotos.scss');
@@ -48,7 +48,12 @@ class UserPhotos extends React.Component {
     return (
       <div className="user-photos">
         {addPhoto}
-        <PhotoList photos={this.state.photos} />
+
+        <div className="row">
+          <div className="col-xs-12">
+            <PhotoGrid photos={this.state.photos} />
+          </div>
+        </div>
 
       </div>
     );
