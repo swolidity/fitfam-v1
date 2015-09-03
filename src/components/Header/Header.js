@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, CollapsibleNav, Nav, NavItem, DropdownButton } from 'react-bootstrap';
+import { Navbar, CollapsibleNav, Nav, DropdownButton, MenuItem } from 'react-bootstrap';
 import { NavItemLink, MenuItemLink } from 'react-router-bootstrap';
 import LoginActions from '../../actions/LoginActions';
 import LoginStore from '../../stores/LoginStore';
@@ -41,8 +41,6 @@ class Header extends React.Component {
     let profileDropdown;
 
     if (this.state.user) {
-      // if user is logged in show logout link
-      loginNavItem = <NavItem onClick={this.handleLogout}>logout</NavItem>;
       signupNavItem = null;
 
       profileDropdown = ( <DropdownButton eventKey={3} title={
@@ -56,7 +54,8 @@ class Header extends React.Component {
                         className="profileDropdown"
                         noCaret={true}
                         >
-                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>View Profile</MenuItemLink>
+                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>profile</MenuItemLink>
+                          <MenuItem onClick={this.handleLogout}>logout</MenuItem>
                         </DropdownButton> );
     } else {
       // if user is not logged in show login link
@@ -66,7 +65,7 @@ class Header extends React.Component {
     }
 
     return (
-      <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/"><img height="25" src="/fitfam-white@2x.png" alt="FITFAM" /></Link>}>
+      <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/"><img src="/fitfam-white@2x.png" alt="FITFAM" height="25" /></Link>}>
        <CollapsibleNav eventKey={0} >
 
           <Nav navbar right>
