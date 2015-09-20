@@ -1,0 +1,39 @@
+.workout-tracker {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  &__form {
+    width: 100%;
+  }
+
+  &__info {
+    margin-bottom: 15px;
+  }
+
+  .add-exercise-btn {
+    margin-bottom: 15px;
+  }
+
+  .date-picker {
+    margin-bottom: 15px;
+  }
+
+  .total-weight {
+    margin-bottom: 15px;
+  }
+
+  .typeahead input {
+    width: 100%;
+  }
+
+  .typeahead-selector {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #f8f8f8;
+
+    li {
+      padding: 12px;
+      border-bottom: 1px solid #f8f8f8;
+    }
+  }
+}

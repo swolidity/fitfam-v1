@@ -15,6 +15,7 @@ import UserSongs from './components/UserSongs/UserSongs';
 import UserSongPlaylists from './components/UserSongPlaylists/UserSongPlaylists';
 import UserFollowers from './components/UserFollowers/UserFollowers';
 import UserFollowing from './components/UserFollowing/UserFollowing';
+import WorkoutTracker from './components/WorkoutTracker/WorkoutTracker';
 
 export default (
   <Route handler={App} path="/">
@@ -22,6 +23,8 @@ export default (
     <Route name="about" handler={About} path="/about" />
 
     <Route name="song-playlist" handler={SongPlaylist} path="/songs/playlist/:playlist_id" />
+
+    <Route name="track" handler={WorkoutTracker} path="/track" />
 
     <Route handler={Login} name="login" path="/login" />
     <Route handler={Signup} name="signup" path="/signup" />
