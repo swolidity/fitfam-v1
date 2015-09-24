@@ -7,6 +7,7 @@ import Song from './models/song';
 import Like from './models/like';
 import Genre from './models/genre';
 import SongPlaylist from './models/song_playlist';
+import Workout from './models/workout';
 import authenticateToken from './middleware/authenticate-token';
 
 const router = new Router();
@@ -198,6 +199,21 @@ router.get('/:id/songs/playlists', (req, res, next) => {
       res.send({
         user_id: userID,
         playlists: playlists,
+      });
+    });
+});
+
+// get: /api/users/:id/workouts
+router.get('/:id/workouts', (req, res, next) => {
+  const userID = req.params.id;
+
+  Workout.find({_user: userID})
+    .exec((err, workouts) => {
+      if (err) return next(err);
+
+      res.send({
+        user_id: userID,
+        workouts: workouts,
       });
     });
 });

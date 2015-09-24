@@ -13,9 +13,11 @@ import UserPhotos from './components/UserPhotos/UserPhotos';
 import UserVideos from './components/UserVideos/UserVideos';
 import UserSongs from './components/UserSongs/UserSongs';
 import UserSongPlaylists from './components/UserSongPlaylists/UserSongPlaylists';
+import UserWorkouts from './components/UserWorkouts/UserWorkouts';
 import UserFollowers from './components/UserFollowers/UserFollowers';
 import UserFollowing from './components/UserFollowing/UserFollowing';
 import WorkoutTracker from './components/WorkoutTracker/WorkoutTracker';
+import Workout from './components/Workout/Workout';
 
 export default (
   <Route handler={App} path="/">
@@ -25,6 +27,8 @@ export default (
     <Route name="song-playlist" handler={SongPlaylist} path="/songs/playlist/:playlist_id" />
 
     <Route name="track" handler={WorkoutTracker} path="/track" />
+
+    <Route name="workout" path="/workouts/:workout_id" handler={Workout} />
 
     <Route handler={Login} name="login" path="/login" />
     <Route handler={Signup} name="signup" path="/signup" />
@@ -36,6 +40,7 @@ export default (
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />
       <Route name="user-song-playlists" handler={UserSongPlaylists} path="songs/playlists" />
+      <Route name="user-workouts" handler={UserWorkouts} path="workouts" />
       <Route name="user-followers" handler={UserFollowers} path="followers" />
       <Route name="user-following" handler={UserFollowing} path="following" />
     </Route>
