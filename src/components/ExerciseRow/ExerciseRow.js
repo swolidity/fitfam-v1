@@ -20,7 +20,7 @@ class ExerciseRow extends React.Component {
         </td>
 
         <td className="exercise-row__weight">
-          {this.props.exercise.weight}lbs
+          {this.props.exercise.weight} lbs
         </td>
 
         <td className="exercise-row__reps">
