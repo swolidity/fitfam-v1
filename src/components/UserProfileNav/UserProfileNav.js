@@ -21,6 +21,9 @@ class UserProfileNav extends React.Component {
           <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
             Posts
           </NavItemLink>
+          <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
+            Workouts
+          </NavItemLink>
           <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
             Photos
           </NavItemLink>

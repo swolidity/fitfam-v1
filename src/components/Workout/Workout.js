@@ -4,6 +4,7 @@ import Spinner from '../Spinner/Spinner';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import moment from 'moment';
 import ExerciseTable from '../ExerciseTable/ExerciseTable';
+import WorkoutLineChart from '../WorkoutLineChart/WorkoutLineChart';
 
 require('./Workout.scss');
 
@@ -48,6 +49,8 @@ class Workout extends React.Component {
             {moment(this.state.workout.date).format('MMMM Do YYYY, h:mm:ss a')}
           </div>
         </div>
+
+        <WorkoutLineChart exercises={this.state.exercises} />
 
         <div className="workout__exercises">
           <ExerciseTable exercises={this.state.exercises} />
