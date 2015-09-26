@@ -1,10 +1,11 @@
 .Navbar {
-  background: #0D6CFF;
+  background: #fff;
   border-radius: 0;
   margin-bottom: 0;
 
   &.navbar-default {
     border: none;
+    border-bottom: 1px solid #f8f8f8;
   }
 
   .profileDropdown .dropdown-toggle {
@@ -14,15 +15,15 @@
     padding: 12.5px 15px;
     font-size: 25px;
     font-weight: bold;
-    color: #fff;
+    color: #0D6CFF;
 
     &:hover {
-      color: #fff;
+      color: #0D6CFF;
     }
   }
 
   &.navbar-default .navbar-nav > li > a {
-    color: #fff;
+    color: #0D6CFF;
     font-weight: 500;
     text-transform: capitalize;
   }
@@ -31,17 +32,21 @@
   &.navbar-default .navbar-nav > .active > a:hover,
   &.navbar-default .navbar-nav > .active > a:focus {
     background: none;
-    color: #fff;
+    color: #0D6CFF;
   }
 
   .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
     background: #fff;
-    color: #408bff;
+    color: #0D6CFF;
+  }
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #fff;
   }
 
   &.navbar-default .navbar-toggle {
-    border-color: #fff;
-    color: #fff;
+    border-color: #0D6CFF;
+    color: #0D6CFF;
   }
   &.navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
