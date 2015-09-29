@@ -1,29 +1,26 @@
 .user-profile-nav {
   margin-bottom: 30px;
-
-  nav {
-    display: inline-block;
-  }
+  padding: 15px 15px;
+  border-bottom: 1px solid #f8f8f8;
 
   .nav-pills > li > a {
-    margin-right: 15px;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #0D6CFF;
-    border: 1px solid #0D6CFF;
+    margin-right: 35px;
+    padding: 10px 0;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #B5B5B5;
+    border-radius: 0;
   }
   .nav-pills > li:last-child > a {
     margin-right: 0;
   }
   .nav-pills > li.active > a {
-    background: #0D6CFF;
-    color: #fff;
+    background: #fff;
+    border-bottom: 2px solid #0D6CFF;
   }
   .nav-pills > li.active > a:hover,
   .nav-pills > li.active > a:focus {
-    background: #0D6CFF;
-    color: #fff;
+    color: #ACB2B5;
   }
   .nav > li > a:hover, .nav > li > a:focus {
     background: #fff;
