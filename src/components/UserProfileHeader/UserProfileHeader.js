@@ -91,29 +91,25 @@ class UserProfileHeader extends React.Component {
 
   render() {
     return (
-      <div className="user-profile-header">
-        <div className="user-profile-header__user-info clearfix">
-          <div className="row">
-
-            <div className="col-xs-12 center">
-              <div className="profile-photo-container">
-                <div className="profile-photo center">
-                  <a href="#">
-                    <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-                  </a>
-                  <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-                    {this._getIcon()}
+      <div className="user-profile-header row">
+        <div className="col-xs-12">
+          <div className="user-profile-header__user-info clearfix">
+                <div className="profile-photo-container">
+                  <div className="profile-photo center">
+                    <a href="#">
+                      <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
+                    </a>
+                    <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
+                      {this._getIcon()}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="username-bio">
-                  <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                  <div className="bio">{this.props.user.bio}</div>
-              </div>
-            </div>
+                <div className="username-bio">
+                    <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+                </div>
 
-            <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
+              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
           </div>
         </div>
       </div>
