@@ -6,7 +6,7 @@
   }
 
   .profile-photo-container {
-    margin-right: 15px;
+    margin-right: 25px;
     display: inline-block;
   }
 
@@ -20,8 +20,8 @@
     }
 
     img {
-      width: 120px;
-      height: 120px;
+      width: 135px;
+      height: 135px;
     }
 
     .profile-song-icon-wrapper {
@@ -73,6 +73,31 @@
     display: inline-block;
   }
 
+  .username {
+    margin-top: 15px;
+    font-size: 32px;
+    font-weight: 400;
+
+    a {
+      color: #32393E;
+
+      &:hover {
+        color: #32393E;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .bio {
+    color: #ACB2B5;
+    font-weight: 300;
+  }
+
+  .full-name {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
   .follow-btn {
     position: absolute;
     top: 30px;
@@ -92,23 +117,6 @@
       text-align: center;
       float: none;
     }
-  }
-
-  .username {
-    margin-top: 15px;
-    font-size: 26px;
-
-    a {
-      color: #000;
-
-      &:hover {
-        color: #000;
-      }
-    }
-  }
-
-  .bio {
-
   }
 
 }

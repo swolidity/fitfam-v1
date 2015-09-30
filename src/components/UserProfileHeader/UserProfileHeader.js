@@ -107,6 +107,7 @@ class UserProfileHeader extends React.Component {
 
                 <div className="username-bio">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+                    <div className="bio"><span className="full-name">{this.props.user.full_name}</span></div>
                 </div>
 
               <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />

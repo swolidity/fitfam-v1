@@ -20,6 +20,9 @@ const UserSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
+  full_name: {
+    type: String,
+  },
   bio: {
     type: String,
   },
