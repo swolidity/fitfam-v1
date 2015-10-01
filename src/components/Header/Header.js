@@ -54,8 +54,9 @@ class Header extends React.Component {
                         className="profileDropdown"
                         noCaret={true}
                         >
-                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>profile</MenuItemLink>
-                          <MenuItem onClick={this.handleLogout}>logout</MenuItem>
+                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>Profile</MenuItemLink>
+                          <MenuItemLink to="account-settings">Settings</MenuItemLink>
+                          <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
                         </DropdownButton> );
     } else {
       // if user is not logged in show login link

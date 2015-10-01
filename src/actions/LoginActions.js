@@ -27,6 +27,10 @@ class LoginActions {
     if (nextPath) router.transitionTo(nextPath);
   }
 
+  updateToken(token) {
+    this.dispatch(token);
+  }
+
   loginFailed(errorMessage) {
     this.dispatch(errorMessage);
   }

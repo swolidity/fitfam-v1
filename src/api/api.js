@@ -17,5 +17,6 @@ router.use('/genres', require('./genres'));
 router.use('/exercises', require('./exercises'));
 router.use('/track', require('./track'));
 router.use('/workouts', require('./workouts'));
+router.use('/settings', require('./settings'));
 
 module.exports = router;

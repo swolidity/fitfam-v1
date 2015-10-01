@@ -32,6 +32,11 @@ class LoginStore {
     this.errorMessage = null;
   }
 
+  handleUpdateToekn(token) {
+    this.token = token;
+    this.user = jwtDecode(token);
+  }
+
   handleLoginFailed(errorMessage) {
     this.errorMessage = errorMessage;
   }

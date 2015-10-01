@@ -25,6 +25,7 @@
     "bootstrap-sass": "^3.3.5",
     "bootstrap-sass-loader": "^1.0.6",
     "browser-sync": "^2.7.12",
+    "classnames": "^2.1.5",
     "css-loader": "^0.15.2",
     "del": "^1.2.0",
     "eslint": "^1.0.0-rc-1",

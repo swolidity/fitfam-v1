@@ -1,14 +1,15 @@
 import React from 'react';
 import { RouteHandler } from 'react-router';
-import Authenticated from '../../decorators/Authenticated';
+import authenticated from '../../decorators/Authenticated';
 
 class Settings extends React.Component {
+  static propTypes = { user: React.PropTypes.object.isRequired };
 
   render() {
     return (
-      <RouteHandler />
+      <RouteHandler user={this.props.user} />
     );
   }
 }
 
-module.exports = Authenticated(Settings);
+module.exports = authenticated(Settings);

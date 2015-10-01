@@ -19,6 +19,10 @@ import UserFollowing from './components/UserFollowing/UserFollowing';
 import WorkoutTracker from './components/WorkoutTracker/WorkoutTracker';
 import Workout from './components/Workout/Workout';
 
+// Settings
+import Settings from './components/Settings/Settings';
+import AccountSettings from './components/AccountSettings/AccountSettings';
+
 export default (
   <Route handler={App} path="/">
     <DefaultRoute name="front-page" handler={FrontPage} />
@@ -32,6 +36,12 @@ export default (
 
     <Route handler={Login} name="login" path="/login" />
     <Route handler={Signup} name="signup" path="/signup" />
+
+    // Settings
+    <Route name="settings" handler={Settings} path="/settings">
+      <DefaultRoute name="default-settings" handler={AccountSettings} />
+      <Route name="account-settings" handler={AccountSettings} path="account" />
+    </Route>
 
     // user profile
     <Route name="user-profile" handler={UserProfile} path="/:username">

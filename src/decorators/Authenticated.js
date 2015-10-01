@@ -35,6 +35,7 @@ function Authenticated(ComposedComponent) {
         <ComposedComponent
           {...this.props}
           loggedIn={!!this.state.user}
+          user={this.state.user}
         />
       );
     }
