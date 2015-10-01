@@ -14,6 +14,7 @@ class LoginStore {
     this.bindListeners({
       handleUpdateLogin: LoginActions.UPDATE_LOGIN,
       handleLoginUser: LoginActions.LOGIN_USER,
+      handleUpdateToken: LoginActions.UPDATE_TOKEN,
       handleLoginFailed: LoginActions.LOGIN_FAILED,
       handleLogoutUser: LoginActions.LOGOUT_USER,
     });
@@ -32,7 +33,7 @@ class LoginStore {
     this.errorMessage = null;
   }
 
-  handleUpdateToekn(token) {
+  handleUpdateToken(token) {
     this.token = token;
     this.user = jwtDecode(token);
   }
