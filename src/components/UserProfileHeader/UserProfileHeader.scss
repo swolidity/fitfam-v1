@@ -2,12 +2,8 @@
   padding: 30px 15px;
   border-bottom: 1px solid #f8f8f8;
 
-  &__user-info {
-  }
-
   .profile-photo-container {
-    margin-right: 25px;
-    display: inline-block;
+    padding: 30px 0;
   }
 
   .profile-photo {
@@ -20,8 +16,8 @@
     }
 
     img {
-      width: 135px;
-      height: 135px;
+      width: 150px;
+      height: 150px;
     }
 
     .profile-song-icon-wrapper {
@@ -69,13 +65,16 @@
 
   }
 
-  .username-bio {
-    display: inline-block;
+  .username-follow {
+    display: block;
+    margin-bottom: 10px;
   }
 
   .username {
-    margin-top: 15px;
+    float: left;
+    margin-right: 15px;
     font-size: 32px;
+    line-height: 32px;
     font-weight: 400;
 
     a {
@@ -88,7 +87,12 @@
     }
   }
 
+  &__follow-btn {
+    float: left;
+  }
+
   .bio {
+    display: inline;
     color: #ACB2B5;
     font-weight: 300;
   }
@@ -98,25 +102,42 @@
     font-weight: 400;
   }
 
-  .follow-btn {
-    position: absolute;
-    top: 30px;
-    right: 30px;
+  .user-follow-faces {
+    nav {
+      text-align: right;
+    }
+
+    nav > ul {
+      display: inline-block;
+    }
   }
 
   /* Small Devices, Tablets */
+  /*
   @media only screen and (max-width : 768px) {
     .profile-photo-container {
       margin-right: 0;
+      margin-bottom: 15px;
       display: block;
       text-align: center;
       float: none;
     }
-    .username-bio {
+    .username-bio, .username-follow {
       display: block;
       text-align: center;
+      float: none;
+    }
+    .username {
+      margin-bottom: 15px;
+      display: block;
+      float: none;
+    }
+    .user-profile-header__follow-btn {
+      margin-bottom: 15px;
+      display: block;
       float: none;
     }
   }
+  */
 
 }

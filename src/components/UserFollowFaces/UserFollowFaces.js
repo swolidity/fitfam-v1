@@ -9,7 +9,14 @@ import { TabbedArea, TabPane } from 'react-bootstrap';
 require('./UserFollowFaces.scss');
 
 class UserFollowFaces extends React.Component {
-  static propTypes = { user: React.PropTypes.object.isRequired };
+  static propTypes = {
+    user: React.PropTypes.object.isRequired,
+    followFaceSize: React.PropTypes.string,
+  };
+
+  static defaultProps = {
+    followFaceSize: "35",
+  }
 
   constructor(props) {
     super(props);
@@ -54,7 +61,7 @@ class UserFollowFaces extends React.Component {
   _getFollowingFaces = () => {
     return this.state.following.map((follow) => {
       return (
-        <li><ProfilePhoto className="img-circle" width="45" height="45" user={follow._followed} /></li>
+        <li><ProfilePhoto className="img-circle" width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._followed} /></li>
       );
     });
   }
@@ -62,7 +69,7 @@ class UserFollowFaces extends React.Component {
   _getFollowerFaces = () => {
     return this.state.followers.map((follow) => {
       return (
-        <li><ProfilePhoto className="img-circle" width="45" height="45" user={follow._follower} /></li>
+        <li><ProfilePhoto className="img-circle" width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._follower} /></li>
       );
     });
   }

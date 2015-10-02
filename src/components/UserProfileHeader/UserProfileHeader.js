@@ -2,6 +2,7 @@ import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import FollowButton from '../FollowButton/FollowButton';
+import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -92,27 +93,35 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12">
-          <div className="user-profile-header__user-info clearfix">
-                <div className="profile-photo-container">
-                  <div className="profile-photo center">
-                    <a href="#">
-                      <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
-                    </a>
-                    <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-                      {this._getIcon()}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="username-bio">
-                    <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                    <div className="bio"><span className="full-name">{this.props.user.full_name}</span> {this.props.user.bio}</div>
-                </div>
-
-              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
+        <div className="col-xs-12 center">
+          <div className="profile-photo-container">
+            <div className="profile-photo center">
+              <a href="#">
+                <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
+              </a>
+              <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
+                {this._getIcon()}
+              </div>
+            </div>
           </div>
         </div>
+
+        <div className="col-xs-8">
+          <div className="username-follow clearfix">
+            <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+
+            <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
+          </div>
+
+          <div className="bio"><span className="full-name">{this.props.user.full_name} |</span> {this.props.user.bio}</div>
+        </div>
+
+        <div className="col-xs-4">
+          <div className="pull-right">
+            <UserFollowFaces user={this.props.user} />
+          </div>
+        </div>
+
       </div>
     );
   }
