@@ -1,6 +1,11 @@
 .video-grid-item {
   margin-bottom: 30px;
 
+  &__title {
+    height: 40px;
+    overflow: hidden;
+  }
+
   .yt-thumb {
     &--icon-wrapper {
       position: absolute;

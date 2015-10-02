@@ -65,7 +65,7 @@ class SongGridItem extends React.Component {
     const thumbnail = this.song.thumbnails.maxres ? this.song.thumbnails.maxres : this.song.thumbnails.medium;
 
     return (
-      <div className="song-grid-item col-xs-12 col-sm-4">
+      <div className="song-grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
         <div className="song-grid-item__thumbnail">
           <div className="yt-thumb embed-responsive embed-responsive-16by9">
@@ -74,6 +74,10 @@ class SongGridItem extends React.Component {
               {this._getIcon()}
             </div>
           </div>
+        </div>
+
+        <div className="song-grid-item__title">
+          {this.song.title}
         </div>
 
       </div>

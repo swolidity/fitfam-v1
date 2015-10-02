@@ -65,7 +65,7 @@ class VideoGridItem extends React.Component {
     const thumbnail = this.video.thumbnails.maxres ? this.video.thumbnails.maxres : this.video.thumbnails.medium;
 
     return (
-      <div className="video-grid-item col-xs-12 col-sm-4">
+      <div className="video-grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
         <div className="video-grid-item__thumbnail">
           <div className="yt-thumb embed-responsive embed-responsive-16by9">
@@ -73,6 +73,10 @@ class VideoGridItem extends React.Component {
             <div className="yt-thumb--icon-wrapper" onClick={this._onClick}>
               {this._getIcon()}
             </div>
+          </div>
+
+          <div className="video-grid-item__title">
+            {this.video.title}
           </div>
         </div>
 
