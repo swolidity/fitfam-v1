@@ -1,5 +1,5 @@
 import React from 'react';
-import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
+import LatestProgressPic from '../LatestProgressPic/LatestProgressPic';
 
 require('./UserInfo.scss');
 
@@ -9,7 +9,7 @@ class UserInfo extends React.Component {
   render() {
     return (
       <div className="user-info">
-        <UserFollowFaces user={this.props.user} />
+        <LatestProgressPic userID={this.props.user._id} />
       </div>
     );
   }

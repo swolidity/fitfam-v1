@@ -218,4 +218,18 @@ router.get('/:id/workouts', (req, res, next) => {
     });
 });
 
+// get: /api/users/:id/progress_pics
+router.get('/:id/progress_pics', (req, res, next) => {
+  const userID = req.params.id;
+
+  Photo.find({_user: userID})
+    .sort({date: -1})
+    .limit(3)
+    .exec((err, photos) => {
+      if (err) return next(err);
+
+      res.send(photos);
+    });
+});
+
 module.exports = router;
