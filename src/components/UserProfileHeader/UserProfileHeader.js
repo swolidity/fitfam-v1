@@ -1,8 +1,8 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import UserProfileNav from '../UserProfileNav/UserProfileNav';
 import FollowButton from '../FollowButton/FollowButton';
-import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -10,6 +10,10 @@ require('./UserProfileHeader.scss');
 class UserProfileHeader extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
+  };
+
+  static contextTypes = {
+    router: React.PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -89,6 +93,11 @@ class UserProfileHeader extends React.Component {
     return playIcon;
   }
 
+  _getActiveRouteName = (router) => {
+    const currentRoutes = router.getCurrentRoutes();
+    const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
+    return activeRouteName;
+  }
 
   render() {
     return (
@@ -106,19 +115,17 @@ class UserProfileHeader extends React.Component {
           </div>
         </div>
 
-        <div className="col-xs-8">
+        <div className="col-xs-12 col-md-4">
           <div className="username-follow clearfix">
             <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
 
             <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
           </div>
-
-          <div className="bio"><span className="full-name">{this.props.user.full_name} |</span> {this.props.user.bio}</div>
         </div>
 
-        <div className="col-xs-4">
+        <div className="col-xs-12 col-md-8">
           <div className="pull-right">
-            <UserFollowFaces user={this.props.user} />
+            <UserProfileNav user={this.props.user} activeTab={this._getActiveRouteName(this.context.router)} />
           </div>
         </div>
 

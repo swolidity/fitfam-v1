@@ -15,7 +15,7 @@ class UserFollowFaces extends React.Component {
   };
 
   static defaultProps = {
-    followFaceSize: "35",
+    followFaceSize: '40',
   }
 
   constructor(props) {
@@ -61,7 +61,7 @@ class UserFollowFaces extends React.Component {
   _getFollowingFaces = () => {
     return this.state.following.map((follow) => {
       return (
-        <li><ProfilePhoto className="img-circle" width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._followed} /></li>
+        <li><ProfilePhoto width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._followed} /></li>
       );
     });
   }
@@ -69,7 +69,7 @@ class UserFollowFaces extends React.Component {
   _getFollowerFaces = () => {
     return this.state.followers.map((follow) => {
       return (
-        <li><ProfilePhoto className="img-circle" width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._follower} /></li>
+        <li><ProfilePhoto width={this.props.followFaceSize} height={this.props.followFaceSize} user={follow._follower} /></li>
       );
     });
   }
@@ -80,7 +80,7 @@ class UserFollowFaces extends React.Component {
     }
 
     return (
-      <div className="user-follow-faces">
+      <div className="user-follow-faces col-xs-12">
 
         <TabbedArea defaultActiveKey={1}>
           <TabPane eventKey={1} tab={'Following ' + this.state.following.length}>
