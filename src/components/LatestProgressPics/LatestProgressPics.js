@@ -44,12 +44,14 @@ class LatestProgressPics extends React.Component {
 
     return (
       <div className="latest-progress-pics">
-        <div className="col-xs-12">
-          <Link className="title" to="user-photos" params={{ username: this.props.user.username }}>
-            Photos
-          </Link>
+        <div className="no-gutter">
+          <div className="col-xs-12">
+            <Link className="title" to="user-photos" params={{ username: this.props.user.username }}>
+              Photos
+            </Link>
+          </div>
+          {progressPics}
         </div>
-        {progressPics}
       </div>
     );
   }

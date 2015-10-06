@@ -224,7 +224,7 @@ router.get('/:id/progress_pics', (req, res, next) => {
 
   Photo.find({_user: userID})
     .sort({date: -1})
-    .limit(3)
+    .limit(6)
     .exec((err, photos) => {
       if (err) return next(err);
 
