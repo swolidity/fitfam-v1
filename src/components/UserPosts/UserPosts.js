@@ -3,6 +3,7 @@ import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
 import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 import LatestProgressPics from '../LatestProgressPics/LatestProgressPics';
+import ProfileSongMod from '../ProfileSongMod/ProfileSongMod';
 
 require('./UserPosts.scss');
 
@@ -49,7 +50,10 @@ class UserPosts extends React.Component {
               <p>{this.props.user.bio}</p>
             </div>
 
+            <ProfileSongMod profileSong={this.props.user.profile_song} />
+
             <LatestProgressPics user={this.props.user} />
+
           </div>
         </div>
 

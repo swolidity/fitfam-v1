@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 require('./LatestProgressPics.scss');
 
 class LatestProgressPics extends React.Component {
-  static propTypes = { user: React.PropTypes.string.isRequired };
+  static propTypes = { user: React.PropTypes.object.isRequired };
 
   constructor(props) {
     super(props);
