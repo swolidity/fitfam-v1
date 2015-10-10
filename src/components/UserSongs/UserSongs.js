@@ -6,6 +6,7 @@ import SongGrid from '../SongGrid/SongGrid';
 import AddSongModal from '../AddSongModal/AddSongModal';
 import GenreFilter from '../GenreFilter/GenreFilter';
 import { Input } from 'react-bootstrap';
+import UserSongPlaylists from '../UserSongPlaylists/UserSongPlaylists';
 
 require('./UserSongs.scss');
 
@@ -48,10 +49,6 @@ class UserSongs extends React.Component {
     this.setState(state);
   }
 
-  _onFilter = (e) => {
-    UserSongsStore.fetchSongs(this.props.user._id, e.target.value, this.props.query.genre);
-  }
-
   render() {
     let addSong;
 
@@ -65,30 +62,19 @@ class UserSongs extends React.Component {
         <div className="col-xs-12">
           <div className="user-songs">
 
-              <div className="user-songs--header clearfix">
-                <div className="row">
-                  <div className="filter col-xs-12 col-sm-8">
-                    <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
-                  </div>
+            <UserSongPlaylists user={this.props.user} />
 
-                  <div className="col-xs-12 col-sm-4">
-                    <div className="add-song-btn-container pull-right">
-                      {addSong}
-                    </div>
 
-                    <div className="genre-filter-container pull-right">
-                      <GenreFilter user={this.props.user}/>
-                    </div>
-                  </div>
-                </div>
+            <div className="genre-filter-container center">
+              <GenreFilter user={this.props.user}/>
+            </div>
 
+
+            <div className="row">
+              <div className="col-xs-12">
+                <SongGrid songs={this.state.songs} />
               </div>
-
-              <div className="row">
-                <div className="col-xs-12">
-                  <SongGrid songs={this.state.songs} />
-                </div>
-              </div>
+            </div>
           </div>
         </div>
       </div>

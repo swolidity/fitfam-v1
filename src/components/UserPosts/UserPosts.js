@@ -38,26 +38,7 @@ class UserPosts extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xs-12 col-sm-5">
-          <div className="user-posts__sidebar">
-            <UserFollowFaces user={this.props.user} />
-
-            <div className="user-bio col-xs-12">
-              <div className="title">
-                Bio
-              </div>
-
-              <p>{this.props.user.bio}</p>
-            </div>
-
-            <ProfileSongMod profileSong={this.props.user.profile_song} />
-
-            <LatestProgressPics user={this.props.user} />
-
-          </div>
-        </div>
-
-        <div className="col-xs-12 col-sm-7">
+        <div className="col-xs-12 col-sm-6 col-sm-offset-3">
           <div className="user-posts">
             <PostList posts={this.state.posts} />
           </div>

@@ -102,7 +102,7 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12 center">
+        <div className="col-xs-12 col-sm-3 center">
           <div className="profile-photo-container">
             <div className="profile-photo center">
               <a href="#">
@@ -115,20 +115,15 @@ class UserProfileHeader extends React.Component {
           </div>
         </div>
 
-        <div className="col-xs-12 col-md-4">
-          <div className="username-follow clearfix">
-            <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+        <div className="col-xs-12 col-sm-9">
+          <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
 
-            <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
-          </div>
+          <div className="bio">{this.props.user.bio}</div>
+
+          <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
+
+          <UserProfileNav user={this.props.user} activeTab={this._getActiveRouteName(this.context.router)} />
         </div>
-
-        <div className="col-xs-12 col-md-8">
-          <div className="pull-right">
-            <UserProfileNav user={this.props.user} activeTab={this._getActiveRouteName(this.context.router)} />
-          </div>
-        </div>
-
       </div>
     );
   }

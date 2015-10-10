@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PlaylistItem from '../PlaylistItem/PlaylistItem';
+
 
 class PlaylistList extends React.Component {
   static propTypes = { playlists: React.PropTypes.array.isRequired };
 
   _getPlaylistListItem = (playlist) => {
     return (
-      <div className="playlist-list-item">
-        <Link to="song-playlist" params={{ playlist_id: playlist._id }}>{playlist.name}</Link>
-      </div>
+      <PlaylistItem key={playlist._id} playlist={playlist} />
     );
   }
 
@@ -17,7 +16,9 @@ class PlaylistList extends React.Component {
 
     return (
       <div className="playlist-list">
-        {playlistListItems}
+        <div className="row">
+          {playlistListItems}
+        </div>
       </div>
     );
   }

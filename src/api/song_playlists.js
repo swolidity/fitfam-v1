@@ -37,6 +37,20 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+// get: /api/songs/playlists/:id/thumbnail
+router.get('/:id/thumbnail', (req, res, next) => {
+  const playlistID = req.params.id;
+
+  SongPlaylistXref.findOne({_playlist: playlistID})
+    .sort({date: -1})
+    .populate('_song', 'thumbnails')
+    .exec((err, song) => {
+      if (err) return next(err);
+
+      res.send(song._song.thumbnails);
+    });
+});
+
 // post: /api/songs/playlists/new
 router.post('/new', authenticateToken, (req, res, next) => {
   const name = req.body.name;

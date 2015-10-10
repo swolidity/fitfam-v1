@@ -77,7 +77,7 @@ class SongGridItem extends React.Component {
         </div>
 
         <div className="song-grid-item__title">
-          {this.song.title}
+          <a href="#">{this.song.title}</a>
         </div>
 
       </div>

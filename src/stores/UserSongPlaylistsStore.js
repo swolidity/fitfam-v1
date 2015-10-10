@@ -5,7 +5,7 @@ import UserSongPlaylistsSource from '../sources/UserSongPlaylistsSource';
 class UserSongPlaylistsStore {
   constructor() {
     this.userID = null;
-    this.playlists = [];
+    this.playlists = null;
     this.err = null;
 
     this.bindActions(UserSongPlaylistsActions);
