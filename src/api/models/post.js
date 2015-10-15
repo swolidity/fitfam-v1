@@ -8,9 +8,19 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
 
+  _posted_by: {
+    type: String,
+    ref: 'User',
+  },
+
   type: {
     type: String,
     required: true,
+  },
+
+  _text: {
+    type: String,
+    ref: 'Text',
   },
 
   _photo: {

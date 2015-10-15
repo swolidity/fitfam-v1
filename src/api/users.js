@@ -55,7 +55,7 @@ router.get('/:id/posts', (req, res, next) => {
   Post
     .find({_user: userID})
     .sort({date: 'desc'})
-    .populate('_user _photo _video _song')
+    .populate('_user _posted_by _photo _video _song _text')
     .exec((err, posts) => {
       if (err) return next(err);
 

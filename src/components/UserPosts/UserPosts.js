@@ -1,9 +1,7 @@
 import React from 'react';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
-import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
-import LatestProgressPics from '../LatestProgressPics/LatestProgressPics';
-import ProfileSongMod from '../ProfileSongMod/ProfileSongMod';
+import StatusComposer from '../StatusComposer/StatusComposer';
 
 require('./UserPosts.scss');
 
@@ -39,6 +37,7 @@ class UserPosts extends React.Component {
     return (
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-sm-offset-3">
+          <StatusComposer user={this.props.user} />
           <div className="user-posts">
             <PostList posts={this.state.posts} />
           </div>

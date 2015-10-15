@@ -1,5 +1,6 @@
 import React from 'react';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import TextFeedItem from '../TextFeedItem/TextFeedItem';
 import PhotoListItem from '../PhotoListItem/PhotoListItem';
 import VideoListItem from '../VideoListItem/VideoListItem';
 import SongFeedItem from '../SongFeedItem/SongFeedItem';
@@ -35,6 +36,11 @@ class PostList extends React.Component {
   }
 
   _getPostListItem = (post) => {
+    if (post._text) {
+      post._text._user = post._user; // tack the populated user object on
+      return <TextFeedItem key={post._id} postID={post._id} likes={post.likes} text={post._text} postedBy={post._posted_by} />;
+    }
+
     if (post._photo) {
       post._photo._user = post._user; // tack the populated user object on
       return <PhotoListItem key={post._id} postID={post._id} likes={post.likes} photo={post._photo} />;

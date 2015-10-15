@@ -1,0 +1,24 @@
+.text-feed-item {
+  padding: 10px 15px;
+
+  &__info {
+    margin-bottom: 10px;
+  }
+
+  .user-photo {
+    margin-right: 7px;
+  }
+
+  &__username {
+    font-weight: 500;
+    color: #000;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__date {
+    color: #ACB2B5;
+  }
+}
