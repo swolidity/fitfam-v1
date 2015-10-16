@@ -17,7 +17,7 @@ class UserProfileNav extends React.Component {
   render() {
     return (
       <div className="user-profile-nav row">
-        <div className="col-xs-12">
+        <div className="col-xs-12 center">
           <Nav bsStyle="pills">
             <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
               Posts

@@ -1,10 +1,16 @@
 .user-profile-nav {
-  margin-top: 25px;
+  margin-bottom: 15px;
   display: block;
+  background: #fff;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
+
+  nav {
+    display: inline-block;
+  }
 
   .nav-pills > li > a {
     margin-right: 35px;
-    padding: 10px 0;
     font-size: 16px;
     font-weight: 300;
     text-transform: capitalize;
@@ -15,14 +21,17 @@
     margin-right: 0;
   }
   .nav-pills > li.active > a {
-    background: #fff;
-    border-bottom: 2px solid #0D6CFF;
+    color: #0D6CFF;
+    background: none;
   }
   .nav-pills > li.active > a:hover,
   .nav-pills > li.active > a:focus {
-    color: #ACB2B5;
+    color: #0D6CFF;
+  }
+  .nav > li > a:hover {
+    color: #0D6CFF;
   }
   .nav > li > a:hover, .nav > li > a:focus {
-    background: #fff;
+    background: none;
   }
 }

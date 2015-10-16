@@ -1,7 +1,6 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
-import UserProfileNav from '../UserProfileNav/UserProfileNav';
 import FollowButton from '../FollowButton/FollowButton';
 import { Link } from 'react-router';
 
@@ -10,10 +9,6 @@ require('./UserProfileHeader.scss');
 class UserProfileHeader extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-  };
-
-  static contextTypes = {
-    router: React.PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -93,16 +88,10 @@ class UserProfileHeader extends React.Component {
     return playIcon;
   }
 
-  _getActiveRouteName = (router) => {
-    const currentRoutes = router.getCurrentRoutes();
-    const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
-    return activeRouteName;
-  }
-
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12 col-sm-3 center">
+        <div className="col-xs-12">
           <div className="profile-photo-container">
             <div className="profile-photo center">
               <a href="#">
@@ -113,16 +102,19 @@ class UserProfileHeader extends React.Component {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="col-xs-12 col-sm-9">
-          <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+          <div className="username-bio">
+            <div className="v-align">
+              <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
+              <div className="bio">{this.props.user.bio}</div>
+            </div>
+          </div>
 
-          <div className="bio">{this.props.user.bio}</div>
-
-          <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
-
-          <UserProfileNav user={this.props.user} activeTab={this._getActiveRouteName(this.context.router)} />
+          <div className="user-profile-header__follow pull-right">
+            <div className="v-align">
+              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn btn-block" />
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -1,10 +1,10 @@
 .user-profile-header {
-  margin-bottom: 15px;
-  padding: 30px 15px;
+  padding: 50px 15px;
   background: #fff;
 
   .profile-photo-container {
-    display: block;
+    float: left;
+    margin-right: 35px;
   }
 
   .profile-photo {
@@ -17,8 +17,8 @@
     }
 
     img {
-      width: 150px;
-      height: 150px;
+      width: 135px;
+      height: 135px;
     }
 
     .profile-song-icon-wrapper {
@@ -66,10 +66,15 @@
 
   }
 
+  .username-bio {
+    float: left;
+    height: 135px;
+  }
+
   .username {
-    margin-bottom: 15px;
-    font-size: 32px;
-    line-height: 32px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    line-height: 28px;
     font-weight: 500;
 
     a {
@@ -80,6 +85,10 @@
         text-decoration: none;
       }
     }
+  }
+
+  &__follow {
+    height: 135px;
   }
 
   &__follow-btn {
