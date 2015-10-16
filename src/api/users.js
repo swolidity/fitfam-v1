@@ -9,6 +9,7 @@ import Genre from './models/genre';
 import SongPlaylist from './models/song_playlist';
 import Workout from './models/workout';
 import authenticateToken from './middleware/authenticate-token';
+import _ from 'lodash';
 
 const router = new Router();
 
@@ -230,6 +231,63 @@ router.get('/:id/progress_pics', (req, res, next) => {
 
       res.send(photos);
     });
+});
+
+// get: /api/users/:id/post_counts
+router.get('/:id/post_counts', (req, res, next) => {
+  const userID = req.params.id;
+  const done = _.after(5, doSend);
+
+  let postCount;
+  let workoutCount;
+  let photoCount;
+  let videoCount;
+  let songCount;
+
+  Post.count({ _user: userID }, (err, c) => {
+    if (err) return next(err);
+
+    postCount = c;
+    done();
+  });
+
+  Workout.count({ _user: userID}, (err, c) => {
+    if (err) return next(err);
+
+    workoutCount = c;
+    done();
+  });
+
+  Photo.count({ _user: userID}, (err, c) => {
+    if (err) return next(err);
+
+    photoCount = c;
+    done();
+  });
+
+  Video.count({ _user: userID}, (err, c) => {
+    if (err) return next(err);
+
+    videoCount = c;
+    done();
+  });
+
+  Song.count({ _user: userID}, (err, c) => {
+    if (err) return next(err);
+
+    songCount = c;
+    done();
+  });
+
+  function doSend() {
+    res.send({
+      post_count: postCount,
+      workout_count: workoutCount,
+      photo_count: photoCount,
+      video_count: videoCount,
+      song_count: songCount,
+    });
+  }
 });
 
 module.exports = router;
