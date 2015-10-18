@@ -47,9 +47,13 @@
   &.navbar-default .navbar-toggle {
     border-color: #0D6CFF;
     color: #0D6CFF;
+
+    &:hover {
+      background: none;
+    }
   }
   &.navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #0D6CFF;
   }
 
   &.navbar-default .navbar-collapse,
