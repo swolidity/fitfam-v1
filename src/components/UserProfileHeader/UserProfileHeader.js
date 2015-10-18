@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import UserProfileNav from '../UserProfileNav/UserProfileNav';
 import FollowButton from '../FollowButton/FollowButton';
 import { Link } from 'react-router';
 
@@ -91,7 +92,7 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12">
+        <div className="col-xs-12 col-sm-3 center">
           <div className="profile-photo-container">
             <div className="profile-photo center">
               <a href="#">
@@ -102,17 +103,17 @@ class UserProfileHeader extends React.Component {
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="col-xs-12 col-sm-9">
           <div className="username-bio">
             <div className="v-align">
               <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-              <div className="bio">{this.props.user.bio}</div>
-            </div>
-          </div>
+              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn" />
+              <div className="clearfix"></div>
 
-          <div className="user-profile-header__follow pull-right">
-            <div className="v-align">
-              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="user-profile-header__follow-btn btn-block" />
+              <div className="bio">{this.props.user.bio}</div>
+              <UserProfileNav user={this.props.user} />
             </div>
           </div>
         </div>

@@ -7,7 +7,6 @@ import UserFollowersStore from '../../stores/UserFollowersStore';
 import UserFollowingStore from '../../stores/UserFollowingStore';
 import { RouteHandler } from 'react-router';
 import UserProfileHeader from '../UserProfileHeader/UserProfileHeader';
-import UserProfileNav from '../UserProfileNav/UserProfileNav';
 
 require('./UserProfile.scss');
 
@@ -16,10 +15,6 @@ class UserProfile extends React.Component {
   static propTypes = {
     params: React.PropTypes.object.isRequired,
     query: React.PropTypes.object,
-  };
-
-  static contextTypes = {
-    router: React.PropTypes.func.isRequired,
   };
 
   constructor(props, context) {
@@ -63,12 +58,6 @@ class UserProfile extends React.Component {
     UserFollowingStore.fetchFollowing(userID);
   }
 
-  _getActiveRouteName = (router) => {
-    const currentRoutes = router.getCurrentRoutes();
-    const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
-    return activeRouteName;
-  }
-
   render() {
     if (!this.state.user || UserStore.isLoading()) {
       return (
@@ -80,7 +69,6 @@ class UserProfile extends React.Component {
       <div className="UserProfile" ref="userProfile">
 
         <UserProfileHeader user={this.state.user} />
-        <UserProfileNav user={this.state.user} activeTab={this._getActiveRouteName(this.context.router)} />
 
         <RouteHandler user={this.state.user} query={this.props.query} />
       </div>

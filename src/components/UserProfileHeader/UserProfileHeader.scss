@@ -3,7 +3,7 @@
   background: #fff;
 
   .profile-photo-container {
-    float: left;
+    display: inline-block;
     margin-right: 35px;
   }
 
@@ -73,9 +73,11 @@
 
   .username {
     margin-bottom: 10px;
+    margin-right: 15px;
     font-size: 28px;
     line-height: 28px;
     font-weight: 500;
+    float: left;
 
     a {
       color: #32393E;
@@ -87,11 +89,8 @@
     }
   }
 
-  &__follow {
-    height: 135px;
-  }
-
   &__follow-btn {
+    float: left;
   }
 
   .bio {

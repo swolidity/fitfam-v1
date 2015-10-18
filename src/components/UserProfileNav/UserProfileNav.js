@@ -8,7 +8,10 @@ require('./UserProfileNav.scss');
 class UserProfileNav extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-    activeTab: React.PropTypes.string.isRequired,
+   };
+
+   static contextTypes = {
+     router: React.PropTypes.func.isRequired,
    };
 
    constructor(props) {
@@ -31,59 +34,61 @@ class UserProfileNav extends React.Component {
 
 
    _isActive = (tab) => {
-     return (this.props.activeTab === tab) ? true : false;
+     return (this.activeTab === tab) ? true : false;
    }
 
-
+   _getActiveRouteName = (router) => {
+     const currentRoutes = router.getCurrentRoutes();
+     const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
+     return activeRouteName;
+   }
 
   render() {
+    this.activeTab = this._getActiveRouteName(this.context.router);
+
     if (this.state.postCounts === null) {
       return (
-        <div className="user-profile-nav row">
-          <div className="col-xs-12 center">
-            <Nav bsStyle="pills">
-              <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
-                Posts
-              </NavItemLink>
-              <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
-                Workouts
-              </NavItemLink>
-              <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
-                Photos
-              </NavItemLink>
-              <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
-                Videos
-              </NavItemLink>
-              <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
-                Songs
-              </NavItemLink>
-            </Nav>
-          </div>
+        <div className="user-profile-nav">
+          <Nav bsStyle="pills">
+            <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
+              Posts
+            </NavItemLink>
+            <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
+              Workouts
+            </NavItemLink>
+            <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
+              Photos
+            </NavItemLink>
+            <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
+              Videos
+            </NavItemLink>
+            <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
+              Songs
+            </NavItemLink>
+          </Nav>
         </div>
       );
     }
 
     return (
-      <div className="user-profile-nav row">
-        <div className="col-xs-12 center">
-          <Nav bsStyle="pills">
-            <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
-              <span className="post-count">{this.state.postCounts.post_count}</span> Posts
-            </NavItemLink>
-            <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
-              <span className="post-count">{this.state.postCounts.workout_count}</span> Workouts
-            </NavItemLink>
-            <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
-              <span className="post-count">{this.state.postCounts.photo_count}</span> Photos
-            </NavItemLink>
-            <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
-              <span className="post-count">{this.state.postCounts.video_count}</span> Videos
-            </NavItemLink>
-            <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
-              <span className="post-count">{this.state.postCounts.song_count}</span> Songs
-            </NavItemLink>
-          </Nav>
-        </div>
+      <div className="user-profile-nav">
+        <Nav bsStyle="pills">
+          <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
+            <span className="post-count">{this.state.postCounts.post_count}</span> Posts
+          </NavItemLink>
+          <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
+            <span className="post-count">{this.state.postCounts.workout_count}</span> Workouts
+          </NavItemLink>
+          <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
+            <span className="post-count">{this.state.postCounts.photo_count}</span> Photos
+          </NavItemLink>
+          <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
+            <span className="post-count">{this.state.postCounts.video_count}</span> Videos
+          </NavItemLink>
+          <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
+            <span className="post-count">{this.state.postCounts.song_count}</span> Songs
+          </NavItemLink>
+        </Nav>
       </div>
     );
   }
