@@ -1,8 +1,6 @@
 import React from 'react';
 import UserPhotosStore from '../../stores/UserPhotosStore';
-import LoginStore from '../../stores/LoginStore';
 import PhotoGrid from '../PhotoGrid/PhotoGrid';
-import AddPhotoModal from '../AddPhotoModal/AddPhotoModal';
 
 require('./UserPhotos.scss');
 
@@ -35,19 +33,8 @@ class UserPhotos extends React.Component {
   }
 
   render() {
-    let addPhoto;
-
-    if (LoginStore.isLoggedIn()) {
-      addPhoto = (
-        <div className="user-photos--header clearfix">
-            <AddPhotoModal showModal={false} />
-        </div>
-      );
-    }
-
     return (
       <div className="user-photos">
-        {addPhoto}
 
         <div className="row">
           <div className="col-xs-12">

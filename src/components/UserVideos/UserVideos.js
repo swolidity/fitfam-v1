@@ -2,7 +2,6 @@ import React from 'react';
 import UserVideosStore from '../../stores/UserVideosStore';
 import LoginStore from '../../stores/LoginStore';
 import VideoGrid from '../VideoGrid/VideoGrid';
-import AddVideoModal from '../AddVideoModal/AddVideoModal';
 import { Input } from 'react-bootstrap';
 
 require('./UserVideos.scss');
@@ -24,14 +23,12 @@ class UserVideos extends React.Component {
 
   componentDidMount() {
     UserVideosStore.listen(this._onChange);
-    LoginStore.listen(this._onChange);
 
     UserVideosStore.fetchVideos(this.user._id);
   }
 
   componentWillUnmount() {
     UserVideosStore.unlisten(this._onChange);
-    LoginStore.unlisten(this._onChange);
   }
 
   _getStateFromStores = () => {
@@ -49,34 +46,13 @@ class UserVideos extends React.Component {
   }
 
   render() {
-    let addVideo;
-
-    if (LoginStore.isLoggedIn()) {
-      addVideo = <AddVideoModal showModal={false} />;
-    }
-
     return (
       <div className="user-videos">
-
-          <div className="user-videos--header">
-            <div className="row">
-              <div className="filter col-xs-8">
-                <Input onChange={this._onFilter} type="text" placeholder="filter" ref="filter" standalone />
-              </div>
-
-              <div className="col-xs-4">
-                {addVideo}
-              </div>
-            </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <VideoGrid videos={this.state.videos} />
           </div>
-
-
-          <div className="row">
-            <div className="col-xs-12">
-              <VideoGrid videos={this.state.videos} />
-            </div>
-          </div>
-
+        </div>
       </div>
     );
   }
