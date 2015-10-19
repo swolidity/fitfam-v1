@@ -71,7 +71,7 @@ class UserProfileNav extends React.Component {
     }
 
     return (
-      <div className="user-profile-nav">
+      <div className="user-profile-nav row center">
         <Nav bsStyle="pills">
           <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
             <span className="post-count">{this.state.postCounts.post_count}</span> Posts

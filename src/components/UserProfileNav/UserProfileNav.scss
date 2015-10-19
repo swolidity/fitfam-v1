@@ -1,6 +1,10 @@
 .user-profile-nav {
+  margin-bottom: 15px;
+  padding: 0 15px;
   display: block;
   background: #fff;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
 
   nav {
     display: inline-block;
@@ -8,7 +12,6 @@
 
   .nav-pills > li > a {
     margin-right: 35px;
-    padding: 0;
     font-size: 16px;
     font-weight: 300;
     text-transform: capitalize;

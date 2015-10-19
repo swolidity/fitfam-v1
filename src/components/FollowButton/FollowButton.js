@@ -3,6 +3,7 @@ import FollowStore from '../../stores/FollowStore';
 import LoginStore from '../../stores/LoginStore';
 import { ButtonInput } from 'react-bootstrap';
 import LoginSignupModal from '../LoginSignupModal/LoginSignupModal';
+import classNames from 'classnames';
 
 require('./FollowButton.scss');
 
@@ -10,6 +11,7 @@ class FollowButton extends React.Component {
   static propTypes = {
     followedID: React.PropTypes.string.isRequired,
     bsStyle: React.PropTypes.string,
+    className: React.PropTypes.string,
    }
 
   static defaultProps = { showModal: false };
@@ -84,8 +86,8 @@ class FollowButton extends React.Component {
     }
 
     return (
-      <div className={this.props.className}>
-        <ButtonInput onClick={clickHandler} bsStyle={this.props.bsStyle} className="follow-btn" standalone >{followText}</ButtonInput>
+      <div>
+        <ButtonInput onClick={clickHandler} bsStyle={this.props.bsStyle} className={classNames(this.props.className, 'follow-btn')} standalone >{followText}</ButtonInput>
         {modal}
       </div>
     );
