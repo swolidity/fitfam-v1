@@ -113,7 +113,7 @@ class UserProfileHeader extends React.Component {
           </div>
         </div>
 
-        <div className="col-xs-12 col-sm-3 col-md-2 pull-right">
+        <div className="col-xs-12 col-sm-3 col-lg-2 pull-right">
           <div className="user-profile-header__follow-btn">
             <div className="v-align">
               <UserFollowCount user={this.props.user} />
