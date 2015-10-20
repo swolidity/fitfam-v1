@@ -4,12 +4,16 @@
 
   .profile-photo-container {
     margin-right: 35px;
+    width: 135px;
+    height: 135px;
     float: left;
+    position: relative;
   }
 
   .profile-photo {
-    position: relative;
+    position: absolute;
     display: inline-block;
+    z-index: 1000;
 
     a {
       border-radius: 50%;
