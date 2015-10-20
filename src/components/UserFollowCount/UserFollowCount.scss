@@ -1,0 +1,20 @@
+.user-follow-count {
+  margin-bottom: 15px;
+  font-weight: 300;
+
+  a {
+    color: #ACB2B5;
+  }
+
+  &__followers {
+    display: inline-block;
+  }
+
+  &__following {
+    display: inline-block;
+  }
+
+  .count {
+    color: #ACB2B5;
+  }
+}

@@ -8,6 +8,7 @@ import Like from './models/like';
 import Genre from './models/genre';
 import SongPlaylist from './models/song_playlist';
 import Workout from './models/workout';
+import Follow from './models/follow';
 import authenticateToken from './middleware/authenticate-token';
 import _ from 'lodash';
 
@@ -286,6 +287,36 @@ router.get('/:id/post_counts', (req, res, next) => {
       photo_count: photoCount,
       video_count: videoCount,
       song_count: songCount,
+    });
+  }
+});
+
+// get: /api/users/:id/follow_count
+router.get('/:id/follow_count', (req, res, next) => {
+  const userID = req.params.id;
+  const done = _.after(2, doSend);
+
+  let followers;
+  let following;
+
+  Follow.count({_followed: userID}, (err, c) => {
+    if (err) return next(err);
+
+    followers = c;
+    done();
+  });
+
+  Follow.count({_follower: userID}, (err, c) => {
+    if (err) return next(err);
+
+    following = c;
+    done();
+  });
+
+  function doSend() {
+    res.send({
+      followers: followers,
+      following: following,
     });
   }
 });
