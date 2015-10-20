@@ -29,10 +29,8 @@ class UserFollowers extends React.Component {
   render() {
     return (
       <div className="user-followers">
-        <div className="row">
-          <div className="col-xs-12">
-            <FollowersList followers={this.state.followers} />
-          </div>
+        <div className="col-xs-12">
+          <FollowersList followers={this.state.followers} />
         </div>
       </div>
     );
