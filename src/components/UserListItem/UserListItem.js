@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
 import FollowButton from '../FollowButton/FollowButton';
+import { Link } from 'react-router';
 
 require('./UserListItem.scss');
 
@@ -17,7 +18,9 @@ class FollowListItem extends React.Component {
 
           <div className="user-list-item__user-info">
             <div className="v-align">
-              <div className="user-list-item__username">{this.props.user.username}</div>
+              <div className="user-list-item__username">
+                <Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link>
+              </div>
               <div className="user-list-item__user-bio">{this.props.user.bio}</div>
             </div>
           </div>

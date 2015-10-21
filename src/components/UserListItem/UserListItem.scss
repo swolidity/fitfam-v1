@@ -18,11 +18,23 @@
     height: 75px;
   }
   &__username {
-    font-size: 18px;
-    font-weight: 700;
     position: relative;
+
+    a {
+      color: #32393E;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+  &__user-bio {
+    color: #ACB2B5;
   }
   &__follow-btn {
     height: 75px;
+
+    .follow-btn {
+      color: #ACB2B5;
+      border-color: #ACB2B5;
+    }
   }
 }
