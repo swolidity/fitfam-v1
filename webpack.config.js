@@ -42,6 +42,7 @@ const appConfig = merge({}, config, {
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: '"production"'},
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
            $: "jquery",
@@ -52,7 +53,7 @@ const appConfig = merge({}, config, {
       minimize: true,
       output: {comments: false},
     }),
-  ]
+  ],
 });
 
 // Config for server-side bundle (server.js)
