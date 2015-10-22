@@ -39,14 +39,19 @@ const appConfig = merge({}, config, {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {NODE_ENV: '"production"'},
+    }),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
            $: "jquery",
            jQuery: "jquery"
        }),
-    new ExtractTextPlugin('style.css', {
-            allChunks: true
-        })
+    new ExtractTextPlugin('style.css', { allChunks: true }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      output: {comments: false},
+    }),
   ]
 });
 

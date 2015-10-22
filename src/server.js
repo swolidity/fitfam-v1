@@ -14,11 +14,13 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import Iso from 'iso';
 import alt from './alt';
+import compression from 'compression';
 
 mongoose.connect('mongodb://heroku_sbp2x1kh:kacfu5h85o03g97lska07qqsev@ds031223.mongolab.com:31223/heroku_sbp2x1kh');
 
 const server = express();
 
+server.use(compression());
 server.use(morgan('dev'));
 
 //server.use(bodyParser.urlencoded({ extended: true }));
