@@ -1,6 +1,10 @@
 .song-grid-item {
   margin-bottom: 30px;
 
+  &__thumbnail {
+    margin-bottom: 10px;
+  }
+
   &__title {
     height: 40px;
     overflow: hidden;

@@ -34,7 +34,6 @@ class UserSongPlaylists extends React.Component {
   }
 
   render() {
-    console.log(this.state.playlists);
 
     if (this.state.playlists === null) {
       return <Spinner />;
