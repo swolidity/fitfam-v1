@@ -11,7 +11,6 @@ import RouterActions from './actions/RouterActions';
 //import AltIso from 'alt/utils/AltIso'; TODO: use AltIso for server-side async rendering
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
 import Iso from 'iso';
 import alt from './alt';
 import compression from 'compression';
@@ -21,7 +20,6 @@ mongoose.connect('mongodb://heroku_sbp2x1kh:kacfu5h85o03g97lska07qqsev@ds031223.
 const server = express();
 
 server.use(compression());
-server.use(morgan('dev'));
 
 //server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
