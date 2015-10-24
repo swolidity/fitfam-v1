@@ -30,15 +30,9 @@ class App extends React.Component {
     let sidebar;
 
     if (this.state.sidebar) {
-      mainContentClassNames = 'col-xs-12 col-sm-9';
+      mainContentClassNames = 'main-content col-xs-12 col-sm-9';
 
-      sidebar = (
-        <div className="no-gutter">
-          <div id="sidebar-wrapper" className="col-xs-12 col-sm-3 col-sm-offset-9">
-            <Sidebar />
-          </div>
-        </div>
-      );
+      sidebar = <Sidebar />;
     }
 
     return (
