@@ -39,7 +39,7 @@ class SongGrid extends React.Component {
     const songGridItems = this.props.songs.map(this._getSongGridItem);
 
     return (
-      <div className="song-grid">
+      <div className="song-grid row">
         {songGridItems}
       </div>
     );

@@ -35,13 +35,7 @@ class UserPhotos extends React.Component {
   render() {
     return (
       <div className="user-photos">
-
-        <div className="row">
-          <div className="col-xs-12">
-            <PhotoGrid photos={this.state.photos} />
-          </div>
-        </div>
-
+        <PhotoGrid photos={this.state.photos} />
       </div>
     );
   }

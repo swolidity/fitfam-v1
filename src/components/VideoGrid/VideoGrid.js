@@ -39,7 +39,7 @@ class VideoGrid extends React.Component {
     const videoGridItems = this.props.videos.map(this._getVideoGridItem);
 
     return (
-      <div className="video-grid">
+      <div className="video-grid row">
         {videoGridItems}
       </div>
     );

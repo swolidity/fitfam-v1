@@ -39,7 +39,7 @@ class PhotoGrid extends React.Component {
     const photoGridItems = this.props.photos.map(this._getPhotoGridItem);
 
     return (
-      <div className="photo-grid">
+      <div className="photo-grid row">
         {photoGridItems}
       </div>
     );
