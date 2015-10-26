@@ -92,7 +92,7 @@ class UserProfileHeader extends React.Component {
   render() {
     return (
       <div className="user-profile-header row">
-        <div className="col-xs-12 col-sm-7 col-md-6">
+        <div className="col-xs-12 center">
           <div className="profile-photo-container">
             <div className="profile-photo center">
               <a href="#">
@@ -105,20 +105,14 @@ class UserProfileHeader extends React.Component {
           </div>
 
           <div className="username-bio">
-            <div className="v-align">
-              <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link> <span className="user-number">#1</span></div>
+            <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
 
-              <div className="bio">{this.props.user.bio}</div>
-            </div>
+            <div className="bio">{this.props.user.bio}</div>
           </div>
-        </div>
 
-        <div className="col-xs-12 col-sm-3 col-lg-2 pull-right">
-          <div className="user-profile-header__follow-btn">
-            <div className="v-align">
-              <UserFollowCount user={this.props.user} />
-              <FollowButton followedID={this.props.user._id} bsStyle="primary" className="btn-block" />
-            </div>
+          <div className="user-profile-header__follow-btn center">
+            <UserFollowCount user={this.props.user} />
+            <FollowButton followedID={this.props.user._id} bsStyle="primary" />
           </div>
         </div>
       </div>

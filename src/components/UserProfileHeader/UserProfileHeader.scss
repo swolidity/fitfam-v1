@@ -3,15 +3,14 @@
   background: #fff;
 
   .profile-photo-container {
-    margin-right: 35px;
+    margin-bottom: 25px;
+    display: inline-block;
     width: 135px;
     height: 135px;
-    float: left;
     position: relative;
   }
 
   .profile-photo {
-    position: absolute;
     display: inline-block;
     z-index: 1000;
 
@@ -71,10 +70,11 @@
   }
 
   .username-bio {
-    height: 135px;
+    margin-bottom: 25px;
   }
 
   .username {
+    margin-bottom: 10px;
     display: block;
     font-size: 28px;
     line-height: 28px;
@@ -96,7 +96,11 @@
   }
 
   &__follow-btn {
-    height: 135px;
+    display: inline-block;
+
+    .follow-btn {
+      width: 180px;
+    }
   }
 
   .bio {
@@ -125,8 +129,6 @@
   @media only screen and (max-width : 768px) {
     .profile-photo-container {
       margin-right: 0;
-      margin-bottom: 15px;
-      display: block;
       text-align: center;
       float: none;
     }
@@ -148,11 +150,6 @@
       margin-bottom: 15px;
       display: block;
       float: none;
-    }
-    .v-align {
-      top: auto;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
     }
   }
 
