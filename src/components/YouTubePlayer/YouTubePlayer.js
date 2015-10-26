@@ -1,4 +1,5 @@
 import React from 'react';
+import AppActions from '../../actions/AppActions';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import ProfilePhoto from '../ProfilePhoto/ProfilePhoto';
@@ -44,6 +45,14 @@ class YouTubePlayer extends React.Component {
     YouTubePlayerActions.updatePlayer(e.target);
   }
 
+  _closeSidebar = (e) => {
+    e.preventDefault();
+    this.state.player.pauseVideo();
+    YouTubePlayerActions.updatePlayer(null);
+    YouTubePlayerActions.updatePlaying(null);
+    AppActions.toggleSidebar(false);
+  }
+
   render() {
     if (typeof (window) !== 'undefined' && this.state.playing) {
       const YouTube = require('react-youtube');
@@ -57,6 +66,9 @@ class YouTubePlayer extends React.Component {
 
       return (
         <div className="yt-player">
+          <div className="yt-player__now-playing-top">Profile Song
+            <a href="#" onClick={this._closeSidebar} className="close-sidebar pull-right">x</a>
+          </div>
           <div className="embed-responsive embed-responsive-4by3">
             <YouTube
               url={this.state.playing.url}
