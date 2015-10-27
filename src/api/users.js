@@ -53,10 +53,13 @@ router.post('/edit', authenticateToken, (req, res, next) => {
 // get: /api/users/:id/posts
 router.get('/:id/posts', (req, res, next) => {
   const userID = req.params.id;
+  const skip = req.query.skip;
 
   Post
     .find({_user: userID})
     .sort({date: 'desc'})
+    .skip(skip)
+    .limit(20)
     .populate('_user _posted_by _photo _video _song _text')
     .exec((err, posts) => {
       if (err) return next(err);
@@ -64,6 +67,7 @@ router.get('/:id/posts', (req, res, next) => {
       res.send({
         user_id: userID,
         posts: posts,
+        skip: skip,
       });
     });
 });

@@ -4,7 +4,13 @@ import http from 'axios';
 const UserPostsSource = {
   fetchPosts: {
     remote(state, userID) {
-      return http.get('/api/users/' + userID + '/posts')
+      let skip = state.skip + state.limit;
+
+      if (state.userID !== userID) {
+        skip = 0;
+      }
+
+      return http.get('/api/users/' + userID + '/posts?skip=' + skip)
       .then((res) => {
         return res.data;
       })
@@ -12,7 +18,15 @@ const UserPostsSource = {
         return Promise.reject(err.data);
       });
     },
-    local() {
+    local(state, userID, skip) {
+      if (state.userID === userID && !skip) {
+        console.log('local');
+        return {
+          user_id: userID,
+          posts: state.posts,
+          skip: skip,
+        };
+      }
       return null;
     },
     success: UserPostsActions.fetchPostsSuccess,
