@@ -82,6 +82,8 @@ server.listen(server.get('port'), () => {
   if (process.send) {
     process.send('online');
   } else {
-    console.log('The server is running at http://localhost:' + server.get('port'));
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('The server is running at http://localhost:' + server.get('port'));
+    }
   }
 });
