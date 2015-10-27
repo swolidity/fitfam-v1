@@ -15,16 +15,18 @@
     }
   }
   &--title {
-    margin-left: 15px;
-    height: 32px;
-    font-weight: 700;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   &--added-by {
-    padding: 0 15px;
+    padding: 0 10px;
+    color: #ACB2B5;
+    font-weight: 300;
 
     .user-photo {
       margin-right: 6px;
@@ -33,11 +35,11 @@
     .username {
       margin-right: 6px;
       display: inline-block;
-      font-weight: 700;
-      color: #000;
+      font-weight: 500;
+      color: #32393E;
 
       &:hover {
-        color: #000;
+        color: #32393E;
       }
     }
   }
