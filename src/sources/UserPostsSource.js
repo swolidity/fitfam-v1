@@ -20,7 +20,6 @@ const UserPostsSource = {
     },
     local(state, userID, skip) {
       if (state.userID === userID && !skip) {
-        console.log('local');
         return {
           user_id: userID,
           posts: state.posts,
