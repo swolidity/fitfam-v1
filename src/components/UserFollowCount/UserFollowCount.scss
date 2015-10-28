@@ -1,5 +1,7 @@
 .user-follow-count {
+  position: relative;
   margin-bottom: 10px;
+  height: 60px;
   font-weight: 300;
   color: #ACB2B5;
 
@@ -15,7 +17,36 @@
     display: inline-block;
   }
 
-  .count {
+  .social-box {
+    display: inline-block;
+    padding: 10px 20px;
+    border-right: 1px solid #f8f8f8;
+  }
+  &__following.social-box {
+    padding-left: 0;
+  }
+  &__karma.social-box {
+    padding-right: 0;
+    border-right: none;
+  }
+  .social-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
+  .social-count {
     color: #ACB2B5;
+    font-size: 18px;
+  }
+  .user-menu-ellipsis {
+    position: absolute;
+    right: 0;
+    top: 9px;
+    font-size: 30px;
+
+    &:hover, &:focus {
+      color: #0D6CFF;
+      text-decoration: none;
+    }
   }
 }
