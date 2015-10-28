@@ -3,15 +3,14 @@
   background: #fff;
 
   .profile-photo-container {
-    margin-right: 35px;
-    float: left;
+    margin-bottom: 25px;
+    display: inline-block;
     width: 135px;
     height: 135px;
     position: relative;
   }
 
   .profile-photo {
-    position: absolute;
     display: inline-block;
     z-index: 1000;
 
@@ -72,7 +71,7 @@
   }
 
   .username-bio {
-    height: 135px;
+    margin-bottom: 25px;
   }
 
   .username {
@@ -99,7 +98,6 @@
 
   &__social-menu {
     display: inline-block;
-    height: 135px;
 
     .follow-btn {
       display: block;
@@ -108,7 +106,7 @@
   }
 
   .bio {
-    display: block;
+    display: inline-block;
     color: #32393E;
     font-weight: 300;
     word-wrap: break-word;
@@ -131,42 +129,10 @@
 
   /* Small Devices, Tablets */
   @media only screen and (max-width : 768px) {
-    text-align: center;
-
-    .v-align {
-      top: 0;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0);
-    }
-
-    .profile-photo-container {
-      margin-right: 0;
-      margin-bottom: 25px;
-      float: none;
-      display: inline-block;
-    }
-    .profile-photo {
-      position: relative;
-    }
-    .username-bio{
-      margin-bottom: 25px;
-      height: auto;
-      display: block;
-      text-align: center;
-      float: none;
-    }
-    .username {
-      margin-bottom: 15px;
-      margin-right: 0;
-      display: block;
-      float: none;
+    .bio {
+      width: 100%;
     }
     .user-profile-header__social-menu {
-      height: auto;
-      margin-bottom: 15px;
-      display: block;
-      float: none !important;
     }
   }
 
