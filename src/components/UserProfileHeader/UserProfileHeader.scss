@@ -1,16 +1,18 @@
 .user-profile-header {
-  padding: 50px 15px;
+  padding: 40px 0;
   background: #fff;
 
   .profile-photo-container {
+    margin-right: 25px;
     margin-bottom: 25px;
-    display: inline-block;
-    width: 135px;
-    height: 135px;
+    width: 120px;
+    height: 120px;
+    float: left;
     position: relative;
   }
 
   .profile-photo {
+    position: absolute;
     display: inline-block;
     z-index: 1000;
 
@@ -20,8 +22,8 @@
     }
 
     img {
-      width: 135px;
-      height: 135px;
+      width: 120px;
+      height: 120px;
     }
 
     .profile-song-icon-wrapper {
@@ -71,14 +73,16 @@
   }
 
   .username-bio {
+    display: inline-block;
+    height: 120px;
     margin-bottom: 25px;
   }
 
   .username {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     display: block;
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 24px;
+    line-height: 24px;
     font-weight: 500;
 
     a {
@@ -96,35 +100,23 @@
     font-size: 14px;
   }
 
-  &__social-menu {
-    display: inline-block;
+  &__follow-box {
+    display: block;
 
     .follow-btn {
       display: block;
+      margin-bottom: 6px;
+      width: 180px;
       line-height: 1.2;
     }
   }
 
   .bio {
-    display: inline-block;
-    color: #32393E;
+    display: block;
+    color: #ACB2B5;
+    font-size: 14px;
     font-weight: 300;
     word-wrap: break-word;
-  }
-
-  .full-name {
-    font-size: 16px;
-    font-weight: 400;
-  }
-
-  .user-follow-faces {
-    nav {
-      text-align: right;
-    }
-
-    nav > ul {
-      display: inline-block;
-    }
   }
 
   /* Small Devices, Tablets */
@@ -132,8 +124,7 @@
     .bio {
       width: 100%;
     }
-    .user-profile-header__social-menu {
-    }
+
   }
 
 }

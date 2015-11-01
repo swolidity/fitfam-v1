@@ -48,8 +48,6 @@ class YouTubePlayer extends React.Component {
   _closeSidebar = (e) => {
     e.preventDefault();
     this.state.player.pauseVideo();
-    YouTubePlayerActions.updatePlayer(null);
-    YouTubePlayerActions.updatePlaying(null);
     AppActions.toggleSidebar(false);
   }
 

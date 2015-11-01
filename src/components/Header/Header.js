@@ -66,7 +66,7 @@ class Header extends React.Component {
     }
 
     return (
-      <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/"><img src="/fitfam@2x.png" alt="FITFAM" height="25" /></Link>}>
+      <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/">FITFAM</Link>}>
        <CollapsibleNav eventKey={0} >
 
           <Nav navbar right>

@@ -49,7 +49,7 @@ class UserPosts extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div className="col-xs-12 col-sm-6">
           <StatusComposer user={this.props.user} />
           <div className="user-posts">
             <PostList posts={this.state.posts} />

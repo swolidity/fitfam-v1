@@ -9,6 +9,10 @@ require('./SongListItem.scss');
 
 class SongListItem extends React.Component {
 
+  static contextTypes = {
+    sidebar: React.PropTypes.bool.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.song = props.song;
@@ -24,6 +28,11 @@ class SongListItem extends React.Component {
     }
 
     const playerState = player.getPlayerState();
+
+    if (!this.context.sidebar) {
+      YouTubePlayerActions.updatePlaying(this.song);
+      player.playVideo();
+    }
 
     if (this.song._id === playing._id) {
       if (playerState === 1) {
@@ -45,7 +54,7 @@ class SongListItem extends React.Component {
     const playIcon = <i className="yt-thumb-icon play fa fa-youtube-play"></i>;
     const pauseIcon = <i className="yt-thumb-icon pause fa fa-pause"></i>;
 
-    if (player === null || playing === null) {
+    if (player === null || playing === null || !this.context.sidebar) {
       return playIcon;
     }
 

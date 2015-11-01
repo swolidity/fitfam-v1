@@ -2,10 +2,6 @@
   padding: 15px 0;
   background: #fff;
 
-  &:hover {
-    background: #f8f8f8;
-  }
-
   &__user-photo-container {
     display: inline-block;
     margin-right: 15px;
@@ -26,8 +22,9 @@
       font-size: 18px;
     }
   }
-  &__user-bio {
+  &__user-full-name {
     color: #ACB2B5;
+    font-size: 12px;
   }
   &__follow-btn {
     height: 75px;
@@ -35,6 +32,9 @@
     .follow-btn {
       color: #ACB2B5;
       border-color: #ACB2B5;
+      line-height: 1.2;
+      font-size: 12px;
+      width: 100px;
     }
   }
 }

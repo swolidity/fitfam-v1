@@ -35,20 +35,7 @@ class UserFollowCount extends React.Component {
   render() {
     return (
       <div className="user-follow-count">
-        <div className="user-follow-count__following social-box">
-          <div className="social-label"><Link to="user-following" params={{ username: this.props.user.username }} >FOLLOWING</Link></div>
-          <span className="social-count">{this.state.following}</span>
-        </div>
-
-        <div className="user-follow-count__followers social-box">
-          <div className="social-label"><Link to="user-followers" params={{ username: this.props.user.username }} >FOLLOWERS</Link></div>
-          <span className="social-count">{this.state.followers}</span>
-        </div>
-
-        <div className="user-follow-count__karma social-box">
-          <div className="social-label">KARMA</div>
-          <span className="social-count">77</span>
-        </div>
+        <Link to="user-followers" params={{ username: this.props.user.username }} ><span className="count">{this.state.followers}</span> { this.state.followers === 1 ? 'Follower' : 'Followers' }</Link> / <Link to="user-following" params={{ username: this.props.user.username }} ><span className="count">{this.state.following}</span> Following</Link>
       </div>
     );
   }

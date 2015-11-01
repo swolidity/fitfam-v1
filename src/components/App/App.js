@@ -7,10 +7,18 @@ import Sidebar from '../Sidebar/Sidebar.js';
 require('./App.scss');
 
 class App extends React.Component {
+  static childContextTypes = {
+    sidebar: React.PropTypes.bool,
+  }
+
   constructor(props) {
     super(props);
 
     this.state = AppStore.getState();
+  }
+
+  getChildContext = () => {
+    return { sidebar: this.state.sidebar };
   }
 
   componentDidMount() {
@@ -26,28 +34,21 @@ class App extends React.Component {
   }
 
   render() {
-    let mainContentClassNames = 'col-xs-12';
-    let sidebar;
+    let wrapperClassNames = 'app-wrapper';
 
     if (this.state.sidebar) {
-      mainContentClassNames = 'main-content col-xs-12 col-sm-9';
-
-      sidebar = <Sidebar />;
+      wrapperClassNames = 'app-wrapper sidebar-open';
     }
 
     return (
       <div>
         <Header />
 
-        <div className="app-main">
-          <div className="container-fluid">
+        <div className={wrapperClassNames}>
+          <Sidebar />
 
-              {sidebar}
-
-              <div className={mainContentClassNames}>
-                <RouteHandler />
-              </div>
-
+          <div className="app-main">
+            <RouteHandler />
           </div>
         </div>
 

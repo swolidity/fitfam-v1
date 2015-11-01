@@ -12,12 +12,12 @@
     padding: 7px 15px;
   }
   .navbar-brand {
-    padding: 12.5px 15px;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
     color: #0D6CFF;
 
-    &:hover {
+    &:hover, &:focus {
       color: #0D6CFF;
     }
   }

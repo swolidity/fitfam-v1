@@ -2,6 +2,12 @@ body {
   padding-top: 50px;
   background: #fff;
 }
+.container-fluid-5 {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
 .center {
   text-align: center;
 }
@@ -17,15 +23,19 @@ body {
     padding-left:0;
 }
 
+.app-wrapper {
+  padding-right: 0;
+  -moz-transition: padding-right .1s ease-in;
+   -o-transition: padding-right  .1s ease-in;
+   -webkit-transition: padding-right  .1s ease-in;
+   transition: padding-right  .1s ease-in;
+}
+.app-wrapper.sidebar-open {
+  padding-right: 350px;
+}
+
 .app-main {
-  .container-fluid {
-    padding: 0px;
-  }
   .main-content {
-    -webkit-transition: width 0.3s ease, margin 0.3s ease;
-    -moz-transition: width 0.3s ease, margin 0.3s ease;
-    -o-transition: width 0.3s ease, margin 0.3s ease;
-    transition: width 0.3s ease, margin 0.3s ease;
   }
 }
 
