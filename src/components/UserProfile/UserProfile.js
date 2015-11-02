@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <div className="UserProfile" ref="userProfile">
+      <div className="UserProfile clearfix" ref="userProfile">
 
         <UserProfileHeader user={this.state.user} />
         <UserProfileNav user={this.state.user} />

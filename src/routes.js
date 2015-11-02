@@ -44,7 +44,7 @@ export default (
     </Route>
 
     // user profile
-    <Route name="user-profile" handler={UserProfile} path="/:username">
+    <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>
       <DefaultRoute name="user-posts" handler={UserPosts} />
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />

@@ -2,7 +2,10 @@
   margin-bottom: 30px;
   display: block;
   background: #fff;
-  border-bottom: 1px solid #f8f8f8;
+
+  &__inner {
+    border-bottom: 1px solid #f8f8f8;
+  }
 
   nav {
     display: inline-block;
@@ -10,10 +13,13 @@
 
   .nav-pills > li > a {
     margin-right: 25px;
-    padding: 0 0 5px 0;
-    font-size: 16px;
+    padding: 0 0 10px 0;
+    position: relative;
+    top: 5px;
+    font-size: 14px;
     font-weight: 300;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: #ACB2B5;
     border-radius: 0;
   }
@@ -23,6 +29,7 @@
   .nav-pills > li.active > a {
     color: #0D6CFF;
     background: none;
+    border-bottom: 1px solid #0D6CFF;
   }
   .nav-pills > li.active > a:hover,
   .nav-pills > li.active > a:focus {

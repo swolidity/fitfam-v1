@@ -29,30 +29,34 @@ class UserProfileNav extends React.Component {
     this.activeTab = this._getActiveRouteName(this.context.router);
 
     return (
-      <div className="container-fluid-5">
-        <div className="user-profile-nav">
-          <div className="row">
-            <div className="col-xs-12">
-              <Nav bsStyle="pills">
-                <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
-                  Posts
-                </NavItemLink>
-                <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
-                  Workouts
-                </NavItemLink>
-                <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
-                  Photos
-                </NavItemLink>
-                <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
-                  Videos
-                </NavItemLink>
-                <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
-                  Songs
-                </NavItemLink>
-              </Nav>
+      <div className="user-profile-nav">
+        <div className="container-fluid-5">
+          <div className="user-profile-nav__inner">
+            <div className="row">
+              <div className="col-xs-12">
 
-              <div className="pull-right">
-                <FollowButton followedID={this.props.user._id} bsStyle="primary" />
+                <Nav bsStyle="pills">
+                  <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
+                    Posts
+                  </NavItemLink>
+                  <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
+                    Workouts
+                  </NavItemLink>
+                  <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
+                    Photos
+                  </NavItemLink>
+                  <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
+                    Videos
+                  </NavItemLink>
+                  <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
+                    Songs
+                  </NavItemLink>
+                </Nav>
+
+                <div className="pull-right">
+                  <FollowButton followedID={this.props.user._id} bsStyle="primary" />
+                </div>
+
               </div>
             </div>
           </div>
