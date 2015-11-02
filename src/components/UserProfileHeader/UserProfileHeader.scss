@@ -80,15 +80,15 @@
   }
 
   .username-bio {
-    display: inline-block;
+    display: block;
     height: 120px;
   }
 
   .username {
     margin-bottom: 6px;
     display: block;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 28px;
+    line-height: 28px;
     font-weight: 500;
 
     a {
@@ -101,25 +101,21 @@
     }
   }
 
-  .user-number {
-    color: #0D6CFF;
-    font-size: 14px;
+  .follow-btn-container {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .follow-btn {
+    line-height: 1.2;
   }
 
-  &__follow-box {
-    display: block;
-
-    .follow-btn {
-      display: block;
-      margin-bottom: 6px;
-      width: 180px;
-      line-height: 1.2;
-    }
+  .user-follow-count {
+    display: inline-block;
   }
 
   .bio {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     color: #ACB2B5;
     font-size: 14px;
     font-weight: 300;

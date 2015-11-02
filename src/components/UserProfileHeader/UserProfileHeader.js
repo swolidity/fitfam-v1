@@ -2,6 +2,7 @@ import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import UserFollowCount from '../UserFollowCount/UserFollowCount';
+import FollowButton from '../FollowButton/FollowButton';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -22,6 +23,7 @@ class UserProfileHeader extends React.Component {
 
   componentDidMount() {
     YouTubePlayerStore.listen(this._onChange);
+
     setTimeout(() => {
       this._scrollDown();
     }, 0.1);
@@ -119,7 +121,7 @@ class UserProfileHeader extends React.Component {
         </div>
         <div className="container-fluid-5">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 col-md-8">
                 <div className="profile-photo-container">
                   <div className="profile-photo">
                     <a href="#">
@@ -135,11 +137,17 @@ class UserProfileHeader extends React.Component {
                   <div className="v-align">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
                     <div className="bio">{this.props.user.bio}</div>
+                    <FollowButton followedID={this.props.user._id} bsStyle="primary" />
                     <UserFollowCount user={this.props.user} />
                   </div>
                 </div>
 
             </div>
+
+            <div className="col-xs-12 col-md-4">
+
+            </div>
+
           </div>
         </div>
       </div>

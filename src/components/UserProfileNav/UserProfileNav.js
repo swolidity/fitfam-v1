@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
-import FollowButton from '../FollowButton/FollowButton';
 
 require('./UserProfileNav.scss');
 
@@ -52,10 +51,6 @@ class UserProfileNav extends React.Component {
                     Songs
                   </NavItemLink>
                 </Nav>
-
-                <div className="pull-right">
-                  <FollowButton followedID={this.props.user._id} bsStyle="primary" />
-                </div>
 
               </div>
             </div>

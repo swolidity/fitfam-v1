@@ -86,7 +86,7 @@ class FollowButton extends React.Component {
     }
 
     return (
-      <div>
+      <div className="follow-btn-container">
         <ButtonInput onClick={clickHandler} bsStyle={this.props.bsStyle} className={classNames(this.props.className, 'follow-btn')} standalone >{followText}</ButtonInput>
         {modal}
       </div>
