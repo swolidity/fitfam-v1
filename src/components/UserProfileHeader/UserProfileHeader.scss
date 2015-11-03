@@ -55,40 +55,62 @@
       }
 
       .profile-song-icon.play {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 22px;
+        line-height: 22px;
         display: none;
+        position: relative;
+        left: 2px;
       }
 
       .profile-song-icon.pause {
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 22px;
+        line-height: 22px;
+        display: none;
+      }
+
+      .icon-border {
         display: none;
       }
 
       &:hover {
         cursor: pointer;
-        background: rgba(0, 0, 0, 0.5);
         border-radius: 50%;
 
         .profile-song-icon {
           display: inline-block;
+        }
+
+        .icon-border {
+          display: inline-block;
+          text-align: center;
+          width: 44px;
+          height: 44px;
+          background: rgba(13,108,255, 0.9);
+          border-radius: 50%;
+
+          &:before {
+            content: ' ';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+          }
         }
       }
     }
 
   }
 
-  .username-bio {
-    display: block;
+  .usernames {
+    display: inline-block;
     height: 120px;
+    margin-bottom: 25px;
   }
 
   .username {
     margin-bottom: 6px;
     display: block;
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 24px;
+    line-height: 24px;
     font-weight: 500;
 
     a {
@@ -101,9 +123,19 @@
     }
   }
 
+  .user-full-name {
+    color: #ACB2B5;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &__follow {
+    float: right;
+    height: 120px;
+  }
+
   .follow-btn-container {
     display: inline-block;
-    margin-right: 10px;
   }
   .follow-btn {
     line-height: 1.2;
@@ -111,13 +143,13 @@
 
   .user-follow-count {
     display: inline-block;
+    margin-right: 10px;
   }
 
   .bio {
     display: block;
-    margin-bottom: 10px;
-    color: #ACB2B5;
-    font-size: 14px;
+    color: #32393E;
+    font-size: 16px;
     font-weight: 300;
     word-wrap: break-word;
   }

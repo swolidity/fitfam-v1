@@ -88,7 +88,7 @@ class UserProfileHeader extends React.Component {
     const song = this.props.user.profile_song;
     const player = this.state.youtube.player;
     const playing = this.state.youtube.playing;
-    const playIcon = <i className="profile-song-icon play fa fa-play-circle"></i>;
+    const playIcon = <i className="profile-song-icon play fa fa-play"></i>;
     const pauseIcon = <i className="profile-song-icon pause fa fa-pause"></i>;
 
     if (player === null || playing === null || !this.context.sidebar) {
@@ -121,30 +121,37 @@ class UserProfileHeader extends React.Component {
         </div>
         <div className="container-fluid-5">
           <div className="row">
-            <div className="col-xs-12 col-md-8">
+            <div className="col-xs-12">
                 <div className="profile-photo-container">
                   <div className="profile-photo">
                     <a href="#">
                       <img className="img-circle" src={this.props.user.photo} alt={this.props.user.username} />
                     </a>
                     <div className="profile-song-icon-wrapper" onClick={this._onPhotoCick}>
-                      {this._getIcon()}
+                      <div className="icon-border">
+                        {this._getIcon()}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="username-bio">
+                <div className="usernames">
                   <div className="v-align">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                    <div className="bio">{this.props.user.bio}</div>
-                    <FollowButton followedID={this.props.user._id} bsStyle="primary" />
-                    <UserFollowCount user={this.props.user} />
+                    <div className="user-full-name">{this.props.user.full_name}</div>
                   </div>
                 </div>
 
-            </div>
+                <div className="user-profile-header__follow">
+                  <div className="v-align">
+                    <UserFollowCount user={this.props.user} />
+                    <FollowButton followedID={this.props.user._id} bsStyle="primary" />
+                  </div>
+                </div>
 
-            <div className="col-xs-12 col-md-4">
+                <div style={{ clear: 'both '}}></div>
+
+                <div className="bio">{this.props.user.bio}</div>
 
             </div>
 

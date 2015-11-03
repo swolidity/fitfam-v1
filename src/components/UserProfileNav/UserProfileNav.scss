@@ -43,6 +43,19 @@
     background: none;
   }
 
+  .nav > li.more a {
+    padding: 0;
+    top: 12px;
+    font-size: 5px;
+  }
+
+  .more i {
+    margin-right: 2px;
+  }
+  .more i:last-child {
+    margin-right: 0;
+  }
+
   .post-count {
     font-weight: 500;
   }
