@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Dropdown, MenuItem } from 'react-bootstrap';
-import { NavItemLink, MenuItemLink } from 'react-router-bootstrap';
+import { NavItemLink } from 'react-router-bootstrap';
+import { Link } from 'react-router';
 
 require('./UserProfileNav.scss');
 
@@ -23,6 +24,11 @@ class UserProfileNav extends React.Component {
      const activeRouteName = currentRoutes[currentRoutes.length - 1].name;
      return activeRouteName;
    }
+
+  _onMenuItemClick = (e) => {
+    e.preventDefault();
+    console.log('MenuItemClick');
+  }
 
   render() {
     this.activeTab = this._getActiveRouteName(this.context.router);
@@ -61,8 +67,8 @@ class UserProfileNav extends React.Component {
                       <Dropdown.Menu>
                         <MenuItem eventKey="1">Supplements</MenuItem>
                         <MenuItem eventKey="2">Comments</MenuItem>
-                        <MenuItem eventKey="3">Followers</MenuItem>
-                        <MenuItemLink eventKey="4" active={this._isActive('user-following')} to="user-following" params={{username: this.props.user.username}}>Following</MenuItemLink>
+                        <li><Link active={this._isActive('user-followers')} to="user-followers" params={{username: this.props.user.username}}>Followers</Link></li>
+                        <li><Link active={this._isActive('user-following')} to="user-following" params={{username: this.props.user.username}}>Following</Link></li>
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>

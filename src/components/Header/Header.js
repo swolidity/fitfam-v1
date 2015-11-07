@@ -55,8 +55,8 @@ class Header extends React.Component {
                         className="profileDropdown"
                         noCaret={true}
                         >
-                          <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>Profile</MenuItemLink>
-                          <MenuItemLink to="account-settings">Settings</MenuItemLink>
+                          <li><Link to="user-profile" params={{username: this.state.user.username}}>Profile</Link></li>
+                          <li><Link to="account-settings">Settings</Link></li>
                           <MenuItem onSelect={this.handleLogout}>Logout</MenuItem>
                         </DropdownButton> );
     } else {
