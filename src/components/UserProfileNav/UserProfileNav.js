@@ -1,6 +1,6 @@
 import React from 'react';
-import { Nav, NavItem } from 'react-bootstrap';
-import { NavItemLink } from 'react-router-bootstrap';
+import { Nav, Dropdown, MenuItem } from 'react-bootstrap';
+import { NavItemLink, MenuItemLink } from 'react-router-bootstrap';
 
 require('./UserProfileNav.scss');
 
@@ -50,12 +50,24 @@ class UserProfileNav extends React.Component {
                   <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
                     Songs
                   </NavItemLink>
-                  <NavItem className="more">
-                    <i className="fa fa-circle"></i>
-                    <i className="fa fa-circle"></i>
-                    <i className="fa fa-circle"></i>
-                  </NavItem>
+
+                  <li>
+                    <Dropdown className="more">
+                      <Dropdown.Toggle noCaret bsStyle="">
+                        <i className="fa fa-circle"></i>
+                        <i className="fa fa-circle"></i>
+                        <i className="fa fa-circle"></i>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <MenuItem eventKey="1">Supplements</MenuItem>
+                        <MenuItem eventKey="2">Comments</MenuItem>
+                        <MenuItem eventKey="3">Followers</MenuItem>
+                        <MenuItemLink eventKey="4" active={this._isActive('user-following')} to="user-following" params={{username: this.props.user.username}}>Following</MenuItemLink>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </li>
                 </Nav>
+
 
               </div>
             </div>

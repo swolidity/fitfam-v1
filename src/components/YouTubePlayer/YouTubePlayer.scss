@@ -1,20 +1,16 @@
 .yt-player {
   width: 350px;
-  &__now-playing-top {
-    position: relative;
-    padding: 5px 15px 5px 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 10px;
-    color: #acb2b5;
+  height: 100%;
+  position: relative;
+  padding-bottom: 90px;
 
-    .close-sidebar {
-      color: #acb2b5;
-
-      &:hover {
-        color: #0D6CFF;
-      }
-    }
+  &--bottom {
+    position: absolute;
+    bottom: 50px;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #f8f8f8;
   }
   &--title {
     padding: 10px;

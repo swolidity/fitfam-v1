@@ -23,10 +23,6 @@ class UserProfileHeader extends React.Component {
 
   componentDidMount() {
     YouTubePlayerStore.listen(this._onChange);
-
-    setTimeout(() => {
-      this._scrollDown();
-    }, 0.1);
   }
 
   componentWillReceiveProps() {
@@ -106,19 +102,9 @@ class UserProfileHeader extends React.Component {
     return playIcon;
   }
 
-  _scrollDown = () => {
-    $('.user-profile-header').css('margin-top', 0);
-    window.scrollTo(0, 665);
-  }
-
   render() {
-    this._scrollDown();
-
     return (
       <div className="user-profile-header">
-        <div className="headerbar" style={{ background: 'url(' + this.props.user.header_photo + ') center;', backgroundSize: 'cover'}}>
-          <div id="headerbarScrollTo"></div>
-        </div>
         <div className="container-fluid-5">
           <div className="row">
             <div className="col-xs-12">

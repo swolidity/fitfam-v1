@@ -1,13 +1,5 @@
-.headerbar {
-  margin-bottom: 40px;
-  height: 700px;
-  background-size: cover;
-  background-position: center;
-}
 .user-profile-header {
-  min-height: 700px;
-  margin-top: -665px;
-  padding-bottom: 40px;
+  padding: 40px 0;
   background: #fff;
 
   .profile-photo-container {
@@ -138,12 +130,12 @@
     display: inline-block;
   }
   .follow-btn {
+    width: 120px;
     line-height: 1.2;
   }
 
   .user-follow-count {
     display: inline-block;
-    margin-right: 10px;
   }
 
   .bio {

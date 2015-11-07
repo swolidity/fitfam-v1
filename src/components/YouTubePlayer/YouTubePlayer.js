@@ -64,9 +64,6 @@ class YouTubePlayer extends React.Component {
 
       return (
         <div className="yt-player">
-          <div className="yt-player__now-playing-top">Profile Song
-            <a href="#" onClick={this._closeSidebar} className="close-sidebar pull-right">x</a>
-          </div>
           <div className="embed-responsive embed-responsive-4by3">
             <YouTube
               url={this.state.playing.url}
@@ -87,6 +84,9 @@ class YouTubePlayer extends React.Component {
             {moment(this.state.playing.date).fromNow()}
           </div>
 
+          <div className="yt-player--bottom">
+            <a href="#" title="Close Sidebar" onClick={this._closeSidebar} className="close-sidebar"><i className="fa fa-chevron-right"></i></a>
+          </div>
         </div>
       );
     }

@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className="sidebar-wrapper">
-        <div id="sidebar">
+        <div className="sidebar">
           <YouTubePlayer />
         </div>
       </div>

@@ -31,6 +31,7 @@ class Header extends React.Component {
   }
 
   handleLogout(e) {
+    console.log('logout');
     e.preventDefault();
     LoginActions.logoutUser();
   }
@@ -56,7 +57,7 @@ class Header extends React.Component {
                         >
                           <MenuItemLink to="user-profile" params={{username: this.state.user.username}}>Profile</MenuItemLink>
                           <MenuItemLink to="account-settings">Settings</MenuItemLink>
-                          <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
+                          <MenuItem onSelect={this.handleLogout}>Logout</MenuItem>
                         </DropdownButton> );
     } else {
       // if user is not logged in show login link

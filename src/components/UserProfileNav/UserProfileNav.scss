@@ -1,5 +1,4 @@
 .user-profile-nav {
-  margin-top: -5px;
   margin-bottom: 30px;
   display: block;
   background: #fff;
@@ -16,7 +15,7 @@
     margin-right: 25px;
     padding: 0 0 10px 0;
     position: relative;
-    top: 5px;
+    top: 1px;
     font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
@@ -43,14 +42,64 @@
     background: none;
   }
 
-  .nav > li.more a {
+  .more.dropdown > .dropdown-toggle {
     padding: 0;
-    top: 12px;
-    font-size: 5px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #ACB2B5;
+    line-height: 0;
+  }
+  .more.dropdown:hover > .dropdown-toggle {
+    color: #0D6CFF;
+  }
+  .more.dropdown.open > .dropdown-toggle,
+  .more.dropdown:focus > .dropdown-toggle {
+    box-shadow: none;
+  }
+
+  .more > .dropdown-menu {
+    margin-top: 10px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    right: auto;
+  }
+
+  .more > .dropdown-menu::before {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #CCC;
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+  }
+
+  .more > .dropdown-menu::after {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    border-left: 6px solid transparent;
+    content: '';
+  }
+
+  .more > .dropdown-menu > li > a {
+    text-transform: capitalize;
+    color: #ACB2B5;
   }
 
   .more i {
     margin-right: 2px;
+    font-size: 5px;
+    line-height: 5px;
   }
   .more i:last-child {
     margin-right: 0;
