@@ -5,17 +5,22 @@
 
   &__inner {
     border-bottom: 1px solid #f8f8f8;
+    position: relative;
+  }
+
+  nav, .collapse.in {
+    display: inline-block;
   }
 
   nav {
-    display: inline-block;
+    position: relative;
+    top: 5px;
   }
 
   .nav-pills > li > a {
     margin-right: 25px;
     padding: 0 0 10px 0;
     position: relative;
-    top: 1px;
     font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
@@ -42,6 +47,9 @@
     background: none;
   }
 
+  .more.dropdown {
+    top: -1px;
+  }
   .more.dropdown > .dropdown-toggle {
     padding: 0;
     background: none;
@@ -109,9 +117,12 @@
     font-weight: 500;
   }
 
+  .follow-btn-container {
+    position: absolute;
+    right: 15px;
+  }
   .follow-btn {
-    width: 100px;
-    margin-bottom: 5px;
+    width: 120px;
     font-size: 12px;
   }
 }

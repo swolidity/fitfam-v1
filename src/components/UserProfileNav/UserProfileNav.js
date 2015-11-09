@@ -1,4 +1,5 @@
 import React from 'react';
+import FollowButton from '../FollowButton/FollowButton';
 import { Nav, Dropdown, MenuItem } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
 import { Link } from 'react-router';
@@ -39,6 +40,7 @@ class UserProfileNav extends React.Component {
           <div className="user-profile-nav__inner">
             <div className="row">
               <div className="col-xs-12">
+                <FollowButton followedID={this.props.user._id} bsStyle="primary" />
 
                 <Nav bsStyle="pills">
                   <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
@@ -73,8 +75,6 @@ class UserProfileNav extends React.Component {
                     </Dropdown>
                   </li>
                 </Nav>
-
-
               </div>
             </div>
           </div>

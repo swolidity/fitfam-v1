@@ -2,7 +2,6 @@ import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
 import UserFollowCount from '../UserFollowCount/UserFollowCount';
-import FollowButton from '../FollowButton/FollowButton';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -131,7 +130,6 @@ class UserProfileHeader extends React.Component {
                 <div className="user-profile-header__follow">
                   <div className="v-align">
                     <UserFollowCount user={this.props.user} />
-                    <FollowButton followedID={this.props.user._id} bsStyle="primary" />
                   </div>
                 </div>
 
