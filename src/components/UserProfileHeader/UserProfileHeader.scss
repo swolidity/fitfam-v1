@@ -1,6 +1,7 @@
 .user-profile-header {
   padding: 40px 0;
-  background: #fff;
+  height: 261px;
+  background: #f8f8f8;
 
   .profile-photo-container {
     margin-right: 25px;
@@ -101,22 +102,22 @@
   .username {
     margin-bottom: 6px;
     display: block;
-    font-size: 24px;
-    line-height: 24px;
-    font-weight: 500;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 300;
 
     a {
-      color: #32393E;
+      color: #4E5254;
 
       &:hover {
-        color: #32393E;
+        color: #4E5254;
         text-decoration: none;
       }
     }
   }
 
   .user-full-name {
-    color: #ACB2B5;
+    color: #A1AFBA;
     font-size: 14px;
     font-weight: 300;
   }
@@ -141,7 +142,7 @@
   .bio {
     display: block;
     padding-left: 10px;
-    color: #32393E;
+    color: #4E5254;
     font-size: 16px;
     font-weight: 300;
     word-wrap: break-word;

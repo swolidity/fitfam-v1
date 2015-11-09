@@ -2,6 +2,7 @@ import React from 'react';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
 import StatusComposer from '../StatusComposer/StatusComposer';
+import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
 import Spinner from '../Spinner/Spinner';
 
 require('./UserPosts.scss');
@@ -50,7 +51,8 @@ class UserPosts extends React.Component {
     return (
       <div className="row">
         <div className="col-xs-12 col-sm-3">
-          sidebar
+          <div>My Supp Stack</div>
+          <img height="90" src="http://ecx.images-amazon.com/images/I/71nyzPnIGoL._SY679_.jpg" alt="N.O. Xplode" />
         </div>
         <div className="col-xs-12 col-sm-6">
           <StatusComposer user={this.props.user} />

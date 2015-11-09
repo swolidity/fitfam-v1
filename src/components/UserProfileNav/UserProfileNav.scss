@@ -1,10 +1,11 @@
 .user-profile-nav {
+  padding-top: 15px;
   margin-bottom: 30px;
   display: block;
   background: #fff;
+  border-bottom: 1px solid #f8f8f8;
 
   &__inner {
-    border-bottom: 1px solid #f8f8f8;
     position: relative;
   }
 
@@ -19,13 +20,13 @@
 
   .nav-pills > li > a {
     margin-right: 15px;
-    padding: 0 10px 10px 10px;
+    padding: 0 10px 15px 10px;
     position: relative;
     font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #ACB2B5;
+    color: #A1AFBA;
     border-radius: 0;
   }
   .nav-pills > li:last-child > a {
@@ -103,6 +104,7 @@
   .more > .dropdown-menu > li > a {
     text-transform: capitalize;
     color: #ACB2B5;
+    font-weight: 300;
   }
 
   .more i {
@@ -121,6 +123,10 @@
   .follow-btn-container {
     position: absolute;
     right: 15px;
+    top: -50%;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
   }
   .follow-btn {
     width: 120px;
