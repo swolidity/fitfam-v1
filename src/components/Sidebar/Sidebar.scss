@@ -1,13 +1,14 @@
 .sidebar-wrapper {
   z-index: 1000;
   height: 100%;
-  width: 350px;
+  width: 349px;
   position: fixed;
   overflow-x: hidden;
   overflow-y: auto;
   right: 0;
   visibility: hidden;
   background: #fff;
+  border-left: 1px solid #f8f8f8;
   -webkit-transform: translate3d(100%,0,0);
   transform: translate3d(100%,0,0);
   -webkit-transition: -webkit-transform .5s cubic-bezier(.175,.885,.32,1),visibility .5s cubic-bezier(.175,.885,.32,1);
