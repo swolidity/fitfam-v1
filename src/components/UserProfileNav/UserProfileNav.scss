@@ -1,9 +1,9 @@
 .user-profile-nav {
-  padding-top: 15px;
   margin-bottom: 30px;
   display: block;
   background: #fff;
   border-bottom: 1px solid #f8f8f8;
+  line-height: 1;
 
   &__inner {
     position: relative;
@@ -15,14 +15,14 @@
 
   nav {
     position: relative;
-    top: 5px;
   }
 
   .nav-pills > li > a {
     margin-right: 15px;
-    padding: 0 10px 15px 10px;
+    padding: 18px 10px 15px 10px;
     position: relative;
     font-size: 14px;
+    line-height: 14px;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -35,7 +35,15 @@
   .nav-pills > li.active > a {
     color: #0D6CFF;
     background: none;
+  }
+  .nav-pills > li.active > a:after {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
     border-bottom: 1px solid #0D6CFF;
+    width: 100%;
+    height: 1px;
+    content: " ";
   }
   .nav-pills > li.active > a:hover,
   .nav-pills > li.active > a:focus {
@@ -49,6 +57,7 @@
   }
 
   .more.dropdown {
+    margin-top: 23px;
     margin-left: 10px;
     top: -1px;
   }
@@ -123,10 +132,10 @@
   .follow-btn-container {
     position: absolute;
     right: 15px;
-    top: -50%;
-    -webkit-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    transform: translateY(50%);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   .follow-btn {
     width: 120px;
