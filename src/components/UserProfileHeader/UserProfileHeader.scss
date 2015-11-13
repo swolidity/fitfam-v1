@@ -1,5 +1,5 @@
 .user-profile-header {
-  padding: 40px 0;
+  padding: 80px 0;
   background: #f8f8f8;
 
   .profile-photo-container {
@@ -95,15 +95,14 @@
   .usernames {
     display: inline-block;
     height: 120px;
-    margin-bottom: 25px;
   }
 
   .username {
     margin-bottom: 6px;
-    display: block;
+    display: inline-block;
     font-size: 28px;
     line-height: 28px;
-    font-weight: 300;
+    font-weight: 400;
 
     a {
       color: #4E5254;
@@ -115,15 +114,14 @@
     }
   }
 
+  .my-metric {
+    display: inline-block;
+  }
+
   .user-full-name {
     color: #A1AFBA;
     font-size: 14px;
     font-weight: 300;
-  }
-
-  &__follow {
-    float: right;
-    height: 120px;
   }
 
   .follow-btn-container {
@@ -140,9 +138,8 @@
 
   .bio {
     display: block;
-    padding-left: 10px;
-    color: #4E5254;
-    font-size: 16px;
+    color: #A1AFBA;
+    font-size: 14px;
     font-weight: 300;
     word-wrap: break-word;
   }

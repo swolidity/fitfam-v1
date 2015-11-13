@@ -1,7 +1,6 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
-import UserFollowCount from '../UserFollowCount/UserFollowCount';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -123,19 +122,11 @@ class UserProfileHeader extends React.Component {
                 <div className="usernames">
                   <div className="v-align">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                    <div className="user-full-name">{this.props.user.full_name}</div>
-                  </div>
-                </div>
-
-                <div className="user-profile-header__follow">
-                  <div className="v-align">
-                    <UserFollowCount user={this.props.user} />
+                    <div className="bio">{this.props.user.bio}</div>
                   </div>
                 </div>
 
                 <div style={{ clear: 'both '}}></div>
-
-                <div className="bio">{this.props.user.bio}</div>
 
             </div>
 

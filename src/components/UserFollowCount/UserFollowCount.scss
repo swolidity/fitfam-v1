@@ -3,18 +3,14 @@
   margin-bottom: 0;
   font-weight: 300;
   color: #ACB2B5;
-  font-size: 14px;
+  font-size: 12px;
 
+  .count-box {
+    margin-right: 25px;
+    display: inline-block;
+  }
   .count {
     font-weight: 500;
-  }
-
-  &__followers {
-    display: inline-block;
-    margin-right: 25px;
-  }
-
-  &__following {
-    display: inline-block;
+    font-size: 14px;
   }
 }
