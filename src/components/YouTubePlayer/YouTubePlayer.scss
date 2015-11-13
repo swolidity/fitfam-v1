@@ -2,11 +2,25 @@
   width: 100%;
   height: 100%;
   position: relative;
-  padding-bottom: 90px;
+
+  .viewport {
+    width: 350px;
+    height: 263px;
+    position: absolute;
+    background: #fff;
+  }
+
+  &__content {
+    border-left: 1px solid #f8f8f8;
+    border-radius: 0;
+    height: 100%;
+    padding-top: 263px;
+    padding-bottom: 91px;
+  }
 
   &--bottom {
     position: absolute;
-    bottom: 50px;
+    bottom: 51px;
     height: 40px;
     width: 100%;
     padding: 10px;

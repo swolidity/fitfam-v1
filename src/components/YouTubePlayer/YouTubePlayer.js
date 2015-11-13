@@ -55,8 +55,8 @@ class YouTubePlayer extends React.Component {
     if (typeof (window) !== 'undefined' && this.state.playing) {
       const YouTube = require('react-youtube');
       const opts = {
-        height: '240',
-        width: '320',
+        height: '263',
+        width: '350',
         playerVars: {
           autoplay: this.state.autoplay,
         },
@@ -64,7 +64,7 @@ class YouTubePlayer extends React.Component {
 
       return (
         <div className="yt-player">
-          <div className="embed-responsive embed-responsive-4by3">
+          <div className="viewport">
             <YouTube
               url={this.state.playing.url}
               opts={opts}
@@ -72,20 +72,22 @@ class YouTubePlayer extends React.Component {
               onPlay={this._onYouTubePlay}
               onPause={this._onYouTubePause}
               onEnd={this._onYouTubeEnd}
-              className="embed-responsive-item clearfix"
             />
           </div>
 
-          <div className="yt-player--title">{this.state.playing.title}</div>
+          <div className="yt-player__content clearfix">
 
-          <div className="yt-player--added-by">
-            <ProfilePhoto height="35" width="35" className="user-photo img-circle" user={this.state.playing._user} />
-            <Link to="user-profile" params={{ username: this.state.playing._user.username }} className="username">{this.state.playing._user.username}</Link>
-            {moment(this.state.playing.date).fromNow()}
-          </div>
+            <div className="yt-player--title">{this.state.playing.title}</div>
 
-          <div className="yt-player--bottom">
-            <a href="#" title="Close Sidebar" onClick={this._closeSidebar} className="close-sidebar"><i className="fa fa-chevron-right"></i></a>
+            <div className="yt-player--added-by">
+              <ProfilePhoto height="35" width="35" className="user-photo img-circle" user={this.state.playing._user} />
+              <Link to="user-profile" params={{ username: this.state.playing._user.username }} className="username">{this.state.playing._user.username}</Link>
+              {moment(this.state.playing.date).fromNow()}
+            </div>
+
+            <div className="yt-player--bottom">
+              <a href="#" title="Close Sidebar" onClick={this._closeSidebar} className="close-sidebar"><i className="fa fa-chevron-right"></i></a>
+            </div>
           </div>
         </div>
       );
