@@ -46,8 +46,8 @@ class Header extends React.Component {
 
       profileDropdown = ( <DropdownButton eventKey={3} title={
                           <img
-                            width="35"
-                            height="35"
+                            width="30"
+                            height="30"
                             className="profile-photo img-circle"
                             src={this.state.user.photo }
                           />

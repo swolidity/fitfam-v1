@@ -25,6 +25,13 @@
     width: 100%;
     padding: 10px;
     border-top: 1px solid #f8f8f8;
+
+    a {
+      color: #A1AFBA;
+    }
+    a:hover {
+      color: #0D6CFF;
+    }
   }
   &--title {
     padding: 10px;

@@ -1,8 +1,9 @@
 import React from 'react';
 import UserPostsStore from '../../stores/UserPostsStore';
 import PostList from '../PostList/PostList';
-import StatusComposer from '../StatusComposer/StatusComposer';
 import UserFollowFaces from '../UserFollowFaces/UserFollowFaces';
+import UserFollowCount from '../UserFollowCount/UserFollowCount';
+import MySupplementsSidebar from '../MySupplementsSidebar/MySupplementsSidebar';
 import Spinner from '../Spinner/Spinner';
 
 require('./UserPosts.scss');
@@ -50,17 +51,13 @@ class UserPosts extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-xs-12 col-sm-3">
-          <div>My Supp Stack</div>
-          <img height="90" src="http://ecx.images-amazon.com/images/I/71nyzPnIGoL._SY679_.jpg" alt="N.O. Xplode" />
+
+        <div className="user-posts">
+          <PostList posts={this.state.posts} />
+
+          <a onClick={this._loadMore} className="load-more-btn btn btn-primary btn-block">Load More</a>
         </div>
-        <div className="col-xs-12 col-sm-6">
-          <StatusComposer user={this.props.user} />
-          <div className="user-posts">
-            <PostList posts={this.state.posts} />
-          </div>
-          <a onClick={this._loadMore} className="load-more-btn btn btn-primary">Load More</a>
-        </div>
+
       </div>
     );
   }

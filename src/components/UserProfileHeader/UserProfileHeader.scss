@@ -3,7 +3,7 @@
   background: #f8f8f8;
 
   .profile-photo-container {
-    margin-right: 25px;
+    margin-right: 35px;
     width: 120px;
     height: 120px;
     float: left;
@@ -75,8 +75,8 @@
         .icon-border {
           display: inline-block;
           text-align: center;
-          width: 44px;
-          height: 44px;
+          width: 42px;
+          height: 42px;
           background: rgba(13,108,255, 0.9);
           border-radius: 50%;
 
@@ -93,11 +93,12 @@
   }
 
   .usernames {
-    display: block;
     height: 120px;
+    display: block;
   }
 
   .username {
+    margin-top: 8px;
     margin-bottom: 6px;
     display: inline-block;
     font-size: 24px;
@@ -105,10 +106,10 @@
     font-weight: 500;
 
     a {
-      color: #4E5254;
+      color: #000;
 
       &:hover {
-        color: #4E5254;
+        color: #000;
         text-decoration: none;
       }
     }
@@ -122,6 +123,13 @@
     color: #A1AFBA;
     font-size: 14px;
     font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  &__follow {
+    position: absolute;
+    top: 8px;
+    right: 15px;
   }
 
   .follow-btn-container {
@@ -137,11 +145,19 @@
   }
 
   .bio {
-    display: block;
-    color: #A1AFBA;
-    font-size: 14px;
-    font-weight: 300;
+    display: inline-block;
+    width: 500px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color:  #4E5254;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
     word-wrap: break-word;
+  }
+  .website {
+    color: #0D6CFF;
   }
 
   /* Small Devices, Tablets */

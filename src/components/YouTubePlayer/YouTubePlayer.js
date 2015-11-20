@@ -80,7 +80,7 @@ class YouTubePlayer extends React.Component {
             <div className="yt-player--title">{this.state.playing.title}</div>
 
             <div className="yt-player--added-by">
-              <ProfilePhoto height="35" width="35" className="user-photo img-circle" user={this.state.playing._user} />
+              <ProfilePhoto height="30" width="30" className="user-photo img-circle" user={this.state.playing._user} />
               <Link to="user-profile" params={{ username: this.state.playing._user.username }} className="username">{this.state.playing._user.username}</Link>
               {moment(this.state.playing.date).fromNow()}
             </div>

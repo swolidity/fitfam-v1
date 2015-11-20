@@ -1,14 +1,14 @@
 .song-feed-item {
 
   &__top {
-    padding: 10px 15px;
+    padding: 15px;
     .user-photo {
       margin-right: 7px;
     }
   }
 
   &__username {
-    font-weight: 700;
+    font-weight: 500;
     color: #000;
 
     &:hover {

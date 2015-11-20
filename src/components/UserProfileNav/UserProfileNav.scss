@@ -1,12 +1,12 @@
 .user-profile-nav {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display: block;
   background: #fff;
-  border-bottom: 1px solid #f8f8f8;
   line-height: 1;
 
   &__inner {
     position: relative;
+    border-bottom: 1px solid #f8f8f8;
   }
 
   nav, .collapse.in {

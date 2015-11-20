@@ -122,7 +122,7 @@ class UserProfileHeader extends React.Component {
                 <div className="usernames">
                   <div className="v-align">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                    <div className="bio">{this.props.user.bio}</div>
+                    <div className="user-full-name">{this.props.user.full_name}</div>
                   </div>
                 </div>
 

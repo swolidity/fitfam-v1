@@ -3,6 +3,7 @@ import FollowButton from '../FollowButton/FollowButton';
 import { Nav, Dropdown, MenuItem } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
 import { Link } from 'react-router';
+import http from 'axios';
 
 require('./UserProfileNav.scss');
 
@@ -14,6 +15,34 @@ class UserProfileNav extends React.Component {
    static contextTypes = {
      router: React.PropTypes.func.isRequired,
    };
+
+   constructor(props) {
+     super(props);
+     this.state = {
+       postCount: null,
+       workoutCount: null,
+       photoCount: null,
+       videoCount: null,
+       songCount: null,
+       err: null,
+     };
+   }
+
+   componentDidMount() {
+     http.get('/api/users/' + this.props.user._id + '/post_counts')
+     .then((res) => {
+       this.setState({
+         postCount: res.data.post_count,
+         workoutCount: res.data.workout_count,
+         photoCount: res.data.photo_count,
+         videoCount: res.data.video_count,
+         songCount: res.data.song_count,
+       });
+     })
+     .catch((err) => {
+       this.setState({ err: err.data });
+     });
+   }
 
 
    _isActive = (tab) => {
@@ -28,7 +57,6 @@ class UserProfileNav extends React.Component {
 
   _onMenuItemClick = (e) => {
     e.preventDefault();
-    console.log('MenuItemClick');
   }
 
   render() {
@@ -44,19 +72,19 @@ class UserProfileNav extends React.Component {
 
                 <Nav bsStyle="pills">
                   <NavItemLink active={this._isActive('user-posts')} to="user-profile" params={{username: this.props.user.username}}>
-                    Posts
+                    <span className="post-count">{this.state.postCount}</span> Posts
                   </NavItemLink>
                   <NavItemLink active={this._isActive('user-workouts')} to="user-workouts" params={{username: this.props.user.username}}>
-                    Workouts
+                    <span className="post-count">{this.state.workoutCount}</span> Workouts
                   </NavItemLink>
                   <NavItemLink active={this._isActive('user-photos')} to="user-photos" params={{username: this.props.user.username}}>
-                    Photos
+                    <span className="post-count">{this.state.photoCount}</span> Photos
                   </NavItemLink>
                   <NavItemLink active={this._isActive('user-videos')} to="user-videos" params={{username: this.props.user.username}}>
-                    Videos
+                    <span className="post-count">{this.state.videoCount}</span> Videos
                   </NavItemLink>
                   <NavItemLink active={this._isActive('user-songs')} to="user-songs" params={{username: this.props.user.username}}>
-                    Songs
+                    <span className="post-count">{this.state.songCount}</span> Songs
                   </NavItemLink>
 
                   <li>

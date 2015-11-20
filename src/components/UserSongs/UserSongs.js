@@ -61,7 +61,7 @@ class UserSongs extends React.Component {
 
         <div className="col-xs-12">
           <div className="user-songs">
-
+            <AddSongModal />
             <UserSongPlaylists user={this.props.user} />
 
 

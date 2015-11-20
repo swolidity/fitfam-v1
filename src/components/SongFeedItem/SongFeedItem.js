@@ -74,7 +74,7 @@ class SongFeedItem extends React.Component {
           <div className="song-feed-item__col col-xs-12">
 
             <div className="song-feed-item__top">
-              <ProfilePhoto height="40" className="user-photo img-circle" user={this.song._user} />
+              <ProfilePhoto height="30" width="30" className="user-photo img-circle" user={this.song._user} />
               <Link to="user-profile" params={{ username: this.song._user.username }} className="song-feed-item__username">{this.song._user.username}</Link> {moment(this.song.date).fromNow()}
             </div>
 

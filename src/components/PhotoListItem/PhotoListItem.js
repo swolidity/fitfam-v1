@@ -15,7 +15,7 @@ class PhotoListItem extends React.Component {
           <div className="photo-list-item__col col-xs-12">
 
             <div className="photo-list-item__info">
-              <ProfilePhoto height="40" className="user-photo img-circle" user={this.props.photo._user} />
+              <ProfilePhoto height="30" width="30" className="user-photo img-circle" user={this.props.photo._user} />
               <Link to="user-profile" params={{ username: this.props.photo._user.username }} className="photo-list-item__username">{this.props.photo._user.username}</Link> {moment(this.props.photo.date).fromNow()}
             </div>
 

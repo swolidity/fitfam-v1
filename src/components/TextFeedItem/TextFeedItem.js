@@ -16,7 +16,7 @@ class TextFeedItem extends React.Component {
     return (
       <div className="text-feed-item component-box">
         <div className="text-feed-item__info">
-          <ProfilePhoto height="40" className="user-photo img-circle" user={postedBy} />
+          <ProfilePhoto height="30" width="30" className="user-photo img-circle" user={postedBy} />
           <Link to="user-profile" params={{ username: postedBy.username }} className="text-feed-item__username">{postedBy.username}</Link> <span className="text-feed-item__date">{moment(this.props.text.date).fromNow()}</span>
         </div>
         {this.props.text.content}

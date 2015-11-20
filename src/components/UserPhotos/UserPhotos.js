@@ -1,6 +1,7 @@
 import React from 'react';
 import UserPhotosStore from '../../stores/UserPhotosStore';
 import PhotoGrid from '../PhotoGrid/PhotoGrid';
+import AddPhotoModal from '../AddPhotoModal/AddPhotoModal';
 
 require('./UserPhotos.scss');
 
