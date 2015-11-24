@@ -81,26 +81,28 @@ class WorkoutTracker extends React.Component {
 
     return (
       <div className="workout-tracker">
-        <Button onClick={this._addExercise} className="add-exercise-btn">Add Exercise</Button>
+        <div className="container-fluid-5">
+          <Button onClick={this._addExercise} className="add-exercise-btn">Add Exercise</Button>
 
-        <div className="total-weight">
-          Total Weight Lifted: {this._totalWeight()}lbs
-        </div>
+          <div className="total-weight">
+            Total Weight Lifted: {this._totalWeight()}lbs
+          </div>
 
-        <form className="workout-tracker__form">
-          <div className="workout-tracker__info">
-            <div className="row">
-              <Input type="text" onChange={this._onNameChange} placeholder="Name your workout" wrapperClassName="col-xs-4" standalone />
-              <Input type="date" onChange={this._onDateChange} defaultValue={this.state.workoutDate} ref="date" wrapperClassName="col-xs-4" standalone />
+          <form className="workout-tracker__form">
+            <div className="workout-tracker__info">
+              <div className="row">
+                <Input type="text" onChange={this._onNameChange} placeholder="Name your workout" wrapperClassName="col-xs-4" standalone />
+                <Input type="date" onChange={this._onDateChange} defaultValue={this.state.workoutDate} ref="date" wrapperClassName="col-xs-4" standalone />
+              </div>
             </div>
-          </div>
 
-          {exerciseInputRows}
+            {exerciseInputRows}
 
-          <div className="row">
-            <ButtonInput onClick={this._trackWorkout} type="submit" bsStyle="primary" value="Track Workout" className="btn-block" wrapperClassName="col-xs-12" standalone />
-          </div>
-        </form>
+            <div className="row">
+              <ButtonInput onClick={this._trackWorkout} type="submit" bsStyle="primary" value="Track Workout" className="btn-block" wrapperClassName="col-xs-12" standalone />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

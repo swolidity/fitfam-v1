@@ -56,6 +56,7 @@ class Header extends React.Component {
                         noCaret={true}
                         >
                           <li><Link to="user-profile" params={{username: this.state.user.username}}>Profile</Link></li>
+                          <li><Link to="track">Track</Link></li>
                           <li><Link to="account-settings">Settings</Link></li>
                           <MenuItem onSelect={this.handleLogout}>Logout</MenuItem>
                         </DropdownButton> );
