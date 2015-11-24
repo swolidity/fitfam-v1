@@ -1,72 +1,41 @@
 .user-profile-nav {
-  margin-bottom: 50px;
-  display: block;
-  background: #fff;
+  margin-bottom: 30px;
   line-height: 1;
+  border-bottom: 1px solid #f8f8f8;
 
-  &__inner {
-    position: relative;
-    border-bottom: 1px solid #f8f8f8;
-  }
-
-  nav, .collapse.in {
+  nav.collapse.in {
     display: inline-block;
-  }
-
-  nav {
-    position: relative;
   }
 
   .nav-pills > li > a {
     margin-right: 15px;
-    padding: 18px 10px 15px 10px;
-    position: relative;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    padding: 10px 0;
     color: #A1AFBA;
-    border-radius: 0;
+    font-size: 15px;
+    font-weight: 300;
   }
-  .nav-pills > li:last-child > a {
-    margin-right: 0;
-  }
-  .nav-pills > li.active > a {
-    color: #0D6CFF;
-    background: none;
-  }
-  .nav-pills > li.active > a:after {
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    border-bottom: 1px solid #0D6CFF;
-    width: 100%;
-    height: 1px;
-    content: " ";
-  }
+
+  .nav-pills > li.active > a,
   .nav-pills > li.active > a:hover,
   .nav-pills > li.active > a:focus {
+    background: none;
     color: #0D6CFF;
   }
-  .nav > li > a:hover {
-    color: #0D6CFF;
-  }
+
   .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
     background: none;
   }
 
   .more.dropdown {
-    margin-top: 23px;
-    margin-left: 10px;
-    top: -1px;
+    margin-top: 16px;
   }
   .more.dropdown > .dropdown-toggle {
     padding: 0;
     background: none;
     border: none;
     box-shadow: none;
-    color: #ACB2B5;
+    color: #A1AFBA;
     line-height: 0;
   }
   .more.dropdown:hover > .dropdown-toggle {
@@ -126,6 +95,7 @@
   }
 
   .post-count {
+    display: none;
     font-weight: 500;
   }
 

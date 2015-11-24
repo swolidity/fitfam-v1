@@ -1,18 +1,22 @@
 .user-profile-header {
-  padding: 80px 0;
+  padding: 60px 0;
+  border-bottom: 1px solid #f8f8f8;
   background: #f8f8f8;
 
+  &__inner {
+    position: relative;
+  }
   .profile-photo-container {
+    position: relative;
+    display: inline-block;
+    float: left;
     margin-right: 35px;
     width: 120px;
     height: 120px;
-    float: left;
-    position: relative;
   }
 
   .profile-photo {
     position: absolute;
-    display: inline-block;
     z-index: 1000;
 
     a {
@@ -92,15 +96,14 @@
 
   }
 
-  .usernames {
-    height: 120px;
+  .username-bio {
     display: block;
+    height: 120px;
   }
 
   .username {
-    margin-top: 8px;
-    margin-bottom: 6px;
-    display: inline-block;
+    display: block;
+    position: relative;
     font-size: 24px;
     line-height: 24px;
     font-weight: 500;
@@ -115,21 +118,10 @@
     }
   }
 
-  .my-metric {
-    display: inline-block;
-  }
-
-  .user-full-name {
-    color: #A1AFBA;
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 10px;
-  }
-
   &__follow {
     position: absolute;
-    top: 8px;
-    right: 15px;
+    top: 10px;
+    right: 0;
   }
 
   .follow-btn-container {
@@ -148,16 +140,11 @@
     display: inline-block;
     width: 500px;
     margin-top: 15px;
-    margin-bottom: 15px;
     color:  #4E5254;
-    font-family: helvetica, arial, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
-    font-weight: 500;
+    font-weight: 300;
     word-wrap: break-word;
-  }
-  .website {
-    color: #0D6CFF;
   }
 
   /* Small Devices, Tablets */

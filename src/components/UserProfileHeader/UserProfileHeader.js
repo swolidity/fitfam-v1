@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTubePlayerActions from '../../actions/YouTubePlayerActions';
 import YouTubePlayerStore from '../../stores/YouTubePlayerStore';
+import FollowButton from '../FollowButton/FollowButton';
 import { Link } from 'react-router';
 
 require('./UserProfileHeader.scss');
@@ -106,6 +107,7 @@ class UserProfileHeader extends React.Component {
         <div className="container-fluid-5">
           <div className="row">
             <div className="col-xs-12">
+              <div className="user-profile-header__inner">
                 <div className="profile-photo-container">
                   <div className="profile-photo">
                     <a href="#">
@@ -119,17 +121,19 @@ class UserProfileHeader extends React.Component {
                   </div>
                 </div>
 
-                <div className="usernames">
+                <div className="username-bio">
                   <div className="v-align">
                     <div className="username"><Link to="user-profile" params={{ username: this.props.user.username }}>{this.props.user.username}</Link></div>
-                    <div className="user-full-name">{this.props.user.full_name}</div>
+                    <div className="bio">{this.props.user.bio}</div>
                   </div>
                 </div>
 
-                <div style={{ clear: 'both '}}></div>
+                <div className="user-profile-header__follow">
+                  <FollowButton followedID={this.props.user._id} bsStyle="primary" />
+                </div>
 
+              </div>
             </div>
-
           </div>
         </div>
       </div>
