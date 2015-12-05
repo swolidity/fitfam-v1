@@ -45,12 +45,11 @@ export default (
 
     // user profile
     <Route name="user-profile" handler={UserProfile} path="/:username" ignoreScrollBehavior>
-      <DefaultRoute name="user-posts" handler={UserPosts} />
+      <DefaultRoute name="user-workouts" handler={UserWorkouts} />
       <Route name="user-photos" handler={UserPhotos} path="photos" />
       <Route name="user-videos" handler={UserVideos} path="videos" />
       <Route name="user-songs" handler={UserSongs} path="songs" />
       <Route name="user-song-playlists" handler={UserSongPlaylists} path="songs/playlists" />
-      <Route name="user-workouts" handler={UserWorkouts} path="workouts" />
       <Route name="user-followers" handler={UserFollowers} path="followers" />
       <Route name="user-following" handler={UserFollowing} path="following" />
     </Route>
