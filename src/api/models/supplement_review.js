@@ -1,10 +1,16 @@
 import mongoose from 'mongoose';
 
-const SupplementReview = new mongoose.Schema({
+const SupplementReviewSchema = new mongoose.Schema({
 
   _supplement: {
     type: String,
     ref: 'Supplement',
+    required: true,
+  },
+
+  _user: {
+    type: String,
+    ref: 'User',
     required: true,
   },
 
@@ -18,4 +24,4 @@ const SupplementReview = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model()
+module.exports = mongoose.model('SupplementReview', SupplementReviewSchema);
