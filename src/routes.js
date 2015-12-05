@@ -8,7 +8,6 @@ import About from './components/About/About';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import UserProfile from './components/UserProfile/UserProfile';
-import UserPosts from './components/UserPosts/UserPosts';
 import UserPhotos from './components/UserPhotos/UserPhotos';
 import UserVideos from './components/UserVideos/UserVideos';
 import UserSongs from './components/UserSongs/UserSongs';
