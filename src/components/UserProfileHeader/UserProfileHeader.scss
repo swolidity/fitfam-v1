@@ -7,10 +7,9 @@
     position: relative;
   }
   .profile-photo-container {
+    margin-bottom: 15px;
     position: relative;
     display: inline-block;
-    float: left;
-    margin-right: 35px;
     width: 120px;
     height: 120px;
   }
@@ -98,7 +97,6 @@
 
   .username-bio {
     display: block;
-    height: 120px;
   }
 
   .username {
