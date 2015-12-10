@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, CollapsibleNav, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, NavbarBrand, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 require('./Header.scss');
@@ -17,15 +17,16 @@ class Header extends React.Component {
     profileDropdown = null;
 
     return (
-      <Navbar fixedTop fluid toggleNavKey={0} className="Navbar" brand={<Link to="/">FITFAM</Link>}>
-       <CollapsibleNav eventKey={0} >
+      <Navbar fixedTop fluid className="Navbar">
+        <NavbarBrand><Link to="/">FITFAM</Link></NavbarBrand>
+       <Navbar.Collapse>
 
-          <Nav navbar right>
+          <Nav navbar pullRight>
             {loginNavItem}
             {signupNavItem}
             {profileDropdown}
           </Nav>
-        </CollapsibleNav>
+        </Navbar.Collapse>
       </Navbar>
       );
   }
