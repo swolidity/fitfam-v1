@@ -4,15 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import express from 'express';
 import React from 'react';
-import Router from 'react-router';
-import RouterContainer from './RouterContainer';
+import { renderToString } from 'react-dom/server';
+import { match, RoutingContext } from 'react-router';
 import routes from './routes';
-import RouterActions from './actions/RouterActions';
-//import AltIso from 'alt/utils/AltIso'; TODO: use AltIso for server-side async rendering
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import Iso from 'iso';
-import alt from './alt';
 import compression from 'compression';
 
 mongoose.connect('mongodb://heroku_sbp2x1kh:kacfu5h85o03g97lska07qqsev@ds031223.mongolab.com:31223/heroku_sbp2x1kh');
@@ -20,10 +16,7 @@ mongoose.connect('mongodb://heroku_sbp2x1kh:kacfu5h85o03g97lska07qqsev@ds031223.
 const server = express();
 
 server.use(compression());
-
-//server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
-
 server.set('port', (process.env.PORT || 5000));
 server.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,47 +26,21 @@ server.use('/api', require('./api/api.js'));
 const templateFile = path.join(__dirname, 'templates/index.html');
 const template = _.template(fs.readFileSync(templateFile, 'utf8'));
 
-server.get('*', function(req, res) {
+server.get('*', (req, res) => {
+  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    } else if (renderProps) {
+      const data = {title: ''};
+      data.body = renderToString(<RoutingContext {...renderProps} />);
+      const html = template(data);
 
-  let router = Router.create({
-    routes: routes,
-    location: req.url,
-    onAbort:(abortReason) => {
-      if (abortReason.constructor.name == 'Redirect') {
-        let { to, params, query } = abortReason;
-
-        if (!query) query = {};
-
-        // add nextPath to query for friendly forwarding
-        query.nextPath = req.url;
-
-        let path = router.makePath(to, params, query);
-
-        res.redirect(path);
-      }
+      res.status(200).send(html);
+    } else {
+      res.status(404).send('Not found');
     }
-  });
-
-  // store the router instance in the RouterContainer
-  RouterContainer.set(router);
-
-  router.run((Handler, state) => {
-
-    alt.bootstrap(JSON.stringify({
-      RouterStore: {
-        route: state
-      }
-    }));
-
-    let iso = new Iso();
-
-    let data = {title: ''};
-    data.body = React.renderToString(<Handler />);
-    iso.add(data.body, alt.flush());
-    data.body = iso.render();
-    let html = template(data);
-
-    res.send(html);
   });
 });
 
