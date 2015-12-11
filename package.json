@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "alt": "^0.17.1",
     "axios": "^0.5.4",
     "babel": "^5.5.8",
     "babel-core": "^5.5.8",
