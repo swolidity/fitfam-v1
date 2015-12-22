@@ -8,11 +8,10 @@ require('./Header.scss');
 class Header extends React.Component {
   render() {
     let loginNavItem;
-    let signupNavItem;
     let profileDropdown;
 
     // if user is not logged in show login link
-    loginNavItem = <LinkContainer to="/"><NavItem>login</NavItem></LinkContainer>;
+    loginNavItem = <LinkContainer ref="login" to="/"><NavItem>login</NavItem></LinkContainer>;
 
     profileDropdown = null;
 
@@ -23,7 +22,6 @@ class Header extends React.Component {
 
           <Nav navbar pullRight>
             {loginNavItem}
-            {signupNavItem}
             {profileDropdown}
           </Nav>
         </Navbar.Collapse>

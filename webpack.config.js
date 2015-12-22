@@ -8,20 +8,21 @@ const config = {
     publicPath: './',
   },
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.scss']
-  }
-}
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.scss'],
+  },
+};
 
 // Config for client-side bundle (app.js)
 const appConfig = merge({}, config, {
   entry: [
     'bootstrap-sass!./bootstrap-sass.config.js',
     'font-awesome-webpack!./font-awesome.config.js',
+    'babel-polyfill',
     './src/app.js',
     ],
   output: {
     path: './build/public',
-    filename: 'app.js'
+    filename: 'app.js',
   },
    module: {
     loaders: [
@@ -58,11 +59,14 @@ const appConfig = merge({}, config, {
 
 // Config for server-side bundle (server.js)
 const serverConfig = merge({}, config, {
-  entry: './src/server.js',
+  entry: [
+    'babel-polyfill',
+    './src/server.js',
+  ],
   output: {
     path: './build',
     filename: 'server.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   target: 'node',
   node: {

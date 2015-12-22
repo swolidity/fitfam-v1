@@ -1,4 +1,3 @@
-import 'babel/polyfill';
 import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
